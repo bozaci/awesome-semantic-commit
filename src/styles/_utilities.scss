@@ -1,0 +1,110 @@
+//
+// Utilities
+//
+
+@import './mixins';
+
+.overflow-initial {
+  overflow: initial !important;
+}
+
+.text-regular {
+  font-weight: 400 !important;
+}
+
+.text-medium {
+  font-weight: 500 !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-center {
+  text-align: center !important;
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include mobileOrTablet() {
+    &\@mobile-or-tablet {
+      text-align: center !important;
+    }
+  }
+}
+
+.text-red {
+  color: $color-red !important;
+}
+
+.text-light-red {
+  color: $color-light-red !important;
+}
+
+.text-dark-green {
+  color: $color-dark-green !important;
+}
+
+.spacing {
+  &--xsmall {
+    grid-gap: 5px 3px;
+
+    &-two {
+      grid-gap: 5px;
+    }
+  }
+
+  &--xsmall-x {
+    & > *:not(:first-child) {
+      margin-left: 5px !important;
+    }
+  }
+
+  &--xsmall-y {
+    & > *:not(:first-child) {
+      margin-top: 5px !important;
+    }
+  }
+
+  &--small-x {
+    & > *:not(:first-child) {
+      margin-left: 10px !important;
+    }
+  }
+
+  &--medium-y {
+    & > *:not(:first-child) {
+      margin-top: 40px !important;
+    }
+  }
+}
+
+.centered-elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hidden {
+  @include mobileOrTablet() {
+    &--mobile-or-tablet {
+      display: none !important;
+    }
+  }
+
+  @include mobile() {
+    &--mobile {
+      display: none !important;
+    }
+  }
+
+  @include desktop() {
+    &--desktop {
+      display: none !important;
+    }
+  }
+}

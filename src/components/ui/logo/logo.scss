@@ -1,0 +1,34 @@
+//
+// Logo
+//
+
+@import '../../../styles/mixins';
+
+.logo {
+  &--area-header &__img {
+    min-width: 190px;
+    max-width: 190px;
+  }
+
+  &--area-header-single &__img {
+    min-width: 50px;
+    max-width: 50px;
+  }
+
+  &--area-footer &__img {
+    min-width: 225px;
+    max-width: 225px;
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    &--area-header &__img {
+      min-width: 170px;
+      max-width: 170px;
+    }
+  }
+}

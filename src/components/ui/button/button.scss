@@ -1,0 +1,76 @@
+//
+// Button
+//
+
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.button {
+  border: 0;
+  outline: 0;
+  padding: 8px 15px;
+  border-radius: 8px;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 225ms;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--theme-primary {
+    background-color: $color-primary;
+    color: #fff;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &--theme-white {
+    background-color: #fff;
+    color: #000000;
+
+    &:hover {
+      background-color: #ececec;
+    }
+  }
+
+  &--theme-ghost-dark {
+    background-color: #565656;
+    color: #dadada;
+
+    &:hover {
+      background-color: #606060;
+      color: #fff;
+    }
+  }
+
+  &--size-small {
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    font-size: 14px;
+
+    &--size-small {
+      font-size: 12px;
+    }
+  }
+}
+
+.button[disabled] {
+  pointer-events: none;
+}

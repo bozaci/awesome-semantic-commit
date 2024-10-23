@@ -1,0 +1,55 @@
+//
+// Link
+//
+
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-primary;
+  transition: all 325ms;
+
+  &:hover {
+    color: $color-primary-hover;
+  }
+
+  &:hover::before {
+    background-color: $color-primary-hover;
+  }
+
+  &:hover &__icon {
+    transform: translateX(1px) translateY(-1px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-primary;
+    transition: all 325ms;
+  }
+
+  &__icon {
+    font-size: 14px;
+    display: flex;
+    transition: all 325ms;
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    font-size: 12px;
+  }
+}

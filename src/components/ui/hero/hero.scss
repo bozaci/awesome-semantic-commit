@@ -1,0 +1,78 @@
+//
+// Hero
+//
+
+@import '../../../styles/mixins';
+
+.hero {
+  margin-bottom: 40px;
+  padding: 50px;
+  border-top: 1px solid #181818;
+  border-radius: 0 0 30px 30px;
+  background-color: #303030;
+  display: flex;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+    color: #fff;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #b8b8b8;
+  }
+
+  &__button-container {
+    margin-top: calc(20px - 5px);
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      margin-top: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include mobile() {
+    padding: 50px 1rem;
+    border-radius: 0 0 20px 20px;
+
+    &__title {
+      font-size: 32px;
+      line-height: 42px;
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  @include smallMobile() {
+    padding: 35px 0;
+
+    &__title {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "general": {
+    "contribute": "Contribute",
+    "optional": "optional",
+    "wrongUsage": "Wrong Usage",
+    "correctUsage": "Correct Usage",
+    "contactUs": "Contact Us",
+    "goToHomepage": "Go to Homepage",
+    "homePage": "Home",
+    "commitGenerator": "Commit Generator",
+    "type": "Type",
+    "scope": "Scope",
+    "subject": "Subject",
+    "generateWithAI": "Generate with AI",
+    "generateWithScope": "Generate with Scope",
+    "summary": "Summary",
+    "generateCommit": "Generate Commit",
+    "generateCommitAgain": "Generate Commit Again",
+    "thisFieldRequired": "This field is required.",
+    "generatingCommit": "Generating Commit..",
+    "generateCommitSuccessTitle": "Commit Successfully Generated",
+    "generateCommitErrorTitle": "Commit Could Not Be Generated",
+    "semanticCommitMessage": "Semantic Commit Message",
+    "semanticCommitWithGit": "Semantic Commit Process with Git",
+    "semanticCommitCopyCode": "You can copy the code below and use it in your terminal.",
+    "or": "or",
+    "copy": "copy",
+    "copied": "copied",
+    "information": "Information",
+    "supportedWithGemini": "supported.",
+    "generateWithAITooltipText": "When you enable this option, you will need to summarize the changes you made in the Summary section. The AI will generate a commit message that complies with semantic rules for you.",
+    "generateWithAITooltipTextTwo": "To use this feature, you need to have a Google Gemini API key. You can check the FAQ below to obtain a Google Gemini API key for free.",
+    "saveAPIKeyTooltip": "Save Google Gemini API Key (the key will be saved to your computer)",
+    "saveAPIKeyErrorMessage": "You must enter the Google Gemini API key.",
+    "saveAPIKeySuccessMessage": "Google Gemini API key has been successfully saved.",
+    "saveAPIKeyAlreadyMessage": "Google Gemini API key is already saved.",
+    "summaryTooltip": "To get better results, you should use the phrase 'a new login page has been added.' instead of 'new login page'. Otherwise, the AI may produce different results."
+  },
+
+  "hero": {
+    "title": "Semantic Commit?",
+    "text": "Semantic Commit is a method used in software development. Its main purpose is to ensure that commit messages (i.e., messages associated with each change made to the code) are more meaningful and structured. This way, developers can more easily understand when, why, and what changes were made to the code."
+  },
+
+  "whyImportant": {
+    "title": "Why Is It Important?",
+    "items": {
+      "itemOne": {
+        "title": "Easily Understandable Changes",
+        "text": "Each commit message clearly describes the changes made. This way, while working on a project, you can quickly understand what changed in the code and why. For example, instead of saying 'just some edits made,' a clear explanation like 'new login page added' is provided."
+      },
+      "itemTwo": {
+        "title": "Faster Issue Resolution",
+        "text": "When there is a bug in a project, it becomes much easier to find the changes that might have caused the issue by reviewing past commit messages. Meaningful and structured commit messages help you quickly locate and resolve errors."
+      },
+      "itemThree": {
+        "title": "Version Tracking",
+        "text": "Semantic Commit helps you see more clearly which changes were made in which version of the project. For example, when a new feature is added, the version number can be updated. This makes it easier to keep the project up to date."
+      },
+      "itemFour": {
+        "title": "Team Collaboration",
+        "text": "When working with multiple people, having everyone write commit messages in the same way keeps the project organized. This way, one team member can more easily understand what another has done, increasing collaboration."
+      },
+      "itemFive": {
+        "title": "Easier Project Management",
+        "text": "As the project grows, there may be hundreds or even thousands of commits. Meaningful commit messages make it easier to manage the large project and track changes over time."
+      }
+    }
+  },
+
+  "commitMessageType": {
+    "title": "Commit Message Structure",
+    "text": "Semantic Commit messages are written according to a specific rule. These rules make the structure of each commit message meaningful and consistent.",
+    "items": {
+      "itemOne": {
+        "title": "1. Type",
+        "text": "This indicates the type of change made. It is added at the beginning of the commit message. Common commit types include:",
+        "featText": "Used when a new feature is added.",
+        "fixText": "Indicates that a bug has been fixed.",
+        "docsText": "Used if only documentation-related changes are made.",
+        "styleText": "Changes that do not affect the code's functionality, only related to formatting (e.g., correcting spaces or punctuation).",
+        "choreText": "Non-functional changes to the code or dependencies. For example, package updates or changes in build configurations.",
+        "refactorText": "Used to restructure the code without changing its functionality.",
+        "testText": "Used to add or update tests.",
+        "perfText": "Used for changes made solely to improve performance without altering the functionality. This includes improvements like making the code run faster, reducing resource consumption, or increasing efficiency.",
+        "ciText": "Used for changes related to continuous integration configuration. For example, changes to the CI/CD pipeline.",
+        "buildText": "Used for changes related to the build system, such as build settings or dependency management.",
+        "revertText": "Reverts the effects of a previous commit."
+      },
+      "itemTwo": {
+        "title": "2. Scope",
+        "text": "Specifies which module, file, or component the change was made on. It is written in parentheses along with the type."
+      },
+      "itemThree": {
+        "title": "3. Subject",
+        "text": "Briefly and concisely describes what the commit does. It should be written in a maximum of 50 characters."
+      }
+    }
+  },
+
+  "howToUse": {
+    "title": "How to Use?",
+    "items": {
+      "itemOne": {
+        "title": "1. Staging Changes",
+        "text": "First, after making changes to the files you're working on, you need to use the `git add` command in the terminal to include these files in the commit.",
+        "textTwo": "To add all files, enter the following command in the terminal:",
+        "textThree": "If you only want to add specific files:",
+        "fileName": "file-name"
+      },
+      "itemTwo": {
+        "title": "2. Making a Commit",
+        "text": "To commit the changes, you can use the following command in the terminal:",
+        "textTwo": "When writing a commit message that follows the Semantic Commit rules, here are the key things to pay attention to:",
+        "list": {
+          "listItemOne": {
+            "title": "Commit Type",
+            "text": "Indicate the type of change made (e.g., feat, fix, docs, etc.)."
+          },
+          "listItemTwo": {
+            "title": "Scope (Optional)",
+            "text": "You can use scope to specify which module or component was changed."
+          },
+          "listItemThree": {
+            "title": "Message Title",
+            "text": "Briefly and concisely describe the change."
+          }
+        },
+        "commitMessage": "commit-message",
+        "exampleCommit": "Example commit"
+      },
+      "itemThree": {
+        "title": "3. Pushing the Commit",
+        "text": "After making a commit, you can push your changes to the remote repository using the following command in the terminal:",
+        "textTwo": "For example, if you're pushing to the main or dev branch:",
+        "branchName": "branch-name"
+      }
+    }
+  },
+
+  "howToNotUse": {
+    "title": "How Not to Use?",
+    "items": {
+      "itemOne": {
+        "title": "1. Commit Messages Should Only Be in English",
+        "text": "Why? English is considered a global language in the software world. Developers and teams from different countries communicate in English during coding and in commit messages. Therefore, commit messages should also be in English.",
+        "textTwo": "Commit messages written in Turkish or other languages can confuse people working in international teams or on open-source projects and make collaboration more difficult."
+      },
+      "itemTwo": {
+        "title": "2. Why Should We Avoid Using Words Like 'added', 'updated', 'changed'?",
+        "text": "There is no need to use these words to indicate commit types, as the commit types already convey this meaning. Types like `feat`, `fix`, and `refactor` already specify the purpose of the changes, so there is no need to repeat words like 'added', 'updated', or 'changed'."
+      },
+      "itemThree": {
+        "title": "3. Incorrect Type Usage",
+        "text": "Using an incorrect label in the commit message that does not match the type of change made. Each type serves a specific purpose, and incorrect type usage can make it unclear what the changes are for. This situation can make it difficult for the project team to track changes and complicate code management."
+      },
+      "itemFour": {
+        "title": "4. Unnecessary Use of Capital Letters or Special Characters",
+        "text": "The use of capital letters or special characters in commit messages, either accidentally or intentionally, that disrupts the readability and consistency of the messages. Such usage can cause commit messages to lose their professionalism and alignment with standards."
+      }
+    }
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "itemOne": {
+        "title": "What are the benefits?",
+        "list": {
+          "listItemOne": {
+            "title": "1. Understandability",
+            "text": "Each commit message clearly states the purpose and reason for the change. For example, a message like \"feat: Added new user login page\" indicates that this commit was made to add a new feature."
+          },
+          "listItemTwo": {
+            "title": "2. Tracking the Code History",
+            "text": "If a project has many developers working on it, each commit message makes the project’s history more transparent and easier to track. Knowing when a change was made helps in finding and fixing bugs."
+          },
+          "listItemThree": {
+            "title": "3. Versioning and Automation",
+            "text": "Semantic commit messages can help with automatic version updates (e.g., adding a new feature, fixing a bug). These messages make it easier to increase version numbers in an organized way (e.g., 1.2.0 → 1.3.0)."
+          }
+        }
+      },
+      "itemTwo": {
+        "title": "How to choose commit types?",
+        "text": "Each commit message should clearly express the purpose of the change. This helps other developers in the project to easily understand the reason for the changes. A good commit message avoids general terms like 'bug fix' or 'feature update' and clearly states what has been improved or fixed. Commit messages should also be concise. If necessary, additional explanations or references can be added after the commit message."
+      },
+      "itemThree": {
+        "title": "Is the scope mandatory?",
+        "text": "No, the scope is not mandatory. It is optional and can be used to indicate which section or module is affected by the change. However, in large projects or projects with multiple modules, using the scope can clarify the affected area and make the message more meaningful."
+      },
+      "itemFour": {
+        "title": "How do I undo a commit?",
+        "text": "There are several methods to undo a commit:",
+        "textTwo": "Undo the last commit (soft reset):",
+        "textTwoSmall": "* This command undoes the last commit but leaves the changes in your working directory.",
+        "textThree": "Completely undo the last commit (hard reset):",
+        "textThreeSmall": "* This command deletes both the commit and the changes.",
+        "textFour": "Undo using the git revert command:",
+        "textFourSmall": "* This command undoes a specific commit and creates a new commit."
+      },
+      "itemFive": {
+        "title": "I didn’t follow the rules, what should I do?",
+        "text": "You can undo the commit. Check the 'How do I undo a commit?' section for more detailed information."
+      },
+      "itemSix": {
+        "title": "Should commit messages be in English?",
+        "text": "Yes, commit messages should be in English, as it is a global language. This increases the understandability for all developers in the project and facilitates international collaboration in open-source projects."
+      }
+    }
+  },
+
+  "footer": {
+    "text": "This project is open-source. Before contributing, please review the project’s license and make sure to provide constructive contributions that align with the project. All contributions will be reviewed before being accepted. Please make sure to use respectful and inclusive language."
+  },
+
+  "notFound": {
+    "title": "Page Not Found",
+    "text": "Unfortunately we could not find the page you are looking for. Please check the URL or go back to the homepage. If there is something we can help you with, do not hesitate to contact us."
+  },
+
+  "commitGenerator": {
+    "title": "Commit Generator",
+    "text": "The Commit Generator is a tool that helps you write more organized and meaningful commit messages during project development processes. With its quick and easy usage, you can create your commit messages in accordance with standards, making your version control process more efficient."
+  },
+
+  "commitGeneratorFAQ": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "itemOne": {
+        "title": "Is the Commit Generator free?",
+        "text": "The Commit Generator is a free tool. This tool helps you generate automatic commit messages according to semantic commit rules. Thanks to its user-friendly interface, it suggests messages suitable for current changes. A Google Gemini API key is required for usage. You can refer to the heading 'How to obtain a Google Gemini API Key?'"
+      },
+      "itemTwo": {
+        "title": "How to obtain a Google Gemini API Key?",
+        "text": "You can obtain a Google Gemini API key for free by following these steps:",
+        "textTwo": "You have successfully created a Google Gemini API key for free. You can now generate commits using artificial intelligence.",
+        "list": {
+          "listItemOne": {
+            "title": "1.",
+            "text": "Log in to https://aistudio.google.com/app/apikey with your Google account."
+          },
+          "listItemTwo": {
+            "title": "2.",
+            "text": "After logging in, click the 'Create API Key' button."
+          },
+          "listItemThree": {
+            "title": "3.",
+            "text": "Make a note of the generated API key to avoid losing it."
+          }
+        }
+      }
+    }
+  }
+}

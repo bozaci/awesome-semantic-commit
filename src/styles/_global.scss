@@ -1,0 +1,76 @@
+//
+// Global
+//
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/inter-regular.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/inter-medium.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/inter-semibold.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/inter-bold.ttf');
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter';
+  letter-spacing: -0.5px;
+}
+
+.main {
+  flex: 1;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: $container-size;
+
+    &--medium {
+      max-width: $container-size-medium;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    &--medium {
+      max-width: $container-size-medium;
+    }
+  }
+}
+
+.toaster {
+  font-family: 'Inter';
+  font-size: 14px;
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include mobile() {
+    inset: 0px;
+  }
+}

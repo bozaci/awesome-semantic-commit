@@ -1,0 +1,17 @@
+//
+// Loader
+//
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #515151;
+  }
+}

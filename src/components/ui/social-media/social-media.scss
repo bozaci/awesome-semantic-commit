@@ -1,0 +1,74 @@
+//
+// Social Media
+//
+
+@import '../../../styles/mixins';
+
+.social-media {
+  display: flex;
+  align-items: center;
+
+  &--theme-ghost-gray &__item {
+    background-color: #f3f3f3;
+    color: #616161;
+
+    &:hover {
+      background-color: #ececec;
+      color: #616161;
+    }
+  }
+
+  &__item {
+    min-width: 32px;
+    max-width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background-color: #3f3f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #bfbfbf;
+    transition: all 225ms;
+
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #4e4e4e;
+      color: #fff;
+    }
+
+    &--with-text {
+      max-width: initial;
+      height: initial;
+      padding: 5px 10px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+  }
+
+  &__text {
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #616161;
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    &__text {
+      font-size: 12px;
+      line-height: 22px;
+    }
+  }
+}

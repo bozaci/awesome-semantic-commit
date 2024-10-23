@@ -1,0 +1,27 @@
+//
+// Mixins
+//
+
+@mixin mobileOrTablet() {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin smallMobile() {
+  @media (max-width: 325px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: 992px) {
+    @content;
+  }
+}

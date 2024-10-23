@@ -1,0 +1,87 @@
+//
+// Input
+//
+
+@import '../../../styles/mixins';
+
+.input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  height: 37px;
+  padding: 8px 12px;
+  border: 2px solid #e5e5e5;
+  border-radius: 6px;
+  background-color: #fff;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  transition: all 225ms;
+
+  &:focus {
+    border-color: #d9d9d9;
+  }
+
+  &::placeholder {
+    color: #9e9e9e;
+  }
+
+  &-container {
+    position: relative;
+
+    &--with-buttons &__input {
+      padding-right: calc(
+        var(--buttons-width) + calc(10px + 8px)
+      ); // 8px = .input-container__buttons right
+    }
+
+    &__buttons {
+      position: absolute;
+      top: 0;
+      right: 8px;
+      bottom: 0;
+      height: max-content;
+      margin: auto 0;
+      display: flex;
+      align-items: center;
+
+      & > *:not(:first-child) {
+        margin-left: 5px;
+      }
+    }
+
+    &__button-item {
+      min-width: 23px;
+      max-width: 23px;
+      height: 23px;
+      border-radius: 3px;
+      background-color: #ececec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 17px;
+      color: #4c4c4c;
+      transition: all 225ms;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #e0e0e0;
+      }
+
+      &:active {
+        transform: scale(0.95);
+        background-color: #d6d6d6;
+      }
+    }
+  }
+
+  /** 
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile(){
+    font-size: 12px;
+  }
+}

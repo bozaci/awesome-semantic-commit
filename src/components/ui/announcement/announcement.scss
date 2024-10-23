@@ -1,0 +1,58 @@
+//
+// Announcement
+//
+
+@import '../../../styles/mixins';
+
+.announcement {
+  padding: 0 10px;
+  height: 50px;
+  background-color: #5a5a5a;
+  display: flex;
+  align-items: center;
+  transition: all 425ms;
+
+  &.has-closed {
+    visibility: hidden;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #fff;
+  }
+
+  &__close {
+    min-width: 27px;
+    max-width: 27px;
+    height: 27px;
+    margin-left: 10px;
+    border-radius: 999px;
+    background-color: #616161;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    color: #dddddd;
+    transition: all 225ms;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #6d6d6d;
+    }
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    &__close {
+      min-width: 24.5px;
+      max-width: 24.5px;
+      height: 24.5px;
+    }
+  }
+}

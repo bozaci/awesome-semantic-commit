@@ -1,0 +1,47 @@
+//
+// Switch
+//
+
+@import '../../../styles/variables';
+
+.switch {
+  &__input:checked ~ &__inner &__circle,
+  &__input[value='true'] ~ &__inner &__circle {
+    transform: translateX(calc(100% + 4px));
+  }
+
+  &__input:checked ~ &__inner,
+  &__input[value='true'] ~ &__inner {
+    background-color: $color-primary;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__inner {
+    min-width: 34px;
+    max-width: 34px;
+    height: 18px;
+    padding: 3px;
+    border-radius: 999px;
+    background-color: #e3e3e3;
+    display: flex;
+    align-items: center;
+    transition: all 225ms;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #d7d7d7;
+    }
+  }
+
+  &__circle {
+    min-width: 12px;
+    max-width: 12px;
+    height: 100%;
+    border-radius: 999px;
+    background-color: #fff;
+    transition: all 325ms;
+  }
+}

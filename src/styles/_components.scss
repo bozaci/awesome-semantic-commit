@@ -1,0 +1,63 @@
+//
+// Components
+//
+
+@import './mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    color: #000000;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    &--row {
+      flex-direction: row;
+    }
+
+    &--between {
+      justify-content: space-between;
+    }
+  }
+
+  &__help-message {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000000;
+
+    &--error {
+      color: $color-red;
+    }
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    &__label {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &__help-message {
+      font-size: 10px;
+      line-height: 20px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+//
+// Footer
+//
+
+@import '../../../styles/mixins';
+
+.footer {
+  position: relative;
+  padding-top: calc(75px + 75px); // first 75px = ::before top
+  padding-bottom: 50px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 6px;
+    margin: 0 auto;
+    border-radius: 999px;
+    background-color: #303030;
+  }
+
+  &__text {
+    max-width: 405px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #4c4c4c;
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include mobileOrTablet {
+    padding-top: calc(75px + 25px);
+    padding-bottom: 25px;
+
+    &::before {
+      top: 50px;
+    }
+  }
+
+  @include smallMobile() {
+    &__text {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}

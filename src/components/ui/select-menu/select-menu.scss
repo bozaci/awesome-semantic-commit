@@ -1,0 +1,127 @@
+//
+// Select Menu
+//
+
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.select-menu {
+  position: relative;
+
+  &.is-active &__menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  &.is-active &__arrow-icon {
+    transform: rotateX(180deg);
+  }
+
+  &__inner {
+    position: relative;
+    border: 0;
+    outline: 0;
+    height: 37px;
+    padding: 8px 12px;
+    border: 2px solid #e5e5e5;
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    transition: all 225ms;
+
+    &:hover {
+      cursor: pointer;
+      border-color: #d9d9d9;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--text-color);
+    transition: all 225ms;
+  }
+
+  &__arrow-icon {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    height: max-content;
+    margin: auto;
+    font-size: 12px;
+    display: flex;
+    transition: all 500ms;
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(37px + 10px); // 37px = .select-menu__inner height
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 250px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #3f3f3f;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 250;
+    opacity: 0;
+    transform: translateY(5px);
+    visibility: hidden;
+    transition: all 325ms;
+  }
+
+  &__item {
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    --text-color: #7d7d7d;
+    transition: all 225ms;
+
+    &:hover {
+      cursor: pointer;
+      --text-color: #bebebe;
+    }
+
+    &.is-selected {
+      background-color: #4f4f4f;
+      --text-color: #fff;
+      pointer-events: none;
+    }
+  }
+
+  &__select-icon {
+    display: flex;
+    font-size: 12px;
+    color: $color-primary;
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include smallMobile() {
+    &__text {
+      font-size: 12px;
+      line-height: 22px;
+    }
+
+    &__menu {
+      max-height: 175px;
+    }
+  }
+}

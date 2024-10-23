@@ -1,0 +1,255 @@
+{
+  "general": {
+    "contribute": "Katkıda Bulun",
+    "optional": "isteğe bağlı",
+    "wrongUsage": "Yanlış Kullanım",
+    "correctUsage": "Doğru Kullanım",
+    "contactUs": "İletişime Geç",
+    "goToHomepage": "Ana Sayfaya Dön",
+    "homePage": "Ana Sayfa",
+    "commitGenerator": "Commit Oluşturucu",
+    "type": "Tür (Type)",
+    "scope": "Kapsam (Scope)",
+    "subject": "Konu (Subject)",
+    "generateWithAI": "Yapay Zeka ile Oluştur",
+    "generateWithScope": "Kapsam (Scope) ile Oluştur",
+    "summary": "Özet",
+    "generateCommit": "Commit Oluştur",
+    "generateCommitAgain": "Yeniden Commit Oluştur",
+    "thisFieldRequired": "Bu alan zorunludur.",
+    "generatingCommit": "Commit Oluşturuluyor..",
+    "generateCommitSuccessTitle": "Commit Başarıyla Oluşturuldu",
+    "generateCommitErrorTitle": "Commit Oluşturulamadı",
+    "semanticCommitMessage": "Semantik Commit Mesajı",
+    "semanticCommitWithGit": "Git ile Semantik Commit İşlemi",
+    "semanticCommitCopyCode": "Aşağıdaki kodu kopyalayarak terminalinizde kullanabilirsiniz.",
+    "or": "veya",
+    "copy": "kopyala",
+    "copied": "kopyalandı",
+    "information": "Bilgilendirme",
+    "supportedWithGemini": "ile desteklenmektedir.",
+    "generateWithAITooltipText": "Bu seçeneği etkinleştirdiğinizde, Özet kısmına yaptığınız değişikliği özetlemeniz gerekecektir. Yapay Zeka, sizin için semantik kurallara uygun bir commit mesajı oluşturacaktır.",
+    "generateWithAITooltipTextTwo": "Bu özelliğin çalışabilmesi için Google Gemini API anahtarına sahip olmanız gerekmektedir. Ücretsiz olarak Google Gemini API anahtarı almak için aşağıdaki Sıkça Sorulan Sorular'a göz atabilirsiniz.",
+    "saveAPIKeyTooltip": "Google Gemini API Anahtarını Kaydet (anahtar, bilgisayarınıza kaydedilecektir)",
+    "saveAPIKeyErrorMessage": "Google Gemini API anahtarını girmelisiniz.",
+    "saveAPIKeySuccessMessage": "Başarılı bir şekilde Google Gemini API anahtarı kaydedildi.",
+    "saveAPIKeyAlreadyMessage": "Google Gemini API anahtarı zaten kaydedilmiş.",
+    "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'yeni giriş sayfa' yerine 'yeni giriş sayfası eklendi.' ifadesini kullanmalısınız. Aksi takdirde yapay zeka farklı sonuçlar oluşturabilir."
+  },
+
+  "hero": {
+    "title": "Semantic Commit?",
+    "text": "Semantic Commit, yazılım geliştirme sürecinde kullanılan bir yöntemdir. Temel amacı, her commit (yani, kodda yapılan her değişiklik) mesajlarının daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede, yazılımcılar kodun ne zaman, ne amaçla ve hangi değişikliklerle güncellendiğini daha kolay anlayabilir."
+  },
+
+  "whyImportant": {
+    "title": "Neden Önemli?",
+    "items": {
+      "itemOne": {
+        "title": "Kolay Anlaşılır Değişiklikler",
+        "text": "Her commit mesajı, yapılan değişiklikleri açıkça anlatır. Böylece bir proje üzerinde çalışırken, kodda neyin değiştiğini ve neden değiştiğini hızlıca anlayabilirsiniz. Örneğin, \"sadece düzenlemeler yapıldı\" demek yerine, \"yeni giriş sayfası eklendi\" gibi net bir açıklama yapılır."
+      },
+      "itemTwo": {
+        "title": "Sorunları Daha Hızlı Çözme",
+        "text": "Bir projede hata olduğunda, geçmiş commit mesajlarına bakarak bu hataya neden olabilecek değişiklikleri bulmak çok daha kolay olur. Anlamlı ve düzenli commit mesajları, hataları hızlıca bulup çözmenize yardımcı olur."
+      },
+      "itemThree": {
+        "title": "Sürüm Takibi",
+        "text": "Semantic Commit, hangi değişikliğin projenin hangi sürümünde yapıldığını daha net görmenizi sağlar. Örneğin, yeni bir özellik eklendiğinde sürüm numarası güncellenebilir. Bu, projeyi güncel tutmayı kolaylaştırır."
+      },
+      "itemFour": {
+        "title": "Ekip İçinde Uyum",
+        "text": "Birden fazla kişiyle çalışırken, herkesin aynı şekilde commit mesajları yazması projeyi düzenli tutar. Böylece, bir ekip üyesi diğerinin ne yaptığını daha kolay anlayabilir ve işbirliği artar."
+      },
+      "itemFive": {
+        "title": "Projeyi Yönetmek Daha Kolay",
+        "text": "Proje büyüdükçe, yüzlerce hatta binlerce commit olabilir. Anlamlı commit mesajları, bu büyük projeyi yönetmeyi ve geçmişe dönük değişiklikleri bulmayı kolaylaştırır."
+      }
+    }
+  },
+
+  "commitMessageType": {
+    "title": "Commit Mesaj Yapısı",
+    "text": "Semantic Commit mesajları belirli bir kurala göre yazılır. Bu kurallar, her commit mesajının yapısını anlamlı ve tutarlı hale getirir.",
+    "items": {
+      "itemOne": {
+        "title": "1. Tür (Type)",
+        "text": "Bu, yapılan değişikliğin ne türde olduğunu belirtir. Commit mesajının başına eklenir, sık kullanılan commit türleri:",
+        "featText": "Yeni bir özellik eklendiğinde kullanılır.",
+        "fixText": "Bir hatanın düzeltildiğini belirtir.",
+        "docsText": "Sadece belgelendirme ile ilgili değişiklikler yapılmışsa kullanılır.",
+        "styleText": "Kodun işlevini değiştirmeyen, yalnızca formatlama ile ilgili değişiklikler (örneğin, boşluk veya noktalama düzeltmeleri).",
+        "choreText": "Kod veya bağımlılıklar üzerinde yapılan işlevsel olmayan değişikliklerdir. Örneğin, paket güncellemeleri veya derleme yapılandırmalarındaki değişiklikler.",
+        "refactorText": "Kodun işlevini değiştirmeden yapısını yeniden düzenlemek için kullanılır.",
+        "testText": "Test eklemek veya güncellemek için kullanılır.",
+        "perfText": "Yazılımda işlevselliği değiştirmeden, yalnızca performansı artırmak amacıyla yapılan değişiklikler için kullanılır. Bu commit türü, kodun daha hızlı çalışmasını sağlamak, kaynak tüketimini azaltmak veya verimliliği artırmak gibi iyileştirmeleri içerir.",
+        "ciText": "Sürekli entegrasyon yapılandırması ile ilgili değişikliklerde kullanılır. Örneğin, CI/CD pipeline değişiklikleri.",
+        "buildText": "Yapı sistemiyle ilgili yapılan değişiklikler için kullanılır. Örneğin, derleme ayarları veya bağımlılık yönetimi.",
+        "revertText": "Önceki bir commit'in etkilerini geri almak için kullanılır."
+      },
+      "itemTwo": {
+        "title": "2. Kapsam (Scope)",
+        "text": "Değişikliğin hangi modül, dosya veya bileşen üzerinde yapıldığını belirtir. Tür ile birlikte parantez içinde yazılır."
+      },
+      "itemThree": {
+        "title": "3. Konu (Subject)",
+        "text": "Commit'in ne yaptığını kısa ve öz bir şekilde açıklar. Maksimum 50 karakter olacak şekilde yazılmalıdır."
+      }
+    }
+  },
+
+  "howToUse": {
+    "title": "Nasıl Kullanılır?",
+    "items": {
+      "itemOne": {
+        "title": "1. Değişiklikleri Ekleme (Staging)",
+        "text": "İlk olarak, üzerinde çalıştığınız dosyalarda değişiklik yaptıktan sonra bu dosyaları commit'e dahil etmek için terminal üzerinden git add komutunu kullanmanız gerekir.",
+        "textTwo": "Tüm dosyaları eklemek için terminale şu komutu yazın:",
+        "textThree": "Yalnızca belirli dosyaları eklemek isterseniz:",
+        "fileName": "dosya-adı"
+      },
+      "itemTwo": {
+        "title": "2. Commit Yapma",
+        "text": "Yapılan değişiklikleri commit etmek için terminal üzerinden şu komutu kullanabilirsiniz:",
+        "textTwo": "Semantic Commit kurallarına uygun bir şekilde “commit-mesajı” yazarken dikkat etmeniz gerekenler:",
+        "list": {
+          "listItemOne": {
+            "title": "Commit Türü",
+            "text": "Yapılan değişikliğin türünü belirtin (örneğin feat, fix, docs, vb.)."
+          },
+          "listItemTwo": {
+            "title": "Kapsam (isteğe bağlı)",
+            "text": "Hangi modül veya bileşende değişiklik yapıldığını belirtmek için kapsam kullanabilirsiniz."
+          },
+          "listItemThree": {
+            "title": "Mesajın Başlığı",
+            "text": "Kısa ve öz bir şekilde yapılan değişikliği açıklayın."
+          }
+        },
+        "commitMessage": "commit-mesajı",
+        "exampleCommit": "Örnek commit"
+      },
+      "itemThree": {
+        "title": "3. Commit'i Gönderme (Push)",
+        "text": "Commit yaptıktan sonra, değişikliklerinizi uzaktaki (remote) repository'e göndermek için terminal üzerinden şu komutu kullanabilirsiniz:",
+        "textTwo": "Örneğin, main veya dev branch’ine gönderim yapıyorsanız:",
+        "branchName": "branch-adı"
+      }
+    }
+  },
+
+  "howToNotUse": {
+    "title": "Nasıl Kullanılmaz?",
+    "items": {
+      "itemOne": {
+        "title": "1. Commit Mesajlarında Türkçe Kullanımı Yanlıştır",
+        "text": "Peki, neden? Yazılım dünyasında İngilizce, global (evrensel) bir dil olarak kabul edilmektedir. Farklı ülkelerden yazılımcılar ve ekipler, kodlama sırasında ve commit mesajlarında İngilizce kullanarak iletişim kurar. Bu nedenle commit mesajlarının da İngilizce olması gerekir.",
+        "textTwo": "Türkçe veya diğer dillerde yazılmış commit mesajları, uluslararası ekiplerde veya açık kaynak projelerinde çalışan kişiler için kafa karıştırıcı olabilir ve işbirliğini zorlaştırabilir."
+      },
+      "itemTwo": {
+        "title": "2. Neden added, updated, changed Gibi Kelimeleri Kullanmayalım?",
+        "text": "Commit türlerini (type) belirtmek için bu kelimelere gerek yoktur, çünkü commit türleri zaten bu anlamı taşır. feat, fix, refactor gibi commit türleri, yapılacak değişikliklerin amacını zaten belirtir, bu yüzden tekrar \"added\", \"updated\", \"changed\" gibi kelimeleri kullanmaya gerek yoktur."
+      },
+      "itemThree": {
+        "title": "3. Yanlış Tür Kullanımı",
+        "text": "Commit mesajında, yapılan değişikliğin türüne uygun olmayan bir etiketin kullanılmasıdır. Her tür, belirli bir amaca hizmet eder ve yanlış tür kullanımı, değişikliklerin ne amaçla yapıldığını belirsiz hale getirebilir. Bu durum, proje ekibinin değişiklikleri takip etmesini zorlaştırır ve kodun yönetimini karmaşıklaştırabilir."
+      },
+      "itemFour": {
+        "title": "4. Gereksiz Büyük Harfler veya Özel Karakterler Kullanımı",
+        "text": "Commit mesajlarında yanlışlıkla ya da kasıtlı olarak büyük harfler ya da özel karakterler kullanarak, mesajların okunabilirliğini ve tutarlılığını bozma durumudur. Bu tür kullanım, commit mesajlarının profesyonel ve standartlara uygun olmaktan çıkmasına neden olabilir."
+      }
+    }
+  },
+
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "items": {
+      "itemOne": {
+        "title": "Faydaları nelerdir?",
+        "list": {
+          "listItemOne": {
+            "title": "1. Anlaşılabilirlik",
+            "text": "Her commit mesajı, değişikliğin amacını ve neden yapıldığını açıkça belirtir. Örneğin, \"feat: Yeni kullanıcı girişi sayfası eklendi\" gibi bir mesaj, bu commit'in yeni bir özellik eklemek için yapıldığını belirtir."
+          },
+          "listItemTwo": {
+            "title": "2. Kodun Geçmişini Takip Etmek",
+            "text": "Bir proje üzerinde çok sayıda geliştirici çalışıyorsa, her commit mesajı projenin geçmişini daha şeffaf ve takip edilebilir hale getirir. Hangi değişikliğin ne zaman yapıldığını bilmek, hataları bulmak ve düzeltmek için oldukça faydalıdır."
+          },
+          "listItemThree": {
+            "title": "3. Sürümleme (Versioning) ve Otomasyon",
+            "text": "Semantic commit mesajları, otomatik sürüm güncellemelerini (örneğin, yeni özellik ekleme, hata düzeltme gibi) yapmaya yardımcı olabilir. Bu mesajlar sayesinde projelerde sürüm numaraları düzenli bir şekilde artırılabilir (örneğin, 1.2.0 → 1.3.0)."
+          }
+        }
+      },
+      "itemTwo": {
+        "title": "Commit türleri nasıl seçilir?",
+        "text": "Her commit mesajı, yapılan değişikliğin amacını net bir şekilde ifade etmelidir. Bu, projede çalışan diğer geliştiricilerin değişikliklerin ne amaçla yapıldığını kolayca anlamasına yardımcı olur. İyi bir commit mesajı, sadece 'bug fix' veya 'feature update' gibi genel ifadelerden kaçınarak, yapılan değişikliğin nedenini ve neyi iyileştirdiğini açıkça belirtir. Ayrıca, commit mesajlarının kısa ve öz olmasına dikkat edilmelidir. Gerekirse daha detaylı açıklamalar için commit'in arkasına ek açıklamalar ya da referanslar eklenebilir."
+      },
+      "itemThree": {
+        "title": "Kapsam zorunlu mu?",
+        "text": "Hayır, kapsam (scope) zorunlu değildir. Kapsam, commit mesajında yapılan değişikliğin hangi bölümü ya da modülü etkilediğini belirtmek için isteğe bağlıdır. Ancak, büyük projelerde veya birden fazla modülün bulunduğu durumlarda kapsam kullanmak, yapılan değişikliğin hangi alanı etkilediğini daha net gösterebilir ve mesajı daha anlamlı hale getirebilir."
+      },
+      "itemFour": {
+        "title": "Bir commit’i nasıl geri alırım?",
+        "text": "Bir commit’i geri almak için birkaç farklı yöntem kullanabilirsiniz:",
+        "textTwo": "Son commit’i geri almak (soft reset):",
+        "textTwoSmall": "* Bu komut, son commit’i geri alır ama değişiklikleri çalışma alanınıza bırakır.",
+        "textThree": "Son commit’i tamamen geri almak (hard reset):",
+        "textThreeSmall": "* Bu komut, hem commit’i hem de değişiklikleri tamamen siler.",
+        "textFour": "git revert komutu kullanarak geri almak:",
+        "textFourSmall": "* Bu komut, istediğiniz commit’i geri alır ve yeni bir commit oluşturur."
+      },
+      "itemFive": {
+        "title": "Kurallara uymadım, ne yapmalıyım?",
+        "text": "Commit’i geri alabilirsiniz. \"Bir commit’i nasıl geri alırım?\" başlığına bakarak daha detaylı bilgiye ulaşabilirsiniz."
+      },
+      "itemSix": {
+        "title": "Commit mesajları İngilizce mi olmalı?",
+        "text": "Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede çalışan tüm geliştiriciler için anlaşılabilirliği artırır ve açık kaynak projelerinde uluslararası işbirliğini kolaylaştırır."
+      }
+    }
+  },
+
+  "footer": {
+    "text": "Bu proje açık kaynak bir projedir. Katkıda bulunmadan önce lütfen projenin lisansını gözden geçirin ve projeye uygun, yapıcı katkılarda bulunmaya özen gösterin. Tüm katkılar, gözden geçirildikten sonra kabul edilecektir. Lütfen saygılı ve kapsayıcı bir dil kullanmaya dikkat edin."
+  },
+
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "text": "Aradığınız sayfayı maalesef bulamadık. Lütfen URL'yi kontrol edin veya ana sayfaya geri dönün. Yardımcı olabileceğimiz bir konu varsa, bizimle iletişime geçmekten çekinmeyin."
+  },
+
+  "commitGenerator": {
+    "title": "Commit Oluşturucu",
+    "text": "Commit Oluşturucu, proje geliştirme süreçlerinde daha düzenli ve anlamlı commit mesajları yazmanıza yardımcı olan bir araçtır. Hızlı ve kolay kullanımıyla, commit mesajlarınızı standartlara uygun bir şekilde oluşturabilir, versiyon kontrol sürecinizi daha verimli hale getirebilirsiniz."
+  },
+
+  "commitGeneratorFAQ": {
+    "title": "Sıkça Sorulan Sorular",
+    "items": {
+      "itemOne": {
+        "title": "Commit Oluşturucu ücretsiz mi?",
+        "text": "Commit Oluşturucu, ücretsiz bir araçtır. Bu araç, semantic commit kurallarına uygun olarak otomatik commit mesajları oluşturmanıza yardımcı olur. Kullanıcı dostu arayüzü sayesinde mevcut değişikliklere uygun mesajlar önerir. Kullanım için Google Gemini API anahtarına ihtiyaç vardır. 'Google Gemini API Anahtarı nasıl alınır?' başlığına göz atabilirsiniz."
+      },
+      "itemTwo": {
+        "title": "Google Gemini API Anahtarı nasıl alınır?",
+        "text": "Aşağıdaki adımları takip ederek ücretsiz bir şekilde Google Gemini API anahtarını alabilirsiniz:",
+        "textTwo": "Başarıyla ücretsiz bir şekilde Google Gemini API anahtarını oluşturdunuz. Artık yapay zeka ile commit oluşturabilirsiniz.",
+        "list": {
+          "listItemOne": {
+            "title": "1.",
+            "text": "https://aistudio.google.com/app/apikey sitesine google hesabınızla giriş yapın."
+          },
+          "listItemTwo": {
+            "title": "2.",
+            "text": "Giriş yaptıktan sonra “Create API Key” butonuna tıklayın."
+          },
+          "listItemThree": {
+            "title": "3.",
+            "text": "Oluşturulan API anahtarını kaybolmaması adına bir yere not alın."
+          }
+        }
+      }
+    }
+  }
+}
