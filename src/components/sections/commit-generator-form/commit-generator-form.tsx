@@ -9,6 +9,7 @@ import { commitGeneratorSchema } from '@/utils/schema';
 import { commitGeneratePrompt, commitTypes } from '@/utils/constants';
 import { useLocalStorage } from 'usehooks-ts';
 import { errorNotify, successNotify } from '@/utils/notification';
+import { track } from '@vercel/analytics/react';
 import cx from 'classnames';
 
 import Box from '@/components/ui/box';
@@ -51,6 +52,7 @@ git push origin main`;
       setTimeout(() => {
         setIsLoading(false);
         setIsCompleted(true);
+        track('Manual Commit Generation', {}, { flags: ['manual-commit-generation'] });
       }, 1000);
     }
 
@@ -93,6 +95,7 @@ git push origin main`;
         setCommitMessage(
           generateWithScope ? parsedCommitData.contentWithScope : parsedCommitData.content,
         );
+        track('AI Commit Generation', {}, { flags: ['ai-commit-generation'] });
       } catch (error: any) {
         setError(error);
         setIsLoading(false);
