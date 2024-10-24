@@ -13,11 +13,11 @@ import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import '@/styles/main.scss';
 
 export const metadata: Metadata = {
-  title: Config.meta.title,
-  description: Config.meta.description,
+  title: Config.meta.general.title,
+  description: Config.meta.general.description,
   openGraph: {
-    title: Config.meta.title,
-    description: Config.meta.description,
+    title: Config.meta.general.title,
+    description: Config.meta.general.description,
     siteName: 'Awesome Semantic Commit',
     images: [
       {
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: Config.meta.title,
-    description: Config.meta.description,
+    title: Config.meta.general.title,
+    description: Config.meta.general.description,
     images: [`${process.env.BASE_URL}/twitter-meta-image.jpg`],
   },
 };

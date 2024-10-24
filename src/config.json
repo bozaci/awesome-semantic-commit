@@ -2,7 +2,13 @@
   "twitter": "https://twitter.com/yusufbozaci_",
   "github": "https://github.com/bozaci/awesome-semantic-commit",
   "meta": {
-    "title": "Awesome Semantic Commit: Guide to regular commit messages",
-    "description": "Learn best practices for clear, concise commit messages to improve project organization, code readability, team collaboration, and version control."
+    "general": {
+      "title": "Awesome Semantic Commit: Guide to regular commit messages",
+      "description": "Learn best practices for clear, concise commit messages to improve project organization, code readability, team collaboration, and version control."
+    },
+    "commitGenerator": {
+      "title": "Commit Generator – Awesome Semantic Commit",
+      "description": "The Commit Generator is a tool that helps you write more organized and meaningful commit messages during project development processes."
+    }
   }
 }
