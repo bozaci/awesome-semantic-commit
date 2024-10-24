@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Toaster } from 'react-hot-toast';
+import { Analytics } from '@vercel/analytics/react';
 import Config from '@/config.json';
 
 import Header from '@/components/shared/header';
@@ -55,6 +56,7 @@ export default async function RootLayout({
           <Toaster containerClassName="toaster" />
           <main className="main spacing--medium-y">{children}</main>
           <Footer />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
