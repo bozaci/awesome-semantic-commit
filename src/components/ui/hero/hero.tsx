@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { HeroProps } from './hero.type';
+import Transition from '@/components/ui/transition';
 
 import './hero.scss';
 
@@ -11,7 +12,9 @@ const Hero: FC<HeroProps> & {
   return (
     <section className="hero">
       <div className="container container--medium">
-        <div className="hero__inner">{children}</div>
+        <Transition>
+          <div className="hero__inner">{children}</div>
+        </Transition>
       </div>
     </section>
   );

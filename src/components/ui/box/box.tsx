@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { BoxProps } from './box.type';
 import cx from 'classnames';
 
+import Transition from '../transition';
 import './box.scss';
 
 const Box: FC<BoxProps> & {
@@ -13,7 +14,11 @@ const Box: FC<BoxProps> & {
   Icon: FC<{ color: 'black' | 'red' | 'green'; className?: string; children: React.ReactNode }>;
   Line: FC<{ className?: string }>;
 } = ({ className, children }) => {
-  return <div className={cx('box', className)}>{children}</div>;
+  return (
+    <Transition>
+      <div className={cx('box', className)}>{children}</div>
+    </Transition>
+  );
 };
 
 Box.Title = ({ className, size = 'default', children }) => {

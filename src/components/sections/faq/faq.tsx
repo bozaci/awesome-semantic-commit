@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import HeadingTitle from '@/components/ui/heading-title';
 import FAQCard from '@/components/ui/faq-card';
+import Transition from '@/components/ui/transition';
 
 const FAQ = () => {
   const t = useTranslations('faq');
@@ -87,7 +88,9 @@ const FAQ = () => {
           {FAQData.length > 0 &&
             FAQData.map((item, index) => (
               <div key={index} className="col-lg-6">
-                <FAQCard data={item} />
+                <Transition>
+                  <FAQCard data={item} />
+                </Transition>
               </div>
             ))}
         </div>
