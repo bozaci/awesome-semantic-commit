@@ -143,7 +143,6 @@ git push origin main`;
   return (
     <section className="commit-generator-form">
       <div className="container">
-        {isLoading}
         <Box
           className={cx({
             'overflow-initial': !isCompleted,
