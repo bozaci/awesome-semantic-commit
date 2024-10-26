@@ -226,6 +226,8 @@ git push origin main`;
               }}
               onSubmit={(values) => handleFormSubmit(values)}
               validationSchema={commitGeneratorSchema(generalT)}
+              validateOnChange={false}
+              validateOnBlur={false}
             >
               {({ values, errors, touched }) => (
                 <Form ref={animationParent} className="form">
