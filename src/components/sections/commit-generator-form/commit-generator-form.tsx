@@ -27,10 +27,12 @@ const CommitGeneratorForm = () => {
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [isAIEnabled, setIsAIEnabled] = useState<boolean>(false);
   const [commitMessage, setCommitMessage] = useState<string>('');
   const [typeData, setTypeData] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState<string>('');
   const [apiKeyInLocalStorage, setApiKeyInLocalStorage] = useLocalStorage('googleGeminiApiKey', '');
+  const [generationMethod, setGenerationMethod] = useState<string>('');
   const commitMessageWithGitCopyText = `git add .
 git commit -m "${commitMessage}"
 git push origin main`;
@@ -42,6 +44,7 @@ git push origin main`;
     setError('');
     setCommitMessage('');
     setIsLoading(true);
+    setGenerationMethod('');
 
     // Generate as Manuel
     if (!generateWithAI && (type || subject)) {
@@ -52,6 +55,7 @@ git push origin main`;
       setTimeout(() => {
         setIsLoading(false);
         setIsCompleted(true);
+        setGenerationMethod('manual');
         track('Manual Commit Generation', {}, { flags: ['manual-commit-generation'] });
       }, 1000);
     }
@@ -76,6 +80,7 @@ git push origin main`;
           },
         );
         const data = await response.json();
+        setGenerationMethod('ai');
 
         if (data?.error) {
           setError(data.error.message);
@@ -106,6 +111,9 @@ git push origin main`;
   };
 
   const handleResetCommitGenerate = () => {
+    if (generationMethod === 'manual') setIsAIEnabled(false);
+    if (generationMethod === 'ai') setIsAIEnabled(true);
+
     setIsCompleted(false);
     setIsLoading(false);
     setCommitMessage('');
@@ -222,7 +230,7 @@ git push origin main`;
                 summary: '',
                 googleGeminiApiKey: apiKeyInLocalStorage,
                 generateWithScope: true,
-                generateWithAI: false,
+                generateWithAI: isAIEnabled,
               }}
               onSubmit={(values) => handleFormSubmit(values)}
               validationSchema={commitGeneratorSchema(generalT)}
