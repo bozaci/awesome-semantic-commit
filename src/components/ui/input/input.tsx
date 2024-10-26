@@ -6,7 +6,7 @@ import Tooltip from '@/components/ui/tooltip';
 
 import './input.scss';
 
-const Input: FC<InputProps> = ({ field, buttons = [], className, ...res }) => {
+const Input: FC<InputProps> = ({ field, buttons = [], hasError, className, ...res }) => {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const [buttonsWidth, setButtonsWidth] = useState<number | undefined>(23);
 
@@ -21,6 +21,7 @@ const Input: FC<InputProps> = ({ field, buttons = [], className, ...res }) => {
     <div
       className={cx('input-container', {
         'input-container--with-buttons': buttons.length > 0,
+        'has-error': hasError,
       })}
       style={{ '--buttons-width': `${buttonsWidth}px` } as React.CSSProperties}
     >

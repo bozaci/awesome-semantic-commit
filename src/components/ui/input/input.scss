@@ -2,6 +2,7 @@
 // Input
 //
 
+@import '../../../styles/variables';
 @import '../../../styles/mixins';
 
 .input {
@@ -34,6 +35,10 @@
       padding-right: calc(
         var(--buttons-width) + calc(10px + 8px)
       ); // 8px = .input-container__buttons right
+    }
+
+    &.has-error &__input {
+      border-color: $color-red;
     }
 
     &__buttons {
@@ -81,7 +86,7 @@
    * Responsive
    *
    */
-  @include smallMobile(){
+  @include smallMobile() {
     font-size: 12px;
   }
 }

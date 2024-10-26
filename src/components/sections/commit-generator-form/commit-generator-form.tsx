@@ -259,7 +259,14 @@ git push origin main`;
                             {generalT('optional')}
                           </Badge>
                         </span>
-                        <Field id="scope" name="scope" type="text" component={Input} as="input" />
+                        <Field
+                          id="scope"
+                          name="scope"
+                          type="text"
+                          component={Input}
+                          as="input"
+                          hasError={errors.scope && touched.scope}
+                        />
                         {errors.scope && touched.scope && (
                           <p className="form__help-message form__help-message--error">
                             {errors.scope}
@@ -279,6 +286,7 @@ git push origin main`;
                           type="text"
                           component={Input}
                           as="input"
+                          hasError={errors.subject && touched.subject}
                         />
                         {errors.subject && touched.subject && (
                           <p className="form__help-message form__help-message--error">
@@ -307,6 +315,7 @@ git push origin main`;
                           type="text"
                           component={Input}
                           as="input"
+                          hasError={errors.summary && touched.summary}
                         />
                         {errors.summary && touched.summary && (
                           <p className="form__help-message form__help-message--error">
@@ -334,6 +343,7 @@ git push origin main`;
                             },
                           ]}
                           as="input"
+                          hasError={errors.googleGeminiApiKey && touched.googleGeminiApiKey}
                         />
                         {errors.googleGeminiApiKey && touched.googleGeminiApiKey && (
                           <p className="form__help-message form__help-message--error">
