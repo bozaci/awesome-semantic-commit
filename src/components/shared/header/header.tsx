@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useLocale } from 'next-intl';
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
-import { usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Config from '@/config.json';
+import cx from 'classnames';
 
 import Logo from '@/components/ui/logo';
 import LanguageSwitcher from '@/components/ui/language-switcher';
@@ -75,12 +76,32 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="row g-4 align-items-center">
-          <div className="col-8 col-lg-6 d-flex align-items-center spacing spacing--small-x">
+          <div className="col-8 col-lg-6 d-flex align-items-center">
             <Logo theme="single" area="header-single" />
 
             <span className="header__brace">/</span>
 
-            <div className="header__navigation">
+            <div className="header__navigation hidden--mobile-or-tablet">
+              <Link
+                href="/"
+                className={cx('header__navigation-item', {
+                  'is-active': pathname === '/',
+                })}
+              >
+                <span className="header__navigation-text">{t('homePage')}</span>
+              </Link>
+
+              <Link
+                href="/commit-generator"
+                className={cx('header__navigation-item', {
+                  'is-active': pathname === '/commit-generator',
+                })}
+              >
+                <span className="header__navigation-text">{t('commitGenerator')}</span>
+              </Link>
+            </div>
+
+            <div className="header__navigation hidden--desktop">
               <DropdownMenu
                 data={navigationData}
                 settings={{ spacingFromTop: 0, spacingFromLeft: -11, closeOnSelect: true }}
