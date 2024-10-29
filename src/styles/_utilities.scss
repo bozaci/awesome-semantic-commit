@@ -91,19 +91,19 @@
 
 .hidden {
   @include mobileOrTablet() {
-    &--mobile-or-tablet {
+    &\@mobile-or-tablet {
       display: none !important;
     }
   }
 
   @include mobile() {
-    &--mobile {
+    &\@mobile {
       display: none !important;
     }
   }
 
   @include desktop() {
-    &--desktop {
+    &\@desktop {
       display: none !important;
     }
   }

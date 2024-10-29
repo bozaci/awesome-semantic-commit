@@ -81,7 +81,7 @@ const Header = () => {
 
             <span className="header__brace">/</span>
 
-            <div className="header__navigation hidden--mobile-or-tablet">
+            <div className="header__navigation hidden@mobile-or-tablet">
               <Link
                 href="/"
                 className={cx('header__navigation-item', {
@@ -101,7 +101,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <div className="header__navigation hidden--desktop">
+            <div className="header__navigation hidden@desktop">
               <DropdownMenu
                 data={navigationData}
                 settings={{ spacingFromTop: 0, spacingFromLeft: -11, closeOnSelect: true }}
@@ -118,8 +118,8 @@ const Header = () => {
           </div>
 
           <div className="col-4 col-lg-6 d-flex justify-content-end align-items-center">
-            <SocialMedia data={socialMediaData} theme="ghost-dark" className="hidden--mobile" />
-            <div className="header__horizontal-line hidden--mobile"></div>
+            <SocialMedia data={socialMediaData} theme="ghost-dark" className="hidden@mobile" />
+            <div className="header__horizontal-line hidden@mobile"></div>
             <LanguageSwitcher data={languages} defaultValue={locale} />
           </div>
         </div>
