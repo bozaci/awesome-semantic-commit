@@ -32,7 +32,17 @@ const Tooltip: FC<TooltipProps> = ({
     if (isTablet) return setTooltipPosition(responsive?.tabletPosition || position);
     if (isLaptopOrDesktop)
       return setTooltipPosition(responsive?.laptopOrDesktopPosition || position);
-  }, [isSmallMobile, isMobile, isTablet, isLaptopOrDesktop]);
+  }, [
+    isSmallMobile,
+    isMobile,
+    isTablet,
+    isLaptopOrDesktop,
+    responsive?.smallMobilePosition,
+    responsive?.mobilePosition,
+    responsive?.tabletPosition,
+    responsive?.laptopOrDesktopPosition,
+    position,
+  ]);
 
   return (
     <div
