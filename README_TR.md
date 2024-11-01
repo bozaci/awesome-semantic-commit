@@ -30,12 +30,12 @@ Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amac�
 
 - [Neden Önemli?](#neden-onemli)
 - [Commit Mesajı Yapısı](#commit-mesaj-yapisi)
-- [Nasıl Kullanılır?](#nasil-kullanilir)
-- [Nasıl Kullanılmaz?](#nasil-kullanilmaz)
-- [Sıkça Sorulan Sorular](#sikca-sorulan-sorular)
-- [Projeyi Çalıştırma](#projeyi-calistirma)
-- [Kullanılan Teknolojiler/Araçlar](#kullanilan-teknolojiler-araclar)
-- [Katkı Sağlama](#katki-saglama)
+- [Nasıl Kullanılır?](#nasıl-kullanilir)
+- [Nasıl Kullanılmaz?](#nasıl-kullanilmaz)
+- [Sıkça Sorulan Sorular](#sıkça-sorulan-sorular)
+- [Kullanılan Teknolojiler/Araçlar](#kullanılan-teknolojileraraçlar)
+- [Projeyi Çalıştırma](#projeyi-çalıştırma)
+- [Katkı Sağlama](#katki-sağlama)
 - [Lisans](#lisans)
 
 ## Neden Önemli?
@@ -220,6 +220,18 @@ Commit’i geri alabilirsiniz. "Bir commit’i nasıl geri alırım?" başlığ�
 
 Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede çalışan tüm geliştiriciler için anlaşılabilirliği artırır ve açık kaynak projelerinde uluslararası işbirliğini kolaylaştırır.
 
+## Kullanılan Teknolojiler/Araçlar
+
+Bu proje, bu teknolojiler ve araçlar kullanılarak oluşturulmuştur.
+
+- **Framework**: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org)
+- **Styling**: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com)
+- **CSS Metodology**: [BEM](https://getbem.com/introduction)
+- **Formatter**: [Prettier](https://prettier.io)
+- **Code Editor**: [VS Code](https://code.visualstudio.com)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Other Tools**: [Eslint](https://eslint.org)
+
 ## Projeyi Çalıştırma
 
 1. **Projeyi klonlayın**:
@@ -282,18 +294,6 @@ Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede 
    ```bash
    yarn start
    ```
-
-## Kullanılan Teknolojiler/Araçlar
-
-Bu proje, bu teknolojiler ve araçlar kullanılarak oluşturulmuştur.
-
-- **Framework**: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org)
-- **Styling**: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com)
-- **CSS Metodology**: [BEM](https://getbem.com/introduction)
-- **Formatter**: [Prettier](https://prettier.io)
-- **Code Editor**: [VS Code](https://code.visualstudio.com)
-- **Deployment**: [Vercel](https://vercel.com)
-- **Other Tools**: [Eslint](https://eslint.org)
 
 ## Katkı Sağlama
 

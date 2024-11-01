@@ -34,7 +34,7 @@ Semantic Commit is a method used in software development. Its main purpose is to
 - [How to Use?](#how-to-use)
 - [How to Not Use?](#how-to-not-use)
 - [Frequently Asked Questions](#frequently-asked-questions)
-- [Technologies/Tools Used](#technologies-tools-used)
+- [Technologies/Tools Used](#technologiestools-used)
 - [Running the Project](#running-the-project)
 - [Contributing](#contributing)
 - [License](#license)
@@ -226,6 +226,18 @@ You can undo the commit. Check the 'How do I undo a commit?' section for more de
 
 Yes, commit messages should be in English, as it is a global language. This increases the understandability for all developers in the project and facilitates international collaboration in open-source projects.
 
+## Technologies/Tools Used
+
+This project was built using these technologies and tools.
+
+- **Framework**: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org)
+- **Styling**: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com)
+- **CSS Metodology**: [BEM](https://getbem.com/introduction)
+- **Formatter**: [Prettier](https://prettier.io)
+- **Code Editor**: [VS Code](https://code.visualstudio.com)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Other Tools**: [Eslint](https://eslint.org)
+
 ## Running the Project
 
 1. **Clone the project**:
@@ -288,18 +300,6 @@ Yes, commit messages should be in English, as it is a global language. This incr
    ```bash
    yarn start
    ```
-
-## Technologies/Tools Used
-
-This project was built using these technologies and tools.
-
-- **Framework**: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org)
-- **Styling**: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com)
-- **CSS Metodology**: [BEM](https://getbem.com/introduction)
-- **Formatter**: [Prettier](https://prettier.io)
-- **Code Editor**: [VS Code](https://code.visualstudio.com)
-- **Deployment**: [Vercel](https://vercel.com)
-- **Other Tools**: [Eslint](https://eslint.org)
 
 ## Contributing
 
