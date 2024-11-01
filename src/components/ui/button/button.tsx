@@ -8,9 +8,12 @@ import './button.scss';
 const Button: FC<ButtonProps> = ({
   theme,
   size,
+  sizeAsFont,
   href,
+  externalLink,
   type,
   disabled,
+  rounded,
   onClick,
   className,
   children,
@@ -20,11 +23,15 @@ const Button: FC<ButtonProps> = ({
       <Link
         onClick={onClick}
         href={href}
+        target={externalLink ? '_blank' : ''}
+        rel={externalLink ? 'noopenner noreferrer nofollow' : ''}
         className={cx(
           'button',
           {
             [`button--theme-${theme}`]: theme,
             [`button--size-${size}`]: size,
+            [`button--size-as-font-${sizeAsFont}`]: sizeAsFont,
+            'has-rounded': rounded,
           },
           className,
         )}
@@ -42,6 +49,8 @@ const Button: FC<ButtonProps> = ({
         {
           [`button--theme-${theme}`]: theme,
           [`button--size-${size}`]: size,
+          [`button--size-as-font-${sizeAsFont}`]: sizeAsFont,
+          'has-rounded': rounded,
         },
         className,
       )}

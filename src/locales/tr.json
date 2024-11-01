@@ -34,7 +34,10 @@
     "saveAPIKeyErrorMessage": "Google Gemini API anahtarını girmelisiniz.",
     "saveAPIKeySuccessMessage": "Başarılı bir şekilde Google Gemini API anahtarı kaydedildi.",
     "saveAPIKeyAlreadyMessage": "Google Gemini API anahtarı zaten kaydedilmiş.",
-    "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'yeni giriş sayfa' yerine 'yeni giriş sayfası eklendi.' ifadesini kullanmalısınız. Aksi takdirde yapay zeka farklı sonuçlar oluşturabilir."
+    "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'yeni giriş sayfa' yerine 'yeni giriş sayfası eklendi.' ifadesini kullanmalısınız. Aksi takdirde yapay zeka farklı sonuçlar oluşturabilir.",
+    "loadMoreProject": "Daha Fazla Proje Yükle",
+    "loadingProjects": "Projeler yükleniyor..",
+    "reachedProjects": "Tüm projeleri görüntülediniz."
   },
 
   "hero": {
@@ -159,6 +162,13 @@
         "text": "Commit mesajlarında yanlışlıkla ya da kasıtlı olarak büyük harfler ya da özel karakterler kullanarak, mesajların okunabilirliğini ve tutarlılığını bozma durumudur. Bu tür kullanım, commit mesajlarının profesyonel ve standartlara uygun olmaktan çıkmasına neden olabilir."
       }
     }
+  },
+
+  "projectsUsingSemanticCommit": {
+    "title": "Semantic Commit Kullanan Projeler",
+    "levelLowTooltipText": "Semantic commit kurallarına tam anlamıyla uymayan proje.",
+    "levelMediumTooltipText": "Semantic commit kurallarına kısmen uyan proje.",
+    "levelHighTooltipText": "Semantic commit kurallarına uyan proje."
   },
 
   "faq": {

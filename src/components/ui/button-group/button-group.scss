@@ -1,0 +1,42 @@
+//
+// Button Group
+//
+
+.button-group {
+  display: flex;
+
+  & > * {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  & > *:not(:first-child) {
+    border-left: 1px solid #fff;
+  }
+
+  /* radius-type: square */
+  &--radius-type-square:has(:only-child) > * {
+    border-radius: 8px !important;
+  }
+
+  &--radius-type-square > *:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+  &--radius-type-square > *:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* radius-type: rounded */
+  &--radius-type-rounded:has(:only-child) > * {
+    border-radius: 999px !important;
+  }
+
+  &--radius-type-rounded > *:first-child {
+    border-radius: 999px 0 0 999px;
+  }
+
+  &--radius-type-rounded > *:last-child {
+    border-radius: 0 999px 999px 0;
+  }
+}

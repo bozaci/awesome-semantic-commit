@@ -1,0 +1,121 @@
+//
+// Project Card
+//
+
+@import '../../../styles/variables';
+
+.project-card {
+  height: 100%;
+  padding: 15px;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  &__head {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    position: relative;
+    display: flex;
+    margin-right: 10px;
+
+    &-img {
+      min-width: 48px;
+      max-width: 48px;
+      height: 48px;
+      border: 1px solid #ececec;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+  }
+
+  &__level {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    min-width: 18px;
+    max-width: 18px;
+    height: 18px;
+    border: 3px solid #fff;
+    border-radius: 3px;
+    background-color: #ececec;
+
+    &--low {
+      background-color: #ececec;
+    }
+
+    &--medium {
+      background-color: #d0d6f9;
+    }
+
+    &--high {
+      background-color: $color-primary;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #000000;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover &-text {
+      color: $color-primary;
+    }
+
+    &-text {
+      width: 150px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #4c4c4c;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: all 225ms;
+    }
+  }
+
+  &__link:hover &__icon {
+    color: $color-primary;
+  }
+
+  &__icon {
+    display: flex;
+    color: #4c4c4c;
+    transition: all 225ms;
+
+    &--link {
+      margin-right: 2px;
+    }
+  }
+
+  &__body {
+    margin-top: 10px;
+    flex: 1;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #4c4c4c;
+  }
+
+  &__footer {
+    margin-top: 10px;
+  }
+}

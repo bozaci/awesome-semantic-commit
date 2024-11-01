@@ -10,5 +10,6 @@
       "title": "Commit Generator – Awesome Semantic Commit",
       "description": "The Commit Generator is a tool that helps you write more organized and meaningful commit messages during project development processes."
     }
-  }
+  },
+  "maxShowProjects": 6
 }

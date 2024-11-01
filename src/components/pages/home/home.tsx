@@ -7,6 +7,7 @@ import WhyImportant from '@/components/sections/why-important';
 import CommitMessageType from '@/components/sections/commit-message-type';
 import HowToUse from '@/components/sections/how-to-use';
 import HowToNotUse from '@/components/sections/how-to-not-use';
+import ProjectsUsingSemanticCommit from '@/components/sections/projects-using-semantic-commit';
 import FAQ from '@/components/sections/faq';
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
       <CommitMessageType />
       <HowToUse />
       <HowToNotUse />
+      <ProjectsUsingSemanticCommit />
       <FAQ />
     </>
   );

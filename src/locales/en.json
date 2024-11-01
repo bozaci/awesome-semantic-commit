@@ -34,7 +34,10 @@
     "saveAPIKeyErrorMessage": "You must enter the Google Gemini API key.",
     "saveAPIKeySuccessMessage": "Google Gemini API key has been successfully saved.",
     "saveAPIKeyAlreadyMessage": "Google Gemini API key is already saved.",
-    "summaryTooltip": "To get better results, you should use the phrase 'a new login page has been added.' instead of 'new login page'. Otherwise, the AI may produce different results."
+    "summaryTooltip": "To get better results, you should use the phrase 'a new login page has been added.' instead of 'new login page'. Otherwise, the AI may produce different results.",
+    "loadMoreProject": "Load More Projects",
+    "loadingProjects": "Loading projects..",
+    "reachedProjects": "You have reached the end of the projects."
   },
 
   "hero": {
@@ -159,6 +162,13 @@
         "text": "The use of capital letters or special characters in commit messages, either accidentally or intentionally, that disrupts the readability and consistency of the messages. Such usage can cause commit messages to lose their professionalism and alignment with standards."
       }
     }
+  },
+
+  "projectsUsingSemanticCommit": {
+    "title": "Projects Using Semantic Commit",
+    "levelLowTooltipText": "Project that does not fully follow semantic commit rules.",
+    "levelMediumTooltipText": "Project that partially follows semantic commit rules.",
+    "levelHighTooltipText": "Project that follows semantic commit rules."
   },
 
   "faq": {

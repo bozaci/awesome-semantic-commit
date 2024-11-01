@@ -17,10 +17,15 @@
   font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;
+  text-align: center;
   transition: all 225ms;
 
   &:hover {
     cursor: pointer;
+  }
+
+  &.has-rounded {
+    border-radius: 999px;
   }
 
   &--theme-primary {
@@ -41,6 +46,16 @@
     }
   }
 
+  &--theme-gray {
+    background-color: #747474;
+    color: #fff;
+
+    &:hover {
+      background-color: #555555;
+      color: #fff;
+    }
+  }
+
   &--theme-ghost-dark {
     background-color: #565656;
     color: #dadada;
@@ -51,9 +66,27 @@
     }
   }
 
+  &--theme-ghost-gray {
+    background-color: #ececec;
+    color: #000000;
+
+    &:hover {
+      background-color: #dfdfdf;
+      color: #000000;
+    }
+  }
+
   &--size-small {
     border-radius: 5px;
     padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  &--size-medium {
+    padding: 10px 15px;
+  }
+
+  &--size-as-font-small {
     font-size: 14px;
   }
 
