@@ -35,4 +35,14 @@
       line-height: 30px;
     }
   }
+
+  @include mobile() {
+    &__text {
+      max-width: 200px;
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: inherit;
+      text-wrap: balance;
+    }
+  }
 }

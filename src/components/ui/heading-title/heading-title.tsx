@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { HeadingTitleProps } from './heading-title.type';
-import Transition from '../transition';
+
+import Transition from '@/components/ui/transition';
 
 import './heading-title.scss';
 
