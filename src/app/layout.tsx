@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Toaster } from 'react-hot-toast';
 import { Analytics } from '@vercel/analytics/react';
+import { CSPostHogProvider } from './providers';
 import Config from '@/config.json';
 
 import Header from '@/components/shared/header';
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     siteName: 'Awesome Semantic Commit',
     images: [
       {
-        url: `${process.env.BASE_URL}/og-image.jpg`,
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: 'Guide to regular commit messages',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: Config.meta.general.title,
     description: Config.meta.general.description,
-    images: [`${process.env.BASE_URL}/twitter-meta-image.jpg`],
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/twitter-meta-image.jpg`],
   },
 };
 
@@ -51,12 +52,14 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <LanguageDetect />
-          <Header />
-          <Toaster containerClassName="toaster" />
-          <main className="main spacing--medium-y">{children}</main>
-          <Footer />
-          <Analytics />
+          <CSPostHogProvider>
+            <LanguageDetect />
+            <Header />
+            <Toaster containerClassName="toaster" />
+            <main className="main spacing--medium-y">{children}</main>
+            <Footer />
+            <Analytics />
+          </CSPostHogProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -9,7 +9,7 @@ import { commitGeneratorSchema } from '@/utils/schema';
 import { commitGeneratePrompt, commitTypes } from '@/utils/constants';
 import { useLocalStorage } from 'usehooks-ts';
 import { errorNotify, successNotify } from '@/utils/notification';
-import { track } from '@vercel/analytics/react';
+import posthog from 'posthog-js';
 import cx from 'classnames';
 
 import Box from '@/components/ui/box';
@@ -56,7 +56,8 @@ git push origin main`;
         setIsLoading(false);
         setIsCompleted(true);
         setGenerationMethod('manual');
-        track('Manual Commit Generation', {}, { flags: ['manual-commit-generation'] });
+        if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
+          posthog.capture('manual-commit-generation');
       }, 1000);
     }
 
@@ -100,7 +101,8 @@ git push origin main`;
         setCommitMessage(
           generateWithScope ? parsedCommitData.contentWithScope : parsedCommitData.content,
         );
-        track('AI Commit Generation', {}, { flags: ['ai-commit-generation'] });
+        if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
+          posthog.capture('ai-commit-generation');
       } catch (error: any) {
         setError(error);
         setIsLoading(false);
