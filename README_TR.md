@@ -34,6 +34,7 @@ Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amac�
 - [Nasıl Kullanılmaz?](#nasil-kullanilmaz)
 - [Sıkça Sorulan Sorular](#sikca-sorulan-sorular)
 - [Projeyi Çalıştırma](#projeyi-calistirma)
+- [Kullanılan Teknolojiler/Araçlar](#kullanilan-teknolojiler-araclar)
 - [Katkı Sağlama](#katki-saglama)
 - [Lisans](#lisans)
 
@@ -281,6 +282,18 @@ Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede 
    ```bash
    yarn start
    ```
+
+## Kullanılan Teknolojiler/Araçlar
+
+Bu proje, bu teknolojiler ve araçlar kullanılarak oluşturulmuştur.
+
+- **Framework**: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org)
+- **Styling**: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com)
+- **CSS Metodology**: [BEM](https://getbem.com/introduction)
+- **Formatter**: [Prettier](https://prettier.io)
+- **Code Editor**: [VS Code](https://code.visualstudio.com)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Other Tools**: [Eslint](https://eslint.org)
 
 ## Katkı Sağlama
 
