@@ -4,6 +4,7 @@
 
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
+@import '../../../styles/functions';
 
 .language-switcher {
   position: relative;
@@ -20,7 +21,7 @@
 
   &__inner {
     --text-color: #bfbfbf;
-    height: 32px;
+    height: px-to-rem(32px);
     display: flex;
     align-items: center;
     user-select: none;
@@ -39,9 +40,9 @@
     }
 
     &-container {
-      min-width: 80px;
+      min-width: px-to-rem(80px);
       height: 100%;
-      padding: 8px 15px 8px 10px;
+      padding: px-to-rem(8px) px-to-rem(15px) px-to-rem(8px) px-to-rem(10px);
       border-radius: 8px 0 0 8px;
       background-color: #3f3f3f;
       display: flex;
@@ -51,7 +52,7 @@
 
     &-icon {
       height: 100%;
-      padding: 8px 5px;
+      padding: px-to-rem(8px) px-to-rem(5px);
       border-left: 1px solid #2e2e2e;
       border-radius: 0 8px 8px 0;
       background-color: #3f3f3f;
@@ -66,7 +67,7 @@
   }
 
   &__text {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
     font-weight: 500;
     color: var(--text-color);
     transition: all 225ms;
@@ -76,9 +77,9 @@
     position: absolute;
     top: calc(32px + 5px); // 32px = inner height
     right: 0;
-    min-width: 135px;
-    max-width: 135px;
-    padding: 5px;
+    min-width: px-to-rem(135px);
+    max-width: px-to-rem(135px);
+    padding: px-to-rem(5px);
     border-radius: 8px;
     background-color: #3f3f3f;
     display: flex;
@@ -90,7 +91,7 @@
     transition: all 325ms;
 
     &-item {
-      padding: 7px;
+      padding: px-to-rem(7px);
       border-radius: 6px;
       display: flex;
       justify-content: space-between;
@@ -112,7 +113,7 @@
 
     &-icon {
       display: flex;
-      font-size: 12px;
+      font-size: px-to-rem(12px);
       color: $color-primary;
     }
   }
@@ -125,17 +126,17 @@
   @include smallMobile(){
     &__inner {
       &-container {
-        min-width: 65px;
+        min-width: px-to-rem(65px);
       }
     }
 
     &__text {
-      font-size: 12px;
+      font-size: px-to-rem(12px);
     }
 
     &__menu {
-      min-width: 110px;
-      max-width: 110px;
+      min-width: px-to-rem(110px);
+      max-width: px-to-rem(110px);
     }
   }
 }

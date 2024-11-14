@@ -3,6 +3,7 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .dropdown-menu {
   position: relative;
@@ -22,8 +23,8 @@
     top: calc(100% + var(--spacing-from-top, 100%));
     left: var(--spacing-from-left, 5px);
     min-width: max-content;
-    max-width: 200px;
-    padding: 5px;
+    max-width: px-to-rem(200px);
+    padding: px-to-rem(5px);
     border-radius: 8px;
     background-color: #3f3f3f;
     display: flex;
@@ -36,7 +37,7 @@
   }
 
   &__item {
-    padding: 7px;
+    padding: px-to-rem(7px);
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
@@ -57,7 +58,7 @@
   }
 
   &__text {
-    font-size: 16px;
+    font-size: px-to-rem(16px);
     font-weight: 400;
     color: var(--text-color);
     transition: all 225ms;
@@ -74,13 +75,13 @@
    */
   @include mobile(){
     &__text {
-      font-size: 14px;
+      font-size: px-to-rem(14px);
     }
   }
 
   @include smallMobile(){
     &__text {
-      font-size: 12px;
+      font-size: px-to-rem(12px);
     }
   }
 }

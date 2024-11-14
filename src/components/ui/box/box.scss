@@ -4,9 +4,10 @@
 
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
+@import '../../../styles/functions';
 
 .box {
-  padding: 20px;
+  padding: px-to-rem(20px);
   border: 1px solid rgb(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #f8f8f8;
@@ -16,30 +17,30 @@
   overflow-x: auto;
 
   & > *:not(:first-child) {
-    margin-top: 10px;
+    margin-top: px-to-rem(10px);
   }
 
   &__title {
-    font-size: 16px;
+    font-size: px-to-rem(16px);
     font-weight: 500;
-    line-height: 22px;
+    line-height: px-to-rem(22px);
     color: #4c4c4c;
 
     &--size-medium {
-      font-size: 18px;
-      line-height: 24px;
+      font-size: px-to-rem(18px);
+      line-height: px-to-rem(24px);
     }
   }
 
   &__text {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
     font-weight: 400;
-    line-height: 22px;
+    line-height: px-to-rem(22px);
     color: #4c4c4c;
   }
 
   &__list {
-    padding-left: 3px;
+    padding-left: px-to-rem(3px);
     display: flex;
     flex-direction: column;
 
@@ -50,11 +51,11 @@
 
       &::before {
         content: '';
-        min-width: 5px;
-        max-width: 5px;
-        height: 5px;
-        margin-top: 9px;
-        margin-right: 5px;
+        min-width: px-to-rem(5px);
+        max-width: px-to-rem(5px);
+        height: px-to-rem(5px);
+        margin-top: px-to-rem(9px);
+        margin-right: px-to-rem(5px);
         border-radius: 999px;
         background-color: #4c4c4c;
       }
@@ -62,7 +63,7 @@
   }
 
   &__icon {
-    font-size: 18px;
+    font-size: px-to-rem(18px);
     display: flex;
     color: #000000;
 
@@ -87,32 +88,32 @@
    *
    */
   @include mobile() {
-    padding: 15px;
+    padding: px-to-rem(15px);
   }
 
   @include smallMobile() {
     &__title {
-      font-size: 14px;
+      font-size: px-to-rem(14px);
       font-weight: 500;
-      line-height: 20px;
+      line-height: px-to-rem(20px);
       color: #4c4c4c;
 
       &--size-medium {
-        font-size: 16px;
-        line-height: 22px;
+        font-size: px-to-rem(16px);
+        line-height: px-to-rem(22px);
       }
     }
 
     &__text {
-      font-size: 12px;
+      font-size: px-to-rem(12px);
       font-weight: 400;
-      line-height: 18px;
+      line-height: px-to-rem(18px);
       color: #4c4c4c;
     }
 
     &__list {
       &-item::before {
-        margin-top: 7px;
+        margin-top: px-to-rem(7px);
       }
     }
   }

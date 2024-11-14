@@ -3,6 +3,7 @@
 //
 
 @import './mixins';
+@import './functions';
 
 .overflow-initial {
   overflow: initial !important;
@@ -48,14 +49,14 @@
 }
 
 .section-text {
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 400;
-  line-height: 24px;
+  line-height: px-to-rem(24px);
   color: #4c4c4c;
 
   &--small {
-    font-size: 12px;
-    line-height: 22px;
+    font-size: px-to-rem(12px);
+    line-height: px-to-rem(22px);
   }
 }
 
@@ -76,19 +77,19 @@
 
   &--xsmall-y {
     & > *:not(:first-child) {
-      margin-top: 5px !important;
+      margin-top: px-to-rem(5px) !important;
     }
   }
 
   &--small-x {
     & > *:not(:first-child) {
-      margin-left: 10px !important;
+      margin-left: px-to-rem(10px) !important;
     }
   }
 
   &--medium-y {
     & > *:not(:first-child) {
-      margin-top: 40px !important;
+      margin-top: px-to-rem(40px) !important;
     }
   }
 }

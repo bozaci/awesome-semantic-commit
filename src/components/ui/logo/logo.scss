@@ -3,21 +3,22 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .logo {
   &--area-header &__img {
-    min-width: 190px;
-    max-width: 190px;
+    min-width: px-to-rem(190px);
+    max-width: px-to-rem(190px);
   }
 
   &--area-header-single &__img {
-    min-width: 50px;
-    max-width: 50px;
+    min-width: px-to-rem(50px);
+    max-width: px-to-rem(50px);
   }
 
   &--area-footer &__img {
-    min-width: 225px;
-    max-width: 225px;
+    min-width: px-to-rem(225px);
+    max-width: px-to-rem(225px);
   }
 
   /**
@@ -27,8 +28,8 @@
    */
   @include smallMobile() {
     &--area-header &__img {
-      min-width: 170px;
-      max-width: 170px;
+      min-width: px-to-rem(170px);
+      max-width: px-to-rem(170px);
     }
   }
 }

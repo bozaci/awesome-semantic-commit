@@ -4,18 +4,19 @@
 
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
+@import '../../../styles/functions';
 
 .badge {
   width: max-content;
-  padding: 0 7px;
+  padding: 0 px-to-rem(7px);
   border-radius: 3px;
   background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 400;
-  line-height: 22px;
+  line-height: px-to-rem(22px);
   color: #fff;
   z-index: 15;
 
@@ -64,16 +65,16 @@
   }
 
   &--size-small {
-    font-size: 12px;
+    font-size: px-to-rem(12px);
   }
 
   &--size-medium {
-    padding: 5px 10px;
+    padding: px-to-rem(5px) px-to-rem(10px);
   }
 
   &--with-copy-clipboard {
     align-items: flex-start;
-    padding-right: 5px;
+    padding-right: px-to-rem(5px);
   }
 
   &.has-rounded {
@@ -89,23 +90,23 @@
     display: flex;
 
     &--align-left {
-      margin-right: 2px;
+      margin-right: px-to-rem(2px);
     }
 
     &--align-right {
-      margin-left: 2px;
+      margin-left: px-to-rem(2px);
     }
   }
 
   &__copy-button {
-    margin-left: 5px;
-    padding: 0 7px;
+    margin-left: px-to-rem(5px);
+    padding: 0 px-to-rem(7px);
     border-radius: 999px;
     background-color: #ececec;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: px-to-rem(12px);
     color: #4c4c4c;
     transition: all 225ms;
 
@@ -131,11 +132,11 @@
    *
    */
   @include smallMobile() {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: px-to-rem(12px);
+    line-height: px-to-rem(20px);
 
     &--size-small {
-      font-size: 10px;
+      font-size: px-to-rem(10px);
     }
   }
 }

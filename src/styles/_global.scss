@@ -2,6 +2,8 @@
 // Global
 //
 
+@import './functions';
+
 @font-face {
   font-family: 'Inter';
   font-weight: 400;
@@ -36,6 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
+  font-size: $base-font-size-value;
   letter-spacing: -0.5px;
 }
 
@@ -63,7 +66,7 @@ body {
 
 .toaster {
   font-family: 'Inter';
-  font-size: 14px;
+  font-size: px-to-rem(14px);
 
   /**
    *

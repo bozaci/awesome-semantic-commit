@@ -3,6 +3,7 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .social-media {
   display: flex;
@@ -19,20 +20,20 @@
   }
 
   &__item {
-    min-width: 32px;
-    max-width: 32px;
-    height: 32px;
+    min-width: px-to-rem(32px);
+    max-width: px-to-rem(32px);
+    height: px-to-rem(32px);
     border-radius: 999px;
     background-color: #3f3f3f;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: px-to-rem(18px);
     color: #bfbfbf;
     transition: all 225ms;
 
     &:not(:first-child) {
-      margin-left: 5px;
+      margin-left: px-to-rem(5px);
     }
 
     &:hover {
@@ -44,7 +45,7 @@
     &--with-text {
       max-width: initial;
       height: initial;
-      padding: 5px 10px;
+      padding: px-to-rem(5px) px-to-rem(10px);
     }
   }
 
@@ -53,10 +54,10 @@
   }
 
   &__text {
-    margin-left: 5px;
-    font-size: 14px;
+    margin-left: px-to-rem(5px);
+    font-size: px-to-rem(14px);
     font-weight: 500;
-    line-height: 24px;
+    line-height: px-to-rem(24px);
     color: #616161;
   }
 
@@ -67,8 +68,8 @@
    */
   @include smallMobile() {
     &__text {
-      font-size: 12px;
-      line-height: 22px;
+      font-size: px-to-rem(12px);
+      line-height: px-to-rem(22px);
     }
   }
 }

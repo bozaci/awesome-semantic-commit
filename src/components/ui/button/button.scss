@@ -4,18 +4,19 @@
 
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
+@import '../../../styles/functions';
 
 .button {
   border: 0;
   outline: 0;
-  padding: 8px 15px;
-  border-radius: 8px;
+  padding: px-to-rem(8px) px-to-rem(15px);
+  border-radius: px-to-rem(8px);
   background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Inter';
-  font-size: 16px;
+  font-size: px-to-rem(16px);
   font-weight: 400;
   text-align: center;
   transition: all 225ms;
@@ -78,16 +79,16 @@
 
   &--size-small {
     border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: px-to-rem(5px) px-to-rem(10px);
+    font-size: px-to-rem(14px);
   }
 
   &--size-medium {
-    padding: 10px 15px;
+    padding: px-to-rem(10px) px-to-rem(15px);
   }
 
   &--size-as-font-small {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
   }
 
   /**
@@ -96,10 +97,10 @@
    *
    */
   @include smallMobile() {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
 
     &--size-small {
-      font-size: 12px;
+      font-size: px-to-rem(12px);
     }
   }
 }

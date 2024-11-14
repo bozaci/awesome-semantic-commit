@@ -3,10 +3,11 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .announcement {
-  padding: 0 10px;
-  height: 50px;
+  padding: 0 px-to-rem(10px);
+  height: px-to-rem(50px);
   background-color: #5a5a5a;
   display: flex;
   align-items: center;
@@ -17,23 +18,23 @@
   }
 
   &__text {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
     font-weight: 400;
-    line-height: 22px;
+    line-height: px-to-rem(22px);
     color: #fff;
   }
 
   &__close {
-    min-width: 27px;
-    max-width: 27px;
-    height: 27px;
-    margin-left: 10px;
+    min-width: px-to-rem(27px);
+    max-width: px-to-rem(27px);
+    height: px-to-rem(27px);
+    margin-left: px-to-rem(10px);
     border-radius: 999px;
     background-color: #616161;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 19px;
+    font-size: px-to-rem(19px);
     color: #dddddd;
     transition: all 225ms;
 
@@ -50,9 +51,9 @@
    */
   @include smallMobile() {
     &__close {
-      min-width: 24.5px;
-      max-width: 24.5px;
-      height: 24.5px;
+      min-width: px-to-rem(24.5px);
+      max-width: px-to-rem(24.5px);
+      height: px-to-rem(24.5px);
     }
   }
 }

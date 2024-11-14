@@ -4,12 +4,13 @@
 
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
+@import '../../../styles/functions';
 
 .link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 400;
   color: $color-primary;
   transition: all 325ms;
@@ -39,7 +40,7 @@
   }
 
   &__icon {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
     display: flex;
     transition: all 325ms;
   }
@@ -50,6 +51,6 @@
    *
    */
   @include smallMobile() {
-    font-size: 12px;
+    font-size: px-to-rem(12px);
   }
 }

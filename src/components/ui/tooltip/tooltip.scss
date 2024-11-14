@@ -3,6 +3,7 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .tooltip {
   position: relative;
@@ -62,8 +63,8 @@
   &__menu {
     position: absolute;
     width: max-content;
-    max-width: 230px;
-    padding: 15px;
+    max-width: px-to-rem(230px);
+    padding: px-to-rem(15px);
     border-radius: 8px;
     background-color: #454545;
     display: flex;
@@ -76,14 +77,14 @@
     pointer-events: none;
 
     & > *:not(:first-child) {
-      margin-top: 10px;
+      margin-top: px-to-rem(10px);
     }
   }
 
   &__text {
-    font-size: 12px;
+    font-size: px-to-rem(12px);
     font-weight: 400;
-    line-height: 16px;
+    line-height: px-to-rem(16px);
     color: #b8b8b8;
   }
 
@@ -94,12 +95,12 @@
    */
   @include smallMobile() {
     &__menu {
-      padding: 10px;
+      padding: px-to-rem(10px);
     }
 
     &__text {
-      font-size: 10px;
-      line-height: 14px;
+      font-size: px-to-rem(10px);
+      line-height: px-to-rem(14px);
     }
   }
 }

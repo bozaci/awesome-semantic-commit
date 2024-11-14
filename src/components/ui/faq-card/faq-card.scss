@@ -3,6 +3,7 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .faq-card {
   border: 1px solid #ececec;
@@ -18,33 +19,33 @@
   }
 
   &__header {
-    padding: 10px 15px;
+    padding: px-to-rem(10px) px-to-rem(15px);
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   &__title {
-    font-size: 18px;
+    font-size: px-to-rem(18px);
     font-weight: 500;
-    line-height: 28px;
+    line-height: px-to-rem(28px);
     color: #000000;
   }
 
   &__text {
-    font-size: 14px;
+    font-size: px-to-rem(14px);
     font-weight: 400;
-    line-height: 24px;
+    line-height: px-to-rem(24px);
     color: #4c4c4c;
 
     &--small {
-      font-size: 12px;
-      line-height: 22px;
+      font-size: px-to-rem(12px);
+      line-height: px-to-rem(22px);
     }
   }
 
   &__arrow-icon {
-    margin-left: 5px;
+    margin-left: px-to-rem(5px);
   }
 
   &__icon {
@@ -59,7 +60,7 @@
 
     &-inner {
       border-top: 1px solid #f0f0f0;
-      padding: 15px;
+      padding: px-to-rem(15px);
       display: flex;
       flex-direction: column;
     }
@@ -70,7 +71,7 @@
     flex-direction: column;
 
     &-item:not(:first-child) {
-      margin-top: 10px;
+      margin-top: px-to-rem(10px);
     }
   }
 
@@ -81,17 +82,17 @@
    */
   @include smallMobile() {
     &__title {
-      font-size: 16px;
-      line-height: 26px;
+      font-size: px-to-rem(16px);
+      line-height: px-to-rem(26px);
     }
 
     &__text {
-      font-size: 12px;
-      line-height: 20px;
+      font-size: px-to-rem(12px);
+      line-height: px-to-rem(20px);
 
       &--small {
-        font-size: 10px;
-        line-height: 18px;
+        font-size: px-to-rem(10px);
+        line-height: px-to-rem(18px);
       }
     }
   }

@@ -3,23 +3,24 @@
 //
 
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .header {
-  height: 80px;
+  height: px-to-rem(80px);
   background-color: #303030;
   display: flex;
   align-items: center;
 
   &__horizontal-line {
     width: 1px;
-    height: 20px;
-    margin: 0 15px;
+    height: px-to-rem(20px);
+    margin: 0 px-to-rem(15px);
     background-color: rgb(255, 255, 255, 0.1);
   }
 
   &__brace {
-    margin: 0 15px;
-    font-size: 32px;
+    margin: 0 px-to-rem(15px);
+    font-size: px-to-rem(32px);
     color: #3b3b3b;
     user-select: none;
     -webkit-user-select: none;
@@ -52,7 +53,7 @@
       transition: all 325ms;
 
       &:not(:first-child) {
-        margin-left: 15px;
+        margin-left: px-to-rem(15px);
       }
 
       &:hover {
@@ -70,17 +71,17 @@
     }
 
     &-text {
-      font-size: 16px;
+      font-size: px-to-rem(15px);
       font-weight: 400;
-      line-height: 26px;
+      line-height: px-to-rem(26px);
       color: var(--text-color);
       transition: all 225ms;
     }
 
     &-icon {
-      margin-left: 2px;
+      margin-left: px-to-rem(2px);
       display: flex;
-      font-size: 12px;
+      font-size: px-to-rem(12px);
       color: #b5b5b5;
       transition:
         color 225ms,
@@ -95,28 +96,28 @@
    */
   @include mobile() {
     &__brace {
-      margin: 0 10px;
+      margin: 0 px-to-rem(10px);
     }
 
     &__navigation {
       &-text {
-        font-size: 14px;
-        line-height: 18px;
+        font-size: px-to-rem(14px);
+        line-height: px-to-rem(18px);
       }
     }
   }
 
   @include smallMobile() {
     &__brace {
-      margin: 0 10px;
-      font-size: 20px;
+      margin: 0 px-to-rem(10px);
+      font-size: px-to-rem(20px);
     }
 
     &__navigation {
       &-text {
         width: max-content;
-        font-size: 12px;
-        line-height: 16px;
+        font-size: px-to-rem(12px);
+        line-height: px-to-rem(16px);
       }
     }
   }

@@ -3,6 +3,7 @@
 //
 
 @import '../../../styles/variables';
+@import '../../../styles/functions';
 
 .switch {
   &__input:checked ~ &__inner &__circle,
@@ -20,10 +21,10 @@
   }
 
   &__inner {
-    min-width: 34px;
-    max-width: 34px;
-    height: 18px;
-    padding: 3px;
+    min-width: px-to-rem(34px);
+    max-width: px-to-rem(34px);
+    height: px-to-rem(18px);
+    padding: px-to-rem(3px);
     border-radius: 999px;
     background-color: #e3e3e3;
     display: flex;
@@ -37,8 +38,8 @@
   }
 
   &__circle {
-    min-width: 12px;
-    max-width: 12px;
+    min-width: px-to-rem(12px);
+    max-width: px-to-rem(12px);
     height: 100%;
     border-radius: 999px;
     background-color: #fff;

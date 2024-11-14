@@ -3,16 +3,17 @@
 //
 
 @import './mixins';
+@import './functions';
 
 .form {
   display: flex;
   flex-direction: column;
 
   &__label {
-    margin-bottom: 5px;
-    font-size: 16px;
+    margin-bottom: px-to-rem(5px);
+    font-size: px-to-rem(16px);
     font-weight: 500;
-    line-height: 26px;
+    line-height: px-to-rem(26px);
     color: #000000;
   }
 
@@ -21,7 +22,7 @@
     flex-direction: column;
 
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: px-to-rem(15px);
     }
 
     &--row {
@@ -34,9 +35,9 @@
   }
 
   &__help-message {
-    font-size: 12px;
+    font-size: px-to-rem(12px);
     font-weight: 400;
-    line-height: 22px;
+    line-height: px-to-rem(22px);
     color: #000000;
 
     &--error {
@@ -51,13 +52,13 @@
    */
   @include smallMobile() {
     &__label {
-      font-size: 14px;
-      line-height: 24px;
+      font-size: px-to-rem(14px);
+      line-height: px-to-rem(24px);
     }
 
     &__help-message {
-      font-size: 10px;
-      line-height: 20px;
+      font-size: px-to-rem(10px);
+      line-height: px-to-rem(20px);
     }
   }
 }

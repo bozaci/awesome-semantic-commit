@@ -4,18 +4,19 @@
 
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
+@import '../../../styles/functions';
 
 .input {
   border: 0;
   outline: 0;
   width: 100%;
-  height: 37px;
-  padding: 8px 12px;
+  height: px-to-rem(37px);
+  padding: px-to-rem(8px) px-to-rem(12px);
   border: 2px solid #e5e5e5;
   border-radius: 6px;
   background-color: #fff;
   font-family: 'Inter';
-  font-size: 14px;
+  font-size: px-to-rem(14px);
   font-weight: 400;
   color: #000000;
   transition: all 225ms;
@@ -52,20 +53,20 @@
       align-items: center;
 
       & > *:not(:first-child) {
-        margin-left: 5px;
+        margin-left: px-to-rem(5px);
       }
     }
 
     &__button-item {
-      min-width: 23px;
-      max-width: 23px;
-      height: 23px;
+      min-width: px-to-rem(23px);
+      max-width: px-to-rem(23px);
+      height: px-to-rem(23px);
       border-radius: 3px;
       background-color: #ececec;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 17px;
+      font-size: px-to-rem(17px);
       color: #4c4c4c;
       transition: all 225ms;
 
@@ -87,6 +88,6 @@
    *
    */
   @include smallMobile() {
-    font-size: 12px;
+    font-size: px-to-rem(12px);
   }
 }
