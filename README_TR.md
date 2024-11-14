@@ -1,16 +1,14 @@
 [![Awesome Semantic Commit](banner-tr.png)](https://semanticcommit.com)
 
-<div align="center">
-   <h1 align="center">Awesome Semantic Commit</h1>
+# Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
-   <a href="https://awesome.re" target="_blank">
-      <img src="https://awesome.re/badge-flat2.svg" alt="awesome" />
-   </a><br />
-   <a href="https://semanticcommit.com" target="_blank">
-      <img src="https://img.shields.io/badge/website-ziyaret et-red?style=for-the-badge" alt="awesome semantic commit website" />
-   </a>
+> Düzenli commit mesajları için rehber.
+
+Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amacı, commit mesajlarının (yani kodda yapılan her değişikliğe ilişkin mesajların) daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede geliştiriciler, kodda hangi değişikliklerin, neden ve ne zaman yapıldığını daha kolay anlayabilirler.
+
+<div>
    <a href="https://semanticcommit.com/commit-generator" target="_blank">
-   <img src="https://img.shields.io/badge/commit oluşturucu-oluştur-red?style=for-the-badge" alt="twitter" />
+      <img src="https://img.shields.io/badge/commit oluşturucu-oluştur-red?style=for-the-badge" alt="twitter" />
    </a>
    <a href="https://twitter.com/yusufbozaci_" target="_blank">
    <img src="https://img.shields.io/badge/twitter-takip et-1DA1F2?style=for-the-badge" alt="twitter" />
@@ -21,22 +19,16 @@
    <img src="https://img.shields.io/badge/T%C3%BCrk%C3%A7e-gray?style=for-the-badge" alt="türkçe" />
 </div>
 
-Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amacı, commit mesajlarının (yani kodda yapılan her değişikliğe ilişkin mesajların) daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede geliştiriciler, kodda hangi değişikliklerin, neden ve ne zaman yapıldığını daha kolay anlayabilirler.
-
-> Semantic Commit hakkında daha fazla bilgi edinmek için [buraya tıklayarak](https://semanticcommit.com) web sitesini ziyaret edebilirsiniz.
->  <br />Proje hoşunuza gittiyse, GitHub'da ⭐ vererek destek olmayı unutmayın!
-
 ## İçindekiler
 
-- [Neden Önemli?](#neden-onemli)
-- [Commit Mesajı Yapısı](#commit-mesaj-yapisi)
-- [Nasıl Kullanılır?](#nasıl-kullanilir)
-- [Nasıl Kullanılmaz?](#nasıl-kullanilmaz)
+- [Neden Önemli?](#neden-önemli)
+- [Commit Mesajı Yapısı](#commit-mesaj-yapısı)
+- [Nasıl Kullanılır?](#nasıl-kullanılır)
+- [Nasıl Kullanılmaz?](#nasıl-kullanılmaz)
 - [Sıkça Sorulan Sorular](#sıkça-sorulan-sorular)
 - [Kullanılan Teknolojiler/Araçlar](#kullanılan-teknolojileraraçlar)
 - [Projeyi Çalıştırma](#projeyi-çalıştırma)
-- [Katkı Sağlama](#katki-sağlama)
-- [Lisans](#lisans)
+- [Katkı Sağlama](#katkı-sağlama)
 
 ## Neden Önemli?
 
