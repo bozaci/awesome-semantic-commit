@@ -8,7 +8,6 @@ import Config from '@/config.json';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer/footer';
-import LanguageDetect from '@/components/ui/language-detect';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
@@ -53,7 +52,6 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <CSPostHogProvider>
-            <LanguageDetect />
             <Header />
             <Toaster containerClassName="toaster" />
             <main className="main spacing--medium-y">{children}</main>
