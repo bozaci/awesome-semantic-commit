@@ -38,7 +38,7 @@ module.exports = withSentryConfig(module.exports, {
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
   org: 'personal-jhm',
-  project: 'javascript-nextjs',
+  project: 'awesome-semantic-commit',
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
