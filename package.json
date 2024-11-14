@@ -7,8 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint-staged": "lint-staged",
+    "format": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "prepare": "husky"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -55,9 +59,11 @@
     "eslint-config-next": "14.2.15",
     "eslint-plugin-jest-dom": "^5.4.0",
     "eslint-plugin-testing-library": "^6.4.0",
+    "husky": "^9.1.6",
     "install": "^0.13.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.10",
     "npm": "^10.9.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5"
