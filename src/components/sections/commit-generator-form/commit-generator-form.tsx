@@ -6,7 +6,7 @@ import { Formik, Form, Field } from 'formik';
 import { Info, FloppyDisk } from '@phosphor-icons/react/dist/ssr';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { commitGeneratorSchema } from '@/utils/schema';
-import { commitGeneratePrompt, commitTypes } from '@/utils/constants';
+import { commitTypes } from '@/utils/constants';
 import { useLocalStorage } from 'usehooks-ts';
 import { errorNotify, successNotify } from '@/utils/notification';
 import posthog from 'posthog-js';
@@ -65,42 +65,35 @@ git push origin main`;
     if (generateWithAI && (summary || googleGeminiApiKey)) {
       try {
         const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${googleGeminiApiKey}`,
+          `/api/generate-commit?apiKey=${googleGeminiApiKey}&summary=${summary}`,
           {
-            method: 'POST',
+            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              contents: [
-                {
-                  parts: [{ text: commitGeneratePrompt(summary) }],
-                },
-              ],
-            }),
           },
         );
-        const data = await response.json();
-        setGenerationMethod('ai');
 
-        if (data?.error) {
-          setError(data.error.message);
+        if (response.status === 404) {
+          setError('Failed to fetch.');
           setIsLoading(false);
           setIsCompleted(true);
           return;
         }
 
-        const replacedCommitData = data.candidates[0].content.parts[0].text
-          .replace(/```json\s*/g, '')
-          .replace(/```/g, '')
-          .replace(/'/g, '"');
-        const parsedCommitData = JSON.parse(replacedCommitData);
+        const data = await response.json();
+        setGenerationMethod('ai');
+
+        if (data?.status === 'error') {
+          setError(data.message);
+          setIsLoading(false);
+          setIsCompleted(true);
+          return;
+        }
 
         setIsLoading(false);
         setIsCompleted(true);
-        setCommitMessage(
-          generateWithScope ? parsedCommitData.contentWithScope : parsedCommitData.content,
-        );
+        setCommitMessage(generateWithScope ? data.body.contentWithScope : data.body.content);
         if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
           posthog.capture('ai-commit-generation');
       } catch (error: any) {
@@ -230,7 +223,7 @@ git push origin main`;
                 scope: '',
                 subject: '',
                 summary: '',
-                googleGeminiApiKey: apiKeyInLocalStorage,
+                googleGeminiApiKey: apiKeyInLocalStorage || '',
                 generateWithScope: true,
                 generateWithAI: isAIEnabled,
               }}
