@@ -194,9 +194,15 @@ git push origin main`;
                     </Box.Group>
                   </Box.Group>
                   <Box.Group>
-                    <Button onClick={handleResetCommitGenerate} theme="primary" size="small">
-                      {generalT('generateCommitAgain')}
-                    </Button>
+                    {generationMethod === 'ai' ? (
+                      <Button onClick={handleResetCommitGenerate} theme="gemini" size="small">
+                        {generalT('generateCommitAgain')}
+                      </Button>
+                    ) : (
+                      <Button onClick={handleResetCommitGenerate} theme="primary" size="small">
+                        {generalT('generateCommitAgain')}
+                      </Button>
+                    )}
                   </Box.Group>
                 </>
               ) : (
@@ -209,9 +215,15 @@ git push origin main`;
                     <Box.Text>{error}</Box.Text>
                   </Box.Group>
                   <Box.Group>
-                    <Button onClick={handleResetCommitGenerate} theme="primary" size="small">
-                      {generalT('generateCommitAgain')}
-                    </Button>
+                    {generationMethod === 'ai' ? (
+                      <Button onClick={handleResetCommitGenerate} theme="gemini" size="small">
+                        {generalT('generateCommitAgain')}
+                      </Button>
+                    ) : (
+                      <Button onClick={handleResetCommitGenerate} theme="primary" size="small">
+                        {generalT('generateCommitAgain')}
+                      </Button>
+                    )}
                   </Box.Group>
                 </>
               )}
@@ -219,7 +231,7 @@ git push origin main`;
           ) : (
             <Formik
               initialValues={{
-                type: selectedType,
+                type: selectedType || commitTypes[0],
                 scope: '',
                 subject: '',
                 summary: '',
@@ -421,10 +433,16 @@ git push origin main`;
                       size="default"
                       type="submit"
                       className={cx({
-                        'button--theme-primary': !isLoading,
-                        'button--theme-ghost-dark': isLoading,
+                        'button--theme-primary': !isLoading && !values.generateWithAI,
+                        'button--theme-gemini': (isLoading || !isLoading) && values.generateWithAI,
+                        'button--theme-ghost-dark': isLoading && !values.generateWithAI,
                       })}
-                      disabled={isLoading}
+                      disabled={
+                        isLoading ||
+                        (values.generateWithAI &&
+                          (!values.summary || !values.googleGeminiApiKey ? true : false)) ||
+                        (!values.generateWithAI && (!values.type || !values.subject ? true : false))
+                      }
                     >
                       {isLoading ? (
                         <>

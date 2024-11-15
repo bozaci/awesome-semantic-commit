@@ -77,6 +77,33 @@
     }
   }
 
+  &--theme-gemini {
+    position: relative;
+    background: linear-gradient(90deg, #688ae9, #c66d7b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    z-index: 1;
+
+    &:hover::before {
+      opacity: 0.2;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #688ae9, #c66d7b);
+      opacity: 0.1;
+      transition: all 225ms;
+    }
+  }
+
   &--size-small {
     border-radius: 5px;
     padding: px-to-rem(5px) px-to-rem(10px);
@@ -107,4 +134,5 @@
 
 .button[disabled] {
   pointer-events: none;
+  opacity: 0.5;
 }

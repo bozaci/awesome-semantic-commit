@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ButtonProps {
-  theme: 'default' | 'primary' | 'white' | 'gray' | 'ghost-dark' | 'ghost-gray';
+  theme: 'default' | 'primary' | 'white' | 'gray' | 'ghost-dark' | 'ghost-gray' | 'gemini';
   size: 'default' | 'small' | 'medium';
   sizeAsFont?: 'small';
   href?: string;
