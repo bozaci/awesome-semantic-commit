@@ -9,7 +9,7 @@ const CommitMessageType = () => {
   const generalT = useTranslations('general');
 
   return (
-    <section className="commit-message-type">
+    <section className="commit-message-type scroll-margin-top-medium" id="commit-message-structure">
       <div className="container">
         <HeadingTitle text={t('title')} />
         <Box>

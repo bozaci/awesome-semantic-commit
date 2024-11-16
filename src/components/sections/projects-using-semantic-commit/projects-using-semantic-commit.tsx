@@ -34,7 +34,10 @@ const ProjectsUsingSemanticCommit = () => {
   };
 
   return (
-    <section className="projects-using-semantic-commit">
+    <section
+      className="projects-using-semantic-commit scroll-margin-top-medium"
+      id="projects-using-semantic-commit"
+    >
       <div className="container">
         <HeadingTitle text={t('title')} />
 

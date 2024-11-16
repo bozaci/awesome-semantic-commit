@@ -80,7 +80,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="faq">
+    <section className="faq scroll-margin-top-medium" id="faq">
       <div className="container">
         <HeadingTitle text={t('title')} />
 

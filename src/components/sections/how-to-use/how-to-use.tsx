@@ -8,7 +8,7 @@ const HowToUse = () => {
   const t = useTranslations('howToUse');
 
   return (
-    <section className="how-to-use">
+    <section className="how-to-use scroll-margin-top-medium" id="how-to-use">
       <div className="container">
         <HeadingTitle text={t('title')} />
         <Box>

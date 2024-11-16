@@ -10,7 +10,7 @@ const HowToNotUse = () => {
   const generalT = useTranslations('general');
 
   return (
-    <section className="commit-message-type">
+    <section className="commit-message-type scroll-margin-top-medium" id="how-to-not-use">
       <div className="container">
         <HeadingTitle text={t('title')} />
         <Box>

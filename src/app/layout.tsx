@@ -4,10 +4,12 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { Toaster } from 'react-hot-toast';
 import { Analytics } from '@vercel/analytics/react';
 import { CSPostHogProvider } from './providers';
+import { getTranslations } from 'next-intl/server';
 import Config from '@/config.json';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer/footer';
+import Headings from '@/components/ui/headings';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
@@ -46,6 +48,33 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const t = await getTranslations();
+  const headingsData = [
+    {
+      title: t('whyImportant.title'),
+      href: '#why-is-it-important',
+    },
+    {
+      title: t('commitMessageType.title'),
+      href: '#commit-message-structure',
+    },
+    {
+      title: t('howToUse.title'),
+      href: '#how-to-use',
+    },
+    {
+      title: t('howToNotUse.title'),
+      href: '#how-to-not-use',
+    },
+    {
+      title: t('projectsUsingSemanticCommit.title'),
+      href: '#projects-using-semantic-commit',
+    },
+    {
+      title: t('faq.title'),
+      href: '#faq',
+    },
+  ];
 
   return (
     <html lang={locale}>
@@ -54,6 +83,7 @@ export default async function RootLayout({
           <CSPostHogProvider>
             <Header />
             <Toaster containerClassName="toaster" />
+            <Headings data={headingsData} />
             <main className="main spacing--medium-y">{children}</main>
             <Footer />
             <Analytics />

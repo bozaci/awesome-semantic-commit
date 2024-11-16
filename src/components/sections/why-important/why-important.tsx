@@ -7,7 +7,7 @@ const WhyImportant = () => {
   const t = useTranslations('whyImportant');
 
   return (
-    <section className="why-important">
+    <section className="why-important scroll-margin-top-medium" id="why-is-it-important">
       <div className="container">
         <HeadingTitle text={t('title')} />
         <Box>
