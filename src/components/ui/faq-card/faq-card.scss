@@ -18,6 +18,10 @@
     border-color: #e2e2e2;
   }
 
+  &.is-active &__arrow-icon {
+    transform: rotateX(180deg);
+  }
+
   &__header {
     padding: px-to-rem(10px) px-to-rem(15px);
     display: flex;
@@ -46,6 +50,8 @@
 
   &__arrow-icon {
     margin-left: px-to-rem(5px);
+    display: flex;
+    transition: all 500ms;
   }
 
   &__icon {
