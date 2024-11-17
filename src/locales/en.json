@@ -34,7 +34,7 @@
     "saveAPIKeyErrorMessage": "You must enter the Google Gemini API key.",
     "saveAPIKeySuccessMessage": "Google Gemini API key has been successfully saved.",
     "saveAPIKeyAlreadyMessage": "Google Gemini API key is already saved.",
-    "summaryTooltip": "To get better results, you should use the phrase 'a new login page has been added.' instead of 'new login page'. Otherwise, the AI may produce different results.",
+    "summaryTooltip": "To get better results, you should use the phrase 'added user authentication system' instead of 'add user authentication system.' Otherwise, the AI may produce different results, and you may get more accurate results in English.",
     "loadMoreProject": "Load More Projects",
     "loadingProjects": "Loading projects..",
     "reachedProjects": "You have reached the end of the projects."

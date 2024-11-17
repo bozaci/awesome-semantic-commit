@@ -34,7 +34,7 @@
     "saveAPIKeyErrorMessage": "Google Gemini API anahtarını girmelisiniz.",
     "saveAPIKeySuccessMessage": "Başarılı bir şekilde Google Gemini API anahtarı kaydedildi.",
     "saveAPIKeyAlreadyMessage": "Google Gemini API anahtarı zaten kaydedilmiş.",
-    "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'yeni giriş sayfa' yerine 'yeni giriş sayfası eklendi.' ifadesini kullanmalısınız. Aksi takdirde yapay zeka farklı sonuçlar oluşturabilir.",
+    "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'add user authentication system' yerine 'added user authentication system' ifadesini kullanmalısınız. Aksi takdirde, yapay zeka farklı sonuçlar üretebilir ve İngilizce olarak daha doğru sonuçlar alabilirsiniz.",
     "loadMoreProject": "Daha Fazla Proje Yükle",
     "loadingProjects": "Projeler yükleniyor..",
     "reachedProjects": "Tüm projeleri görüntülediniz."
