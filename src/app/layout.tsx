@@ -83,7 +83,7 @@ export default async function RootLayout({
           <CSPostHogProvider>
             <Header />
             <Toaster containerClassName="toaster" />
-            <Headings data={headingsData} />
+            <Headings data={headingsData} activePathname="/" />
             <main className="main spacing--medium-y">{children}</main>
             <Footer />
             <Analytics />

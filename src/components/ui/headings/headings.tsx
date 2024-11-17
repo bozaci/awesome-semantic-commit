@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef, FC } from 'react';
 import { HeadingsProps } from './headings.type';
+import { usePathname } from 'next/navigation';
 import posthog from 'posthog-js';
 
 import './headings.scss';
 
-const Headings: FC<HeadingsProps> = ({ data }) => {
+const Headings: FC<HeadingsProps> = ({ data, activePathname }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
   const [clickCount, setClickCount] = useState<number>(0);
 
   const handleLogging = () => {
@@ -39,16 +41,20 @@ const Headings: FC<HeadingsProps> = ({ data }) => {
   }, []);
 
   return (
-    <div ref={ref} className="headings hidden@mobile">
-      <div onClick={handleLogging} className="headings__inner">
-        {data.map((item, index) => (
-          <a key={index} href={item.href} className="headings__item" aria-label={item.title}>
-            <div className="headings__circle"></div>
-            <p className="headings__text">{item.title}</p>
-          </a>
-        ))}
-      </div>
-    </div>
+    <>
+      {pathname === activePathname && (
+        <div ref={ref} className="headings hidden@mobile">
+          <div onClick={handleLogging} className="headings__inner">
+            {data.map((item, index) => (
+              <a key={index} href={item.href} className="headings__item" aria-label={item.title}>
+                <div className="headings__circle"></div>
+                <p className="headings__text">{item.title}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

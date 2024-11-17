@@ -5,4 +5,5 @@ type dataType = {
 
 export interface HeadingsProps {
   data: dataType[];
+  activePathname?: string;
 }
