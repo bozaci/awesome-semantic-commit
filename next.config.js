@@ -67,3 +67,8 @@ module.exports = withSentryConfig(module.exports, {
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
 });
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+module.exports = withBundleAnalyzer(module.exports);
