@@ -6,7 +6,7 @@ import Badge from '@/components/ui/badge';
 import CommitGeneratorForm from '@/components/sections/commit-generator-form';
 import CommitGeneratorFAQ from '@/components/sections/commit-generator-faq/commit-generator-faq';
 
-import geminiLogo from '@/assets/images/google-gemini-logo.svg';
+import geminiLogo from '@/assets/images/google-gemini-logo.png';
 
 const CommitGenerator = () => {
   const t = useTranslations('commitGenerator');
