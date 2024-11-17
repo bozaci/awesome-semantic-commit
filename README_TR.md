@@ -1,4 +1,4 @@
-[![Awesome Semantic Commit](banner-tr.png)](https://semanticcommit.com)
+[![Awesome Semantic Commit](banner-tr.png)](https://semanticcommit.com?utm_source=github&utm_medium=banner-tr&utm_campaign=analysis)
 
 # Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
@@ -7,7 +7,7 @@
 Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amacı, commit mesajlarının (yani kodda yapılan her değişikliğe ilişkin mesajların) daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede geliştiriciler, kodda hangi değişikliklerin, neden ve ne zaman yapıldığını daha kolay anlayabilirler.
 
 <div>
-   <a href="https://semanticcommit.com/commit-generator" target="_blank">
+   <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=badge-tr&utm_campaign=analysis" target="_blank">
       <img src="https://img.shields.io/badge/commit oluşturucu-oluştur-red?style=for-the-badge" alt="twitter" />
    </a>
    <a href="https://twitter.com/yusufbozaci_" target="_blank">

@@ -1,4 +1,4 @@
-[![Awesome Semantic Commit](banner.png)](https://semanticcommit.com)
+[![Awesome Semantic Commit](banner.png)](https://semanticcommit.com?utm_source=github&utm_medium=banner&utm_campaign=analysis)
 
 # Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
@@ -7,7 +7,7 @@
 Semantic Commit is a method used in software development. Its main purpose is to ensure that commit messages (i.e., messages associated with each change made to the code) are more meaningful and structured. This way, developers can more easily understand when, why, and what changes were made to the code.
 
 <div>
-   <a href="https://semanticcommit.com/commit-generator" target="_blank">
+   <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=badge&utm_campaign=analysis" target="_blank">
       <img src="https://img.shields.io/badge/commit generator-generate-red?style=for-the-badge" alt="twitter" />
    </a>
    <a href="https://twitter.com/yusufbozaci_" target="_blank">
