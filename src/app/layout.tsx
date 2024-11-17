@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Toaster } from 'react-hot-toast';
@@ -7,8 +8,8 @@ import { CSPostHogProvider } from './providers';
 import { getTranslations } from 'next-intl/server';
 import Config from '@/config.json';
 
-import Header from '@/components/shared/header';
-import Footer from '@/components/shared/footer/footer';
+const Header = dynamic(() => import('../components/shared/header'));
+const Footer = dynamic(() => import('../components/shared/footer'));
 import Headings from '@/components/ui/headings';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
