@@ -2,7 +2,7 @@
 
 # Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
-> Düzenli commit mesajları için rehber.
+> Düzenli commit mesajları için rehber
 
 Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amacı, commit mesajlarının (yani kodda yapılan her değişikliğe ilişkin mesajların) daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede geliştiriciler, kodda hangi değişikliklerin, neden ve ne zaman yapıldığını daha kolay anlayabilirler.
 

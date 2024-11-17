@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { Analytics } from '@vercel/analytics/react';
 import { CSPostHogProvider } from './providers';
 import { getTranslations } from 'next-intl/server';
+import type { Viewport } from 'next';
 import Config from '@/config.json';
 
 const Header = dynamic(() => import('../components/shared/header'));
@@ -40,6 +41,11 @@ export const metadata: Metadata = {
     description: Config.meta.general.description,
     images: [`${process.env.NEXT_PUBLIC_BASE_URL}/twitter-meta-image.jpg`],
   },
+};
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default async function RootLayout({

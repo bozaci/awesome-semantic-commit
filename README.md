@@ -2,7 +2,7 @@
 
 # Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
-> Guide to regular commit messages.
+> Guide to regular commit messages
 
 Semantic Commit is a method used in software development. Its main purpose is to ensure that commit messages (i.e., messages associated with each change made to the code) are more meaningful and structured. This way, developers can more easily understand when, why, and what changes were made to the code.
 
