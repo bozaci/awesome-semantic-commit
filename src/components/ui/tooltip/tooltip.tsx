@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef, FC } from 'react';
 import { TooltipProps } from './tooltip.type';
 import { useMediaQuery } from 'usehooks-ts';

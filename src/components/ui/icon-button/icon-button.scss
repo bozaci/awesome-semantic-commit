@@ -1,0 +1,32 @@
+//
+// Icon Button
+//
+
+.icon-button {
+  display: flex;
+  font-size: 16px;
+  color: var(--icon-button-icon-color, #000000);
+  transition: all 325ms;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--icon-button-icon-hover-color, #000000);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &--size-small {
+    font-size: 14px;
+  }
+
+  &--size-medium {
+    font-size: 20px;
+  }
+
+  &--size-big {
+    font-size: 24px;
+  }
+}

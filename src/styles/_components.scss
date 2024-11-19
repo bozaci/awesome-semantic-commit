@@ -9,6 +9,14 @@
   display: flex;
   flex-direction: column;
 
+  &.is-dark &__label {
+    color: #e3e3e3;
+  }
+
+  &.is-dark &__help-message {
+    color: #e3e3e3;
+  }
+
   &__label {
     margin-bottom: px-to-rem(5px);
     font-size: px-to-rem(16px);
@@ -41,7 +49,7 @@
     color: #000000;
 
     &--error {
-      color: $color-red;
+      color: $color-red !important;
     }
   }
 

@@ -14,6 +14,7 @@ const Button: FC<ButtonProps> = ({
   type,
   disabled,
   rounded,
+  fullWidth,
   onClick,
   className,
   children,
@@ -32,6 +33,7 @@ const Button: FC<ButtonProps> = ({
             [`button--size-${size}`]: size,
             [`button--size-as-font-${sizeAsFont}`]: sizeAsFont,
             'has-rounded': rounded,
+            'has-full-width': fullWidth,
           },
           className,
         )}
@@ -51,6 +53,7 @@ const Button: FC<ButtonProps> = ({
           [`button--size-${size}`]: size,
           [`button--size-as-font-${sizeAsFont}`]: sizeAsFont,
           'has-rounded': rounded,
+          'has-full-width': fullWidth,
         },
         className,
       )}

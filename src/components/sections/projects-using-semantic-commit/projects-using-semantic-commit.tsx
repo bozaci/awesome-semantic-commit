@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { projects } from '@/data/projectsList';
+import { PlusCircle } from '@phosphor-icons/react/dist/ssr';
+import { openModal } from '@/modals/utils/modalHooks';
 import Config from '@/config.json';
 
 import HeadingTitle from '@/components/ui/heading-title';
@@ -10,6 +12,7 @@ import ProjectCard from '@/components/ui/project-card';
 import Button from '@/components/ui/button';
 import Loader from '@/components/ui/loader';
 import Transition from '@/components/ui/transition';
+import IconButton from '@/components/ui/icon-button';
 
 const ProjectsUsingSemanticCommit = () => {
   const [maxShowProjects, setMaxShowProjects] = useState(Config.maxShowProjects);
@@ -39,7 +42,18 @@ const ProjectsUsingSemanticCommit = () => {
       id="projects-using-semantic-commit"
     >
       <div className="container">
-        <HeadingTitle text={t('title')} />
+        <HeadingTitle
+          text={t('title')}
+          titleChildrenAlign="right"
+          titleChildren={
+            <IconButton
+              onClick={() => openModal({ name: 'add-project' })}
+              size="medium"
+              icon={<PlusCircle />}
+              className="ms-2"
+            />
+          }
+        />
 
         <Transition>
           <div className="row g-3 g-lg-4">

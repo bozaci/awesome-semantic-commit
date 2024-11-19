@@ -1,0 +1,186 @@
+//
+// Modal
+//
+
+@import '../../../styles/mixins';
+@import '../../../styles/functions';
+
+.modal {
+  &__item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 0;
+    transition: all 225ms;
+    z-index: 350;
+
+    // used to prevent modals from overlapping.
+    &:not(:last-child) {
+      opacity: 0 !important;
+      visibility: hidden;
+    }
+
+    &.is-show {
+      display: flex;
+    }
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  &__item.is-active &__inner {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  &__inner {
+    min-width: px-to-rem(475px);
+    max-width: px-to-rem(475px);
+    height: max-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 15px;
+    background-color: #303030;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 325ms;
+  }
+
+  &__header {
+    padding: px-to-rem(20px);
+    border-bottom: 1px solid #181818;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__close {
+    min-width: px-to-rem(24px);
+    max-width: px-to-rem(24px);
+    height: px-to-rem(24px);
+    border-radius: 999px;
+    background-color: rgb(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #bbbbbb;
+    transition: all 225ms;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(255, 255, 255, 0.15);
+    }
+  }
+
+  &__title {
+    font-size: px-to-rem(24px);
+    font-weight: 500;
+    line-height: px-to-rem(34px);
+    color: #fff;
+
+    &--medium {
+      font-size: px-to-rem(22px);
+      line-height: px-to-rem(32px);
+    }
+  }
+
+  &__text {
+    font-size: px-to-rem(16px);
+    font-weight: 400;
+    line-height: px-to-rem(22px);
+    color: #b6b6b6;
+  }
+
+  &__body {
+    padding: px-to-rem(20px);
+    max-height: px-to-rem(600px);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    padding: px-to-rem(20px);
+    border-top: 1px solid #181818;
+
+    &.is-used-inner {
+      margin-left: px-to-rem(-20px);
+      margin-right: px-to-rem(-20px);
+      margin-bottom: px-to-rem(-20px);
+    }
+  }
+
+  /**
+   *
+   * Responsive
+   *
+   */
+  @include mobile() {
+    &__item {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    &__inner {
+      min-width: 100%;
+      max-width: 100%;
+      margin-bottom: initial;
+      border-radius: 15px 15px 0 0;
+    }
+
+    &__body {
+      max-height: px-to-rem(550px);
+    }
+  }
+
+  @include smallMobile() {
+    &__header {
+      padding: px-to-rem(15px);
+    }
+
+    &__close {
+      min-width: px-to-rem(20px);
+      max-width: px-to-rem(20px);
+      height: px-to-rem(20px);
+      font-size: px-to-rem(14px);
+    }
+
+    &__title {
+      font-size: px-to-rem(20px);
+      line-height: px-to-rem(30px);
+
+      &--medium {
+        font-size: px-to-rem(16px);
+        line-height: px-to-rem(26px);
+      }
+    }
+
+    &__text {
+      font-size: px-to-rem(14px);
+      line-height: px-to-rem(20px);
+    }
+
+    &__body {
+      max-height: px-to-rem(325px);
+      padding: px-to-rem(15px);
+    }
+
+    &__footer {
+      padding: px-to-rem(15px);
+    }
+  }
+}

@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { SocialMediaProps } from './social-media.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

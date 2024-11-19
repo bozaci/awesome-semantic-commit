@@ -5,14 +5,15 @@ export interface BadgeProps {
     | 'ghost-primary'
     | 'ghost-orange'
     | 'ghost-gray'
-    | 'dashed-orange'
-    | 'ghost-gradient-gemini';
+    | 'ghost-gradient-gemini'
+    | 'dashed-orange';
   size?: 'default' | 'small' | 'medium';
   icon?: any;
   iconAlign?: 'left' | 'right';
   copyText?: string;
   useWithCopyClipboard?: boolean;
   isRounded?: boolean;
+  isDark?: boolean;
   className?: string;
   children: React.ReactNode;
 }

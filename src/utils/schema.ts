@@ -25,3 +25,27 @@ export const commitGeneratorSchema = (t: any) =>
     generateWithScope: Yup.boolean(),
     generateWithAI: Yup.boolean(),
   });
+
+export const addProjectSchema = (t: any) =>
+  Yup.object().shape({
+    name: Yup.string().required(t('thisFieldRequired')),
+    logoURL: Yup.string()
+      .matches(
+        /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+        t('enterValidURL'),
+      )
+      .required(t('thisFieldRequired')),
+    website: Yup.string()
+      .matches(
+        /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+        t('enterValidURL'),
+      )
+      .required(t('thisFieldRequired')),
+    githubRepoURL: Yup.string()
+      .matches(
+        /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+        t('enterValidURL'),
+      )
+      .required(t('thisFieldRequired')),
+    projectOwner: Yup.boolean(),
+  });

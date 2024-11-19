@@ -5,12 +5,22 @@ import Transition from '@/components/ui/transition';
 
 import './heading-title.scss';
 
-const HeadingTitle: FC<HeadingTitleProps> = ({ text }) => {
+const HeadingTitle: FC<HeadingTitleProps> = ({ text, titleChildrenAlign, titleChildren }) => {
   return (
     <div className="heading-title">
-      <span className="heading-title__text">
-        <Transition>{text}</Transition>
-      </span>
+      {titleChildren ? (
+        <div className="d-flex align-items-center">
+          {titleChildrenAlign === 'left' && <>{titleChildren}</>}
+          <span className="heading-title__text">
+            <Transition>{text}</Transition>
+          </span>
+          {titleChildrenAlign === 'right' && <>{titleChildren}</>}
+        </div>
+      ) : (
+        <span className="heading-title__text">
+          <Transition>{text}</Transition>
+        </span>
+      )}
       <div className="heading-title__line"></div>
     </div>
   );

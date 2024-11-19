@@ -16,6 +16,7 @@ const Badge: FC<BadgeProps> = ({
   copyText,
   useWithCopyClipboard,
   isRounded,
+  isDark,
   className,
   children,
 }) => {
@@ -45,6 +46,7 @@ const Badge: FC<BadgeProps> = ({
           [`badge--size-${size}`]: size,
           'badge--with-copy-clipboard': useWithCopyClipboard,
           'has-rounded': isRounded,
+          'is-dark': isDark,
         },
         className,
       )}

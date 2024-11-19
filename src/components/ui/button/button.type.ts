@@ -9,6 +9,7 @@ export interface ButtonProps {
   type?: any;
   disabled?: boolean;
   rounded?: boolean;
+  fullWidth?: boolean;
   onClick?: any;
   className?: string;
   children: React.ReactNode;

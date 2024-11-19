@@ -6,6 +6,14 @@
 @import '../../../styles/functions';
 
 .switch {
+  &.is-dark &__inner {
+    background-color: #464646;
+  }
+
+  &.is-dark &__input:not(:checked) ~ &__inner:hover {
+    background-color: #565656;
+  }
+
   &__input:checked ~ &__inner &__circle,
   &__input[value='true'] ~ &__inner &__circle {
     transform: translateX(calc(100% + 4px));

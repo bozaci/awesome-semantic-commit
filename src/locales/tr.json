@@ -16,7 +16,15 @@
     "summary": "Özet",
     "generateCommit": "Commit Oluştur",
     "generateCommitAgain": "Yeniden Commit Oluştur",
+    "projectName": "Proje Adı",
+    "projectLogoURL": "Proje Logo URL",
+    "projectWebsite": "Proje Website",
+    "projectGithubRepoURL": "Proje GitHub Repo URL",
+    "projectOwner": "Proje Sahibiyim",
+    "addProjectTitle": "Proje Ekle",
+    "addProject": "Projeyi Ekle",
     "thisFieldRequired": "Bu alan zorunludur.",
+    "enterValidURL": "Lütfen geçerli bir URL giriniz.",
     "generatingCommit": "Commit Oluşturuluyor..",
     "generateCommitSuccessTitle": "Commit Başarıyla Oluşturuldu",
     "generateCommitErrorTitle": "Commit Oluşturulamadı",
@@ -37,7 +45,11 @@
     "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'add user authentication system' yerine 'added user authentication system' ifadesini kullanmalısınız. Aksi takdirde, yapay zeka farklı sonuçlar üretebilir ve İngilizce olarak daha doğru sonuçlar alabilirsiniz.",
     "loadMoreProject": "Daha Fazla Proje Yükle",
     "loadingProjects": "Projeler yükleniyor..",
-    "reachedProjects": "Tüm projeleri görüntülediniz."
+    "reachedProjects": "Tüm projeleri görüntülediniz.",
+    "addProjectErrorTitle": "Proje Ekleme İsteği Gönderilemedi",
+    "addProjectSuccessTitle": "Başarıyla Proje Ekleme İsteği Gönderildi",
+    "addProjectSuccessText": "Başarıyla proje ekleme isteğiniz gönderildi. Proje, belirlenen kriterlere uygunluğu doğrultusunda incelenecek ve uygun bulunması halinde eklenecektir.",
+    "tryAgainAddProject": "Proje Eklemeyi Tekrar Dene"
   },
 
   "hero": {

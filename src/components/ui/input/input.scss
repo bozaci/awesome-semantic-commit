@@ -42,6 +42,16 @@
       border-color: $color-red;
     }
 
+    &.is-dark &__input {
+      border-color: #565656;
+      background-color: #303030;
+      color: #fff;
+
+      &:focus {
+        border-color: #6c6c6c;
+      }
+    }
+
     &__buttons {
       position: absolute;
       top: 0;

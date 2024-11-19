@@ -16,7 +16,15 @@
     "summary": "Summary",
     "generateCommit": "Generate Commit",
     "generateCommitAgain": "Generate Commit Again",
+    "projectName": "Project Name",
+    "projectLogoURL": "Project Logo URL",
+    "projectWebsite": "Project Website",
+    "projectGithubRepoURL": "Project GitHub Repo URL",
+    "projectOwner": "I'm Owner This Project",
+    "addProjectTitle": "Add Project",
+    "addProject": "Add Project",
     "thisFieldRequired": "This field is required.",
+    "enterValidURL": "Please enter a valid URL.",
     "generatingCommit": "Generating Commit..",
     "generateCommitSuccessTitle": "Commit Successfully Generated",
     "generateCommitErrorTitle": "Commit Could Not Be Generated",
@@ -37,7 +45,11 @@
     "summaryTooltip": "To get better results, you should use the phrase 'added user authentication system' instead of 'add user authentication system.' Otherwise, the AI may produce different results, and you may get more accurate results in English.",
     "loadMoreProject": "Load More Projects",
     "loadingProjects": "Loading projects..",
-    "reachedProjects": "You have reached the end of the projects."
+    "reachedProjects": "You have reached the end of the projects.",
+    "addProjectErrorTitle": "Failed to Send Project Add Request",
+    "addProjectSuccessTitle": "Project Add Request Successfully Submitted",
+    "addProjectSuccessText": "Your request to add a project has been successfully submitted. The project will be reviewed based on the specified criteria and added if deemed appropriate.",
+    "tryAgainAddProject": "Try Adding Project Again"
   },
 
   "hero": {

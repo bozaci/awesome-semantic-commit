@@ -1,0 +1,40 @@
+//
+// Icon Container
+//
+
+@import '../../../styles/functions';
+
+.icon-container {
+  min-width: px-to-rem(24px);
+  max-width: px-to-rem(24px);
+  height: px-to-rem(24px);
+  padding: 5px;
+  border-radius: 8px;
+  background-color: var(--icon-container-background-color, #000000);
+  color: var(--icon-container-icon-color, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.has-rounded {
+    border-radius: 999px;
+  }
+
+  &--size-small {
+    min-width: px-to-rem(32px);
+    max-width: px-to-rem(32px);
+    height: px-to-rem(32px);
+  }
+
+  &--size-medium {
+    min-width: px-to-rem(64px);
+    max-width: px-to-rem(64px);
+    height: px-to-rem(64px);
+    padding: 10px;
+  }
+
+  & > * {
+    width: 100%;
+    height: 100%;
+  }
+}

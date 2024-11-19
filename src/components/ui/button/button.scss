@@ -29,6 +29,10 @@
     border-radius: 999px;
   }
 
+  &.has-full-width {
+    width: 100%;
+  }
+
   &--theme-primary {
     background-color: $color-primary;
     color: #fff;

@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import { ProjectCardProps } from './project-card.type';
 import { Link } from '@phosphor-icons/react/dist/ssr';

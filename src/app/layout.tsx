@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { Viewport } from 'next';
 import dynamic from 'next/dynamic';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
@@ -6,11 +7,12 @@ import { Toaster } from 'react-hot-toast';
 import { Analytics } from '@vercel/analytics/react';
 import { CSPostHogProvider } from './providers';
 import { getTranslations } from 'next-intl/server';
-import type { Viewport } from 'next';
+import ReduxToolkitProvider from '@/providers/redux-toolkit-provider';
 import Config from '@/config.json';
 
 const Header = dynamic(() => import('../components/shared/header'));
 const Footer = dynamic(() => import('../components/shared/footer'));
+import Modal from '@/components/shared/modal';
 import Headings from '@/components/ui/headings';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -86,16 +88,20 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <CSPostHogProvider>
-            <Header />
-            <Toaster containerClassName="toaster" />
-            <Headings data={headingsData} activePathname="/" />
-            <main className="main spacing--medium-y">{children}</main>
-            <Footer />
-            <Analytics />
-          </CSPostHogProvider>
-        </NextIntlClientProvider>
+        <ReduxToolkitProvider>
+          <NextIntlClientProvider messages={messages}>
+            <CSPostHogProvider>
+              <Header />
+              <Toaster containerClassName="toaster" />
+              <Headings data={headingsData} activePathname="/" />
+              <Modal />
+
+              <main className="main spacing--medium-y">{children}</main>
+              <Footer />
+              <Analytics />
+            </CSPostHogProvider>
+          </NextIntlClientProvider>
+        </ReduxToolkitProvider>
       </body>
     </html>
   );
