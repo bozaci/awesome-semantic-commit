@@ -59,13 +59,8 @@ const SelectMenu: FC<SelectMenuProps> = ({ options = [], setOptions }) => {
               'is-selected': option.isSelected,
             })}
           >
+            <div className="select-menu__select-icon">{option.isSelected && <Check />}</div>
             <span className="select-menu__text select-menu__text--white">{option.name}</span>
-
-            {option.isSelected && (
-              <div className="select-menu__select-icon">
-                <Check />
-              </div>
-            )}
           </div>
         ))}
       </div>

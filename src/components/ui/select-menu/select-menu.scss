@@ -84,10 +84,9 @@
   }
 
   &__item {
-    padding: px-to-rem(5px) px-to-rem(10px);
+    padding: px-to-rem(5px);
     border-radius: 4px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     --text-color: #7d7d7d;
     transition: all 225ms;
@@ -105,6 +104,7 @@
   }
 
   &__select-icon {
+    width: 16px;
     display: flex;
     font-size: px-to-rem(12px);
     color: $color-primary;
