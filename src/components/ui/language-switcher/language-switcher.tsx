@@ -72,13 +72,11 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ data, defaultValue }) => 
                 'is-active': item.value == defaultValue,
               })}
             >
-              <p className="language-switcher__text text-regular">{item.name}</p>
+              <div className="language-switcher__menu-icon">
+                {item.value == defaultValue && <Check />}
+              </div>
 
-              {item.value == defaultValue && (
-                <div className="language-switcher__menu-icon">
-                  <Check />
-                </div>
-              )}
+              <p className="language-switcher__text text-regular">{item.name}</p>
             </div>
           ))}
         </div>
