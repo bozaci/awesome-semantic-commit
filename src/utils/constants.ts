@@ -15,8 +15,8 @@ export const commitGeneratePrompt = (summary: string) => {
   Words like "added", "resolved", etc., should be transformed into their infinitive form, such as "add", "resolve", etc., according to the correct context. Do not include additional words or transformations outside of the provided semantic structure.
 
   1. **Clarify Handling of Multiple Changes in One Commit**: If multiple changes are included in a single commit, ensure that each change is represented correctly by its own type. For example, if a commit includes both a bug fix and a new feature, it should be split into two entries: one for the bug fix and one for the new feature. If they are not split, ensure both aspects are clearly conveyed.
-  2. **Support for Multiple Scopes**: If the commit affects multiple scopes, the scope should be reflected accordingly. For example, if a commit affects both 'auth' and 'ui' parts of the system, use:  
-     'feat(auth, ui): add login and dashboard UI updates'.
+  2. 2. **Support for Multiple Scopes**: If the commit affects multiple scopes, the scope should be reflected accordingly. For example, if a commit affects both 'auth' and 'ui' parts of the system, use:  
+   'feat(auth, ui): add login and dashboard UI updates'. Also, when specifying a scope, use hyphenated names like 'select-menu', 'user-auth', etc., instead of spaces.
 
   For example:
   - If the summary is "added sentry for monitoring", the type should be 'feat' (since it's adding a new feature).
