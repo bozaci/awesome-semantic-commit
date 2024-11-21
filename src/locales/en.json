@@ -49,7 +49,8 @@
     "addProjectErrorTitle": "Failed to Send Project Add Request",
     "addProjectSuccessTitle": "Project Add Request Successfully Submitted",
     "addProjectSuccessText": "Your request to add a project has been successfully submitted. The project will be reviewed based on the specified criteria and added if deemed appropriate.",
-    "tryAgainAddProject": "Try Adding Project Again"
+    "tryAgainAddProject": "Try Adding Project Again",
+    "fillAllRequiredFields": "Please fill out all required fields."
   },
 
   "hero": {

@@ -1,24 +1,38 @@
-[![Awesome Semantic Commit](banner.png)](https://semanticcommit.com?utm_source=github&utm_medium=banner&utm_campaign=analysis)
+<p align="center">
+   <img src="docs/images/banner.svg" alt="Semantic Commit Banner" />
+</p>
+
+<p align="center">
+   <img src="https://vercelbadge.vercel.app/api/bozaci/awesome-semantic-commit" />
+   <img src="https://badge.fury.io/js/esta.svg?style=flat" />
+   <img src="https://img.shields.io/badge/Language-Next.js-black" />
+   <img src="https://img.shields.io/badge/License-CC01.0-yellow.svg" />
+   <br />
+   <img src="https://img.shields.io/github/last-commit/bozaci/awesome-semantic-commit" />
+   <img src="https://img.shields.io/github/issues/bozaci/awesome-semantic-commit" />
+   <img src="https://img.shields.io/github/issues-closed/bozaci/awesome-semantic-commit" />
+   <br />
+   <img src="https://img.shields.io/badge/Language-English-lightgray" />
+   <a href="README_TR.md">
+      <img src="https://img.shields.io/badge/Language-Turkish-637AFA" />
+   </a>
+</p>
+
+<p align="center">
+  <a href="https://semanticcommit.com?utm_source=github&utm_medium=website-text&utm_campaign=analysis">Website</a>
+  ·
+  <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=commit-generator-text&utm_campaign=analysis">Commit Generator</a>
+  ·
+  <a href="https://twitter.com/yusufbozaci_">Follow on Twitter</a>
+  <br />
+  <a href="README_APP.md">App Documentation for Developers</a>
+</p>
 
 # Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
 > Guide to regular commit messages
 
 Semantic Commit is a method used in software development. Its main purpose is to ensure that commit messages (i.e., messages associated with each change made to the code) are more meaningful and structured. This way, developers can more easily understand when, why, and what changes were made to the code.
-
-<div>
-   <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=badge&utm_campaign=analysis" target="_blank">
-      <img src="https://img.shields.io/badge/commit generator-generate-red?style=for-the-badge" alt="twitter" />
-   </a>
-   <a href="https://twitter.com/yusufbozaci_" target="_blank">
-      <img src="https://img.shields.io/badge/twitter-follow-1DA1F2?style=for-the-badge" alt="twitter" />
-   </a>
-   <br />
-   <img src="https://img.shields.io/badge/English-gray?style=for-the-badge" alt="english" />
-   <a href="README_TR.md">
-      <img src="https://img.shields.io/badge/T%C3%BCrk%C3%A7e-637AFA?style=for-the-badge" alt="türkçe" />
-   </a>
-</div>
 
 ## Contents
 
@@ -27,8 +41,6 @@ Semantic Commit is a method used in software development. Its main purpose is to
 - [How to Use](#how-to-use)
 - [How to Not Use](#how-to-not-use)
 - [Frequently Asked Questions](#frequently-asked-questions)
-- [Technologies/Tools Used](#technologiestools-used)
-- [Running the Project](#running-the-project)
 - [Contribute](#contribute)
 
 ## Why Is It Important
@@ -217,82 +229,6 @@ You can undo the commit. Check the 'How do I undo a commit?' section for more de
 ### Should commit messages be in English
 
 Yes, commit messages should be in English, as it is a global language. This increases the understandability for all developers in the project and facilitates international collaboration in open-source projects.
-
-## Technologies/Tools Used
-
-This project was built using these technologies and tools.
-
-- Framework: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org) - Framework
-- Styling: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com) - Styling
-- CSS Metodology: [BEM](https://getbem.com/introduction)
-- Formatter: [Prettier](https://prettier.io)
-- Code Editor: [VS Code](https://code.visualstudio.com)
-- Deployment: [Vercel](https://vercel.com)
-- Other Tools: [Eslint](https://eslint.org)
-
-## Running the Project
-
-1. Clone the project:
-
-   ```bash
-   git clone https://github.com/bozaci/awesome-semantic-commit
-   cd awesome-semantic-commit
-   ```
-
-2. Install dependencies:
-   Run the following command in the root directory to install the necessary dependencies:
-
-   ```bash
-   npm install
-   ```
-
-   or
-
-   ```bash
-   yarn install
-   ```
-
-3. Start the project in development mode:
-   To run the project in development mode, use the following command:
-
-   ```bash
-   npm run dev
-   ```
-
-   or
-
-   ```bash
-   yarn dev
-   ```
-
-   This will start the project at http://localhost:3000.
-
-4. Running the project in production mode:
-   You can run the project in production mode with the following commands:
-
-   Build the production version:
-
-   ```bash
-   npm run build
-   ```
-
-   or
-
-   ```bash
-   yarn build
-   ```
-
-   Start in production:
-
-   ```bash
-   npm start
-   ```
-
-   or
-
-   ```bash
-   yarn start
-   ```
 
 ## Contribute
 

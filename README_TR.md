@@ -1,23 +1,38 @@
-[![Awesome Semantic Commit](banner-tr.png)](https://semanticcommit.com?utm_source=github&utm_medium=banner-tr&utm_campaign=analysis)
+<p align="center">
+   <img src="docs/images/banner-tr.svg" alt="Semantic Commit Banner" />
+</p>
+
+<p align="center">
+   <img src="https://vercelbadge.vercel.app/api/bozaci/awesome-semantic-commit" />
+   <img src="https://badge.fury.io/js/esta.svg?style=flat" />
+   <img src="https://img.shields.io/badge/Yazılım Dili-Next.js-black" />
+   <img src="https://img.shields.io/badge/Lisans-CC01.0-yellow.svg" />
+   <br />
+   <img src="https://img.shields.io/github/last-commit/bozaci/awesome-semantic-commit" />
+   <img src="https://img.shields.io/github/issues/bozaci/awesome-semantic-commit" />
+   <img src="https://img.shields.io/github/issues-closed/bozaci/awesome-semantic-commit" />
+   <br />
+   <a href="README.md">
+      <img src="https://img.shields.io/badge/Dil-İngilizce-637AFA" />
+   </a>
+   <img src="https://img.shields.io/badge/Dil-Türkçe-lightgray" />
+</p>
+
+<p align="center">
+  <a href="https://semanticcommit.com?utm_source=github&utm_medium=website-text&utm_campaign=analysis">Website</a>
+  ·
+  <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=commit-generator-text&utm_campaign=analysis">Commit Oluşturucu</a>
+  ·
+  <a href="https://twitter.com/yusufbozaci_">Twitter'dan Takip Et</a>
+  <br />
+  <a href="README_APP.md">Geliştiriciler için Dokümantasyon</a>
+</p>
 
 # Awesome Semantic Commit [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
 > Düzenli commit mesajları için rehber
 
 Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amacı, commit mesajlarının (yani kodda yapılan her değişikliğe ilişkin mesajların) daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede geliştiriciler, kodda hangi değişikliklerin, neden ve ne zaman yapıldığını daha kolay anlayabilirler.
-
-<div>
-   <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=badge-tr&utm_campaign=analysis" target="_blank">
-      <img src="https://img.shields.io/badge/commit oluşturucu-oluştur-red?style=for-the-badge" alt="twitter" />
-   </a>
-   <a href="https://twitter.com/yusufbozaci_" target="_blank">
-   <img src="https://img.shields.io/badge/twitter-takip et-1DA1F2?style=for-the-badge" alt="twitter" />
-   </a><br />
-   <a href="README.md">
-      <img src="https://img.shields.io/badge/English-637AFA?style=for-the-badge" alt="english" />
-   </a>
-   <img src="https://img.shields.io/badge/T%C3%BCrk%C3%A7e-gray?style=for-the-badge" alt="türkçe" />
-</div>
 
 ## İçindekiler
 
@@ -26,8 +41,6 @@ Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amac�
 - [Nasıl Kullanılır?](#nasıl-kullanılır)
 - [Nasıl Kullanılmaz?](#nasıl-kullanılmaz)
 - [Sıkça Sorulan Sorular](#sıkça-sorulan-sorular)
-- [Kullanılan Teknolojiler/Araçlar](#kullanılan-teknolojileraraçlar)
-- [Projeyi Çalıştırma](#projeyi-çalıştırma)
 - [Katkı Sağlama](#katkı-sağlama)
 
 ## Neden Önemli?
@@ -211,81 +224,6 @@ Commit’i geri alabilirsiniz. "Bir commit’i nasıl geri alırım?" başlığ�
 ### Commit mesajları İngilizce mi olmalı?
 
 Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede çalışan tüm geliştiriciler için anlaşılabilirliği artırır ve açık kaynak projelerinde uluslararası işbirliğini kolaylaştırır.
-
-## Kullanılan Teknolojiler/Araçlar
-
-Bu proje, bu teknolojiler ve araçlar kullanılarak oluşturulmuştur.
-
-- **Framework**: [Next.js](https://nextjs.org) & [Typescript](https://www.typescriptlang.org)
-- **Styling**: [SASS (SCSS)](https://sass-lang.com), [Bootstrap Grid](https://getbootstrap.com)
-- **CSS Metodology**: [BEM](https://getbem.com/introduction)
-- **Formatter**: [Prettier](https://prettier.io)
-- **Code Editor**: [VS Code](https://code.visualstudio.com)
-- **Deployment**: [Vercel](https://vercel.com)
-- **Other Tools**: [Eslint](https://eslint.org)
-
-## Projeyi Çalıştırma
-
-1. **Projeyi klonlayın**:
-
-   ```bash
-   git clone https://github.com/bozaci/awesome-semantic-commit
-   ```
-
-2. **Bağımlılıkları yükleyin**:
-   Gerekli bağımlılıkları yüklemek için aşağıdaki komutu kök dizinde çalıştırın:
-
-   ```bash
-   npm install
-   ```
-
-   veya
-
-   ```bash
-   yarn install
-   ```
-
-3. **Projeyi geliştirme modunda başlatın**:
-   Projeyi geliştirme modunda çalıştırmak için şu komutu kullanın:
-
-   ```bash
-   npm run dev
-   ```
-
-   veya
-
-   ```bash
-   yarn dev
-   ```
-
-   Bu komut, projeyi http://localhost:3000 adresinde başlatacaktır.
-
-4. **Projeyi üretim modunda çalıştırmak**:
-   Projeyi üretim modunda çalıştırmak için aşağıdaki komutları kullanabilirsiniz:
-
-   **Üretim sürümünü oluşturun**:
-
-   ```bash
-   npm run build
-   ```
-
-   veya
-
-   ```bash
-   yarn build
-   ```
-
-   **Üretim modunda başlatın**:
-
-   ```bash
-   npm start
-   ```
-
-   veya
-
-   ```bash
-   yarn start
-   ```
 
 ## Katkı Sağlama
 

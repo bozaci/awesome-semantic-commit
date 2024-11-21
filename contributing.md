@@ -41,8 +41,10 @@ Once you've made your changes, stage them and create a commit with a clear, conc
 
 ```bash
 git add .
-git commit -m "Add/Update feature: brief description of changes"
+git commit -m "feature(feature-name): your-commit-subject"
 ```
+
+> Make sure you follow the semantic commit rules.
 
 ### 7. Push your changes
 

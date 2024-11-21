@@ -49,7 +49,8 @@
     "addProjectErrorTitle": "Proje Ekleme İsteği Gönderilemedi",
     "addProjectSuccessTitle": "Başarıyla Proje Ekleme İsteği Gönderildi",
     "addProjectSuccessText": "Başarıyla proje ekleme isteğiniz gönderildi. Proje, belirlenen kriterlere uygunluğu doğrultusunda incelenecek ve uygun bulunması halinde eklenecektir.",
-    "tryAgainAddProject": "Proje Eklemeyi Tekrar Dene"
+    "tryAgainAddProject": "Proje Eklemeyi Tekrar Dene",
+    "fillAllRequiredFields": "Lütfen gerekli tüm alanları doldurunuz."
   },
 
   "hero": {
