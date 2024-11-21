@@ -5,6 +5,7 @@ import { Formik, Form, Field } from 'formik';
 import { addProjectSchema } from '@/utils/schema';
 import { useTranslations } from 'next-intl';
 import { X, Check } from '@phosphor-icons/react/dist/ssr';
+import { errorNotify } from '@/utils/notification';
 import cx from 'classnames';
 
 import ModalHeader from '@/components/shared/modal/modal-header';
@@ -31,44 +32,45 @@ const AddProjectModal = ({ close }: { close: any }) => {
     setIsSuccess(false);
     setIsLoading(true);
 
-    if (name || logoURL || website || githubRepoURL) {
-      try {
-        const response = await fetch('/api/add-project', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name,
-            logoURL,
-            website,
-            githubRepoURL,
-            projectOwner,
-          }),
-        });
+    if (!name || !logoURL || !website || !githubRepoURL)
+      return errorNotify(generalT('fillAllRequiredFields'));
 
-        if (!response?.ok) {
-          setIsLoading(false);
-          setError('Unable to add the project due to an API request failure.');
-          return;
-        }
+    try {
+      const response = await fetch('/api/add-project', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          logoURL,
+          website,
+          githubRepoURL,
+          projectOwner,
+        }),
+      });
 
-        const data = await response.json();
-
-        if (data?.status === 'error') {
-          setIsLoading(false);
-          setError(data.message);
-          return;
-        }
-
+      if (!response?.ok) {
         setIsLoading(false);
-        setIsSuccess(true);
-      } catch (err: any) {
-        setError(err);
-        console.error(err);
-      } finally {
-        setIsLoading(false);
+        setError('Unable to add the project due to an API request failure.');
+        return;
       }
+
+      const data = await response.json();
+
+      if (data?.status === 'error') {
+        setIsLoading(false);
+        setError(data.message);
+        return;
+      }
+
+      setIsLoading(false);
+      setIsSuccess(true);
+    } catch (err: any) {
+      setError(err);
+      console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 

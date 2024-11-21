@@ -7,6 +7,12 @@ export async function POST(request: NextRequest) {
     const airtableBaseName = process.env.AIRTABLE_BASE_NAME;
     const airtableApiToken = process.env.AIRTABLE_API_TOKEN;
 
+    if (!name || !logoURL || !website || !githubRepoURL)
+      return NextResponse.json(
+        { status: 'error', message: 'Please fill out all required fields.' },
+        { status: 500 },
+      );
+
     try {
       const response = await fetch(
         `https://api.airtable.com/v0/${airtableBaseId}/${airtableBaseName}`,
