@@ -58,6 +58,14 @@ const Tabs: FC<TabsProps> & {
     setActiveTab(cookieValue);
   }, [cookieValue]);
 
+  useEffect(() => {
+    if (!defaultValue) return;
+    if (cookieValue) return;
+    if (searchParams.get('activeTab')) return;
+
+    setActiveTab(defaultValue);
+  }, [defaultValue, searchParams, cookieValue]);
+
   return (
     <div
       className={cx(
