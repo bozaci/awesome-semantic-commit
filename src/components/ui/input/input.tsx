@@ -6,7 +6,7 @@ import Tooltip from '@/components/ui/tooltip';
 
 import './input.scss';
 
-const Input: FC<InputProps> = ({ field, buttons = [], hasError, isDark, className, ...res }) => {
+const Input: FC<InputProps> = ({ buttons = [], hasError, isDark, className, ...res }) => {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const [buttonsWidth, setButtonsWidth] = useState<number | undefined>(23);
 
@@ -32,12 +32,7 @@ const Input: FC<InputProps> = ({ field, buttons = [], hasError, isDark, classNam
           : undefined
       }
     >
-      <input
-        type="text"
-        className={cx('input input-container__input', className)}
-        {...field}
-        {...res}
-      />
+      <input type="text" className={cx('input input-container__input', className)} {...res} />
 
       {buttons.length > 0 && (
         <div ref={buttonsRef} className="input-container__buttons">

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { Formik, Form, Field } from 'formik';
+import { useFormik } from 'formik';
 import { Info, FloppyDisk } from '@phosphor-icons/react/dist/ssr';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { commitGeneratorSchema } from '@/utils/schema';
@@ -63,6 +63,22 @@ const CommitGeneratorForm = () => {
   });
   const [generationMethod, setGenerationMethod] = useState<string>('');
   const [apiKeyByAIServiceType, setApiKeyByAIServiceType] = useState<string>('');
+  const formik = useFormik({
+    initialValues: {
+      type: selectedType || commitTypes[0],
+      scope: '',
+      subject: '',
+      summary: '',
+      googleGeminiApiKey: apiKeyInLocalStorage?.googleGemini || '',
+      openAIApiKey: apiKeyInLocalStorage?.openAI || '',
+      generateWithScope: true,
+      generateWithAI: isAIEnabled,
+    },
+    onSubmit: (values) => handleFormSubmit(values),
+    validationSchema: commitGeneratorSchema(generalT),
+    validateOnChange: false,
+    validateOnBlur: false,
+  });
   const aiService = useReadLocalStorage('commit-generator-active-tab');
   const commitMessageWithGitCopyText = `git add .
 git commit -m "${commitMessage}"
@@ -197,10 +213,19 @@ git push origin main`;
   }, [typeData]);
 
   useEffect(() => {
+    if (!aiService) return;
+
     if (aiService === 'google-gemini')
       return setApiKeyByAIServiceType(apiKeyInLocalStorage.googleGemini);
     if (aiService === 'openai') return setApiKeyByAIServiceType(apiKeyInLocalStorage.openAI);
   }, [aiService, apiKeyInLocalStorage.googleGemini, apiKeyInLocalStorage.openAI]);
+
+  useEffect(() => {
+    if (!apiKeyInLocalStorage.googleGemini && aiService === 'google-gemini')
+      return setApiKeyByAIServiceType(formik.values.googleGeminiApiKey);
+    if (!apiKeyInLocalStorage.openAI && aiService === 'openai')
+      return setApiKeyByAIServiceType(formik.values.openAIApiKey);
+  }, [aiService, apiKeyInLocalStorage.googleGemini, apiKeyInLocalStorage.openAI, formik.values]);
 
   return (
     <section className="commit-generator-form">
@@ -285,278 +310,260 @@ git push origin main`;
               )}
             </>
           ) : (
-            <Formik
-              initialValues={{
-                type: selectedType || commitTypes[0],
-                scope: '',
-                subject: '',
-                summary: '',
-                googleGeminiApiKey: apiKeyInLocalStorage?.googleGemini || '',
-                openAIApiKey: apiKeyInLocalStorage?.openAI || '',
-                generateWithScope: true,
-                generateWithAI: isAIEnabled,
-              }}
-              onSubmit={(values) => handleFormSubmit(values)}
-              validationSchema={commitGeneratorSchema(generalT)}
-              validateOnChange={false}
-              validateOnBlur={false}
-            >
-              {({ values, errors, touched }) => (
-                <Form ref={animationParent} className="form">
-                  {!values.generateWithAI ? (
-                    <>
-                      <label className="form__group">
-                        <span className="form__label">
-                          {' '}
-                          <span className="text-red">*</span>
-                          &nbsp;{generalT('type')}
-                        </span>
-                        <Field
-                          id="type"
-                          name="type"
-                          type="text"
-                          component={SelectMenu}
-                          options={typeData}
-                          setOptions={setTypeData}
+            <form ref={animationParent} onSubmit={formik.handleSubmit} className="form">
+              {!formik.values.generateWithAI ? (
+                <>
+                  <label className="form__group">
+                    <span className="form__label">
+                      {' '}
+                      <span className="text-red">*</span>
+                      &nbsp;{generalT('type')}
+                    </span>
+                    <SelectMenu options={typeData} setOptions={setTypeData} />
+                    {formik.errors.type && formik.touched.type && (
+                      <p className="form__help-message form__help-message--error">
+                        {formik.errors.type}
+                      </p>
+                    )}
+                  </label>
+
+                  <label className="form__group">
+                    <span className="form__label d-flex align-items-center spacing spacing--xsmall-x">
+                      <p>{generalT('scope')}</p>
+                      <Badge theme="ghost-gray" size="small" iconAlign="right" isRounded>
+                        {generalT('optional')}
+                      </Badge>
+                    </span>
+                    <Input
+                      id="scope"
+                      name="scope"
+                      type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.scope}
+                      hasError={formik.errors.scope ? true : false}
+                    />
+                    {formik.errors.scope && formik.touched.scope && (
+                      <p className="form__help-message form__help-message--error">
+                        {formik.errors.scope}
+                      </p>
+                    )}
+                  </label>
+
+                  <label className="form__group">
+                    <p className="form__label">
+                      <span className="text-red">*</span>
+                      &nbsp;
+                      {generalT('subject')}
+                    </p>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.subject}
+                      hasError={formik.errors.subject ? true : false}
+                    />
+                    {formik.errors.subject && formik.touched.subject && (
+                      <p className="form__help-message form__help-message--error">
+                        {formik.errors.subject}
+                      </p>
+                    )}
+                  </label>
+                </>
+              ) : (
+                <>
+                  <Tabs
+                    defaultValue="google-gemini"
+                    customSettings={tabsCustomSettings}
+                    useWithCookie="commit-generator-active-tab"
+                    className="box__tabs box__tabs--commit-generator"
+                  >
+                    <Tabs.Switchers>
+                      <Tabs.SwitcherItem value="google-gemini">
+                        <Image
+                          src={googleGeminiIcon}
+                          width={24}
+                          height={24}
+                          alt="Google Gemini Icon"
+                          className="me-1"
                         />
-                        {errors.type && touched.type && (
-                          <p className="form__help-message form__help-message--error">
-                            {errors.type}
-                          </p>
-                        )}
-                      </label>
-
-                      <label className="form__group">
-                        <span className="form__label d-flex align-items-center spacing spacing--xsmall-x">
-                          <p>{generalT('scope')}</p>
-                          <Badge theme="ghost-gray" size="small" iconAlign="right" isRounded>
-                            {generalT('optional')}
-                          </Badge>
-                        </span>
-                        <Field
-                          id="scope"
-                          name="scope"
-                          type="text"
-                          component={Input}
-                          as="input"
-                          hasError={errors.scope && touched.scope}
-                        />
-                        {errors.scope && touched.scope && (
-                          <p className="form__help-message form__help-message--error">
-                            {errors.scope}
-                          </p>
-                        )}
-                      </label>
-
-                      <label className="form__group">
-                        <p className="form__label">
-                          <span className="text-red">*</span>
-                          &nbsp;
-                          {generalT('subject')}
-                        </p>
-                        <Field
-                          id="subject"
-                          name="subject"
-                          type="text"
-                          component={Input}
-                          as="input"
-                          hasError={errors.subject && touched.subject}
-                        />
-                        {errors.subject && touched.subject && (
-                          <p className="form__help-message form__help-message--error">
-                            {errors.subject}
-                          </p>
-                        )}
-                      </label>
-                    </>
-                  ) : (
-                    <>
-                      <Tabs
-                        defaultValue="google-gemini"
-                        customSettings={tabsCustomSettings}
-                        useWithCookie="commit-generator-active-tab"
-                        className="box__tabs box__tabs--commit-generator"
-                      >
-                        <Tabs.Switchers>
-                          <Tabs.SwitcherItem value="google-gemini">
-                            <Image
-                              src={googleGeminiIcon}
-                              width={24}
-                              height={24}
-                              alt="Google Gemini Icon"
-                              className="me-1"
-                            />
-                            Google Gemini
-                            <Badge
-                              theme="ghost-gray"
-                              size="small"
-                              icon={
-                                <Tooltip
-                                  position="top"
-                                  content={`<p class="tooltip__text">${generalT('googleGeminiInfoTooltip')}</p>`}
-                                >
-                                  <Info />
-                                </Tooltip>
-                              }
-                              iconAlign="right"
-                              className="ms-1"
-                              isRounded
-                            >
-                              {generalT('free')}
-                            </Badge>
-                          </Tabs.SwitcherItem>
-                          <Tabs.SwitcherItem value="openai">
-                            <Image
-                              src={chatgptIcon}
-                              width={22}
-                              height={22}
-                              alt="ChatGPT Icon"
-                              className="me-1"
-                            />
-                            ChatGPT
-                            <Badge
-                              theme="ghost-green"
-                              size="small"
-                              icon={
-                                <Tooltip
-                                  position="top"
-                                  content={`<p class="tooltip__text">${generalT('openAIInfoTooltip')}</p>`}
-                                >
-                                  <Info />
-                                </Tooltip>
-                              }
-                              iconAlign="right"
-                              className="ms-1"
-                              isRounded
-                            >
-                              {generalT('paid')}
-                            </Badge>
-                          </Tabs.SwitcherItem>
-                        </Tabs.Switchers>
-
-                        <Tabs.Contents>
-                          <Tabs.ContentItem value="google-gemini">
-                            <label className="form__group">
-                              <p className="form__label">
-                                <span className="text-red">*</span>
-                                &nbsp;Google Gemini API Key
-                              </p>
-                              <Field
-                                id="googleGeminiApiKey"
-                                name="googleGeminiApiKey"
-                                type="text"
-                                component={Input}
-                                buttons={[
-                                  {
-                                    icon: <FloppyDisk />,
-                                    name: 'Save API Key',
-                                    tooltipText: generalT('saveAPIKeyTooltip'),
-                                    onClick: () =>
-                                      handleSaveAPIKey('google-gemini', values.googleGeminiApiKey),
-                                  },
-                                ]}
-                                as="input"
-                                hasError={errors.googleGeminiApiKey && touched.googleGeminiApiKey}
-                              />
-                              {errors.googleGeminiApiKey && touched.googleGeminiApiKey && (
-                                <p className="form__help-message form__help-message--error">
-                                  {errors.googleGeminiApiKey}
-                                </p>
-                              )}
-                            </label>
-                          </Tabs.ContentItem>
-
-                          <Tabs.ContentItem value="openai">
-                            <label className="form__group">
-                              <p className="form__label">
-                                <span className="text-red">*</span>
-                                &nbsp;OpenAI API Key
-                              </p>
-                              <Field
-                                id="openAIApiKey"
-                                name="openAIApiKey"
-                                type="text"
-                                component={Input}
-                                buttons={[
-                                  {
-                                    icon: <FloppyDisk />,
-                                    name: 'Save API Key',
-                                    tooltipText: generalT('saveAPIKeyTooltip'),
-                                    onClick: () => handleSaveAPIKey('openai', values.openAIApiKey),
-                                  },
-                                ]}
-                                as="input"
-                                hasError={errors.openAIApiKey && touched.openAIApiKey}
-                              />
-                              {errors.openAIApiKey && touched.openAIApiKey && (
-                                <p className="form__help-message form__help-message--error">
-                                  {errors.openAIApiKey}
-                                </p>
-                              )}
-                            </label>
-                          </Tabs.ContentItem>
-                        </Tabs.Contents>
-                      </Tabs>
-
-                      <label className="form__group">
-                        <p className="form__label d-flex align-items-center">
-                          <span className="text-red">*</span>
-                          &nbsp;
-                          {generalT('summary')}
-                          <Tooltip
-                            position="top"
-                            content={`<p class="tooltip__text">${generalT('summaryTooltip')}</p>`}
-                          >
-                            <Info className="ms-1" />
-                          </Tooltip>
-                        </p>
-                        <Field
-                          id="summary"
-                          name="summary"
-                          type="text"
-                          component={Input}
-                          as="input"
-                          hasError={errors.summary && touched.summary}
-                        />
-                        {errors.summary && touched.summary && (
-                          <p className="form__help-message form__help-message--error">
-                            {errors.summary}
-                          </p>
-                        )}
-                      </label>
-
-                      <div className="form__group">
-                        <label className="form__group form__group--row form__group--between flex-wrap spacing spacing--xsmall-two">
-                          <div className="d-flex flex-wrap align-items-center spacing spacing--xsmall-two">
-                            <p className="form__label mb-0">{generalT('generateWithScope')}</p>
-                            <Badge theme="ghost-gray" size="small" isRounded>
-                              {generalT('optional')}
-                            </Badge>
-                          </div>
-
-                          <div className="d-flex justify-content-end align-items-center">
-                            <Field
-                              id="generateWithScope"
-                              name="generateWithScope"
-                              component={Switch}
-                            />
-                          </div>
-                        </label>
-                      </div>
-                    </>
-                  )}
-
-                  <div className="form__group">
-                    <label className="form__group form__group--row form__group--between flex-wrap spacing spacing--xsmall-two">
-                      <div className="d-flex flex-wrap align-items-center spacing spacing--xsmall-two">
-                        <p className="form__label mb-0">{generalT('generateWithAI')}</p>
+                        Google Gemini
                         <Badge
                           theme="ghost-gray"
                           size="small"
                           icon={
                             <Tooltip
                               position="top"
-                              content={`
+                              content={`<p class="tooltip__text">${generalT('googleGeminiInfoTooltip')}</p>`}
+                            >
+                              <Info />
+                            </Tooltip>
+                          }
+                          iconAlign="right"
+                          className="ms-1"
+                          isRounded
+                        >
+                          {generalT('free')}
+                        </Badge>
+                      </Tabs.SwitcherItem>
+                      <Tabs.SwitcherItem value="openai">
+                        <Image
+                          src={chatgptIcon}
+                          width={22}
+                          height={22}
+                          alt="ChatGPT Icon"
+                          className="me-1"
+                        />
+                        ChatGPT
+                        <Badge
+                          theme="ghost-green"
+                          size="small"
+                          icon={
+                            <Tooltip
+                              position="top"
+                              content={`<p class="tooltip__text">${generalT('openAIInfoTooltip')}</p>`}
+                            >
+                              <Info />
+                            </Tooltip>
+                          }
+                          iconAlign="right"
+                          className="ms-1"
+                          isRounded
+                        >
+                          {generalT('paid')}
+                        </Badge>
+                      </Tabs.SwitcherItem>
+                    </Tabs.Switchers>
+
+                    <Tabs.Contents>
+                      <Tabs.ContentItem value="google-gemini">
+                        <label className="form__group">
+                          <p className="form__label">
+                            <span className="text-red">*</span>
+                            &nbsp;Google Gemini API Key
+                          </p>
+                          <Input
+                            id="googleGeminiApiKey"
+                            name="googleGeminiApiKey"
+                            type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.googleGeminiApiKey}
+                            hasError={formik.errors.googleGeminiApiKey ? true : false}
+                            buttons={[
+                              {
+                                icon: <FloppyDisk />,
+                                name: 'Save API Key',
+                                tooltipText: generalT('saveAPIKeyTooltip'),
+                                onClick: () =>
+                                  handleSaveAPIKey(
+                                    'google-gemini',
+                                    formik.values.googleGeminiApiKey,
+                                  ),
+                              },
+                            ]}
+                          />
+                          {formik.errors.googleGeminiApiKey &&
+                            formik.touched.googleGeminiApiKey && (
+                              <p className="form__help-message form__help-message--error">
+                                {formik.errors.googleGeminiApiKey}
+                              </p>
+                            )}
+                        </label>
+                      </Tabs.ContentItem>
+
+                      <Tabs.ContentItem value="openai">
+                        <label className="form__group">
+                          <p className="form__label">
+                            <span className="text-red">*</span>
+                            &nbsp;OpenAI API Key
+                          </p>
+                          <Input
+                            id="openAIApiKey"
+                            name="openAIApiKey"
+                            type="text"
+                            onChange={formik.handleChange}
+                            value={formik.values.openAIApiKey}
+                            hasError={formik.errors.openAIApiKey ? true : false}
+                            buttons={[
+                              {
+                                icon: <FloppyDisk />,
+                                name: 'Save API Key',
+                                tooltipText: generalT('saveAPIKeyTooltip'),
+                                onClick: () =>
+                                  handleSaveAPIKey('google-gemini', formik.values.openAIApiKey),
+                              },
+                            ]}
+                          />
+                          {formik.errors.openAIApiKey && formik.touched.openAIApiKey && (
+                            <p className="form__help-message form__help-message--error">
+                              {formik.errors.openAIApiKey}
+                            </p>
+                          )}
+                        </label>
+                      </Tabs.ContentItem>
+                    </Tabs.Contents>
+                  </Tabs>
+
+                  <label className="form__group">
+                    <p className="form__label d-flex align-items-center">
+                      <span className="text-red">*</span>
+                      &nbsp;
+                      {generalT('summary')}
+                      <Tooltip
+                        position="top"
+                        content={`<p class="tooltip__text">${generalT('summaryTooltip')}</p>`}
+                      >
+                        <Info className="ms-1" />
+                      </Tooltip>
+                    </p>
+                    <Input
+                      id="summary"
+                      name="summary"
+                      type="text"
+                      onChange={formik.handleChange}
+                      value={formik.values.summary}
+                      hasError={formik.errors.summary ? true : false}
+                    />
+                    {formik.errors.summary && formik.touched.summary && (
+                      <p className="form__help-message form__help-message--error">
+                        {formik.errors.summary}
+                      </p>
+                    )}
+                  </label>
+
+                  <div className="form__group">
+                    <label className="form__group form__group--row form__group--between flex-wrap spacing spacing--xsmall-two">
+                      <div className="d-flex flex-wrap align-items-center spacing spacing--xsmall-two">
+                        <p className="form__label mb-0">{generalT('generateWithScope')}</p>
+                        <Badge theme="ghost-gray" size="small" isRounded>
+                          {generalT('optional')}
+                        </Badge>
+                      </div>
+
+                      <div className="d-flex justify-content-end align-items-center">
+                        <Switch
+                          id="generateWithScope"
+                          name="generateWithScope"
+                          value={formik.values.generateWithScope.toString()}
+                          onChange={formik.handleChange}
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </>
+              )}
+
+              <div className="form__group">
+                <label className="form__group form__group--row form__group--between flex-wrap spacing spacing--xsmall-two">
+                  <div className="d-flex flex-wrap align-items-center spacing spacing--xsmall-two">
+                    <p className="form__label mb-0">{generalT('generateWithAI')}</p>
+                    <Badge
+                      theme="ghost-gray"
+                      size="small"
+                      icon={
+                        <Tooltip
+                          position="top"
+                          content={`
                               <div class="tooltip__item">
                                 <p class="tooltip__text">${generalT('generateWithAITooltipText')}</p>
                               </div>
@@ -566,55 +573,61 @@ git push origin main`;
                                 <p class="tooltip__text">${generalT('generateWithAITooltipTextTwo')}</p>
                               </div>
                               `}
-                            >
-                              <Info />
-                            </Tooltip>
-                          }
-                          iconAlign="right"
-                          isRounded
                         >
-                          {generalT('optional')}
-                        </Badge>
-                      </div>
-
-                      <div className="d-flex justify-content-end align-items-center">
-                        <Field id="generateWithAI" name="generateWithAI" component={Switch} />
-                      </div>
-                    </label>
-                  </div>
-
-                  <div className="form__group form__group--row">
-                    <Button
-                      theme="default"
-                      size="default"
-                      type="submit"
-                      className={cx({
-                        'button--theme-primary': !isLoading && !values.generateWithAI,
-                        'button--theme-gemini': (isLoading || !isLoading) && values.generateWithAI,
-                        'button--theme-ghost-dark': isLoading && !values.generateWithAI,
-                      })}
-                      disabled={
-                        isLoading ||
-                        (values.generateWithAI &&
-                          (!values.summary || (!values.googleGeminiApiKey && !values.openAIApiKey)
-                            ? true
-                            : false)) ||
-                        (!values.generateWithAI && (!values.type || !values.subject ? true : false))
+                          <Info />
+                        </Tooltip>
                       }
+                      iconAlign="right"
+                      isRounded
                     >
-                      {isLoading ? (
-                        <>
-                          <Loader className="me-1" />
-                          {generalT('generatingCommit')}
-                        </>
-                      ) : (
-                        generalT('generateCommit')
-                      )}
-                    </Button>
+                      {generalT('optional')}
+                    </Badge>
                   </div>
-                </Form>
-              )}
-            </Formik>
+
+                  <div className="d-flex justify-content-end align-items-center">
+                    <Switch
+                      id="generateWithAI"
+                      name="generateWithAI"
+                      onChange={formik.handleChange}
+                      value={formik.values.generateWithAI.toString()}
+                    />
+                  </div>
+                </label>
+              </div>
+
+              <div className="form__group form__group--row">
+                <Button
+                  theme="default"
+                  size="default"
+                  type="submit"
+                  className={cx({
+                    'button--theme-primary': !isLoading && !formik.values.generateWithAI,
+                    'button--theme-gemini':
+                      (isLoading || !isLoading) && formik.values.generateWithAI,
+                    'button--theme-ghost-dark': isLoading && !formik.values.generateWithAI,
+                  })}
+                  disabled={
+                    isLoading ||
+                    (formik.values.generateWithAI &&
+                      (!formik.values.summary ||
+                      (!formik.values.googleGeminiApiKey && !formik.values.openAIApiKey)
+                        ? true
+                        : false)) ||
+                    (!formik.values.generateWithAI &&
+                      (!formik.values.type || !formik.values.subject ? true : false))
+                  }
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader className="me-1" />
+                      {generalT('generatingCommit')}
+                    </>
+                  ) : (
+                    generalT('generateCommit')
+                  )}
+                </Button>
+              </div>
+            </form>
           )}
         </Box>
       </div>

@@ -8,7 +8,6 @@ type buttonsType = {
 };
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  field?: any;
   buttons?: buttonsType[];
   hasError?: boolean;
   isDark?: boolean;
