@@ -20,11 +20,11 @@ export const commitGeneratorSchema = (t: any) =>
     }),
     googleGeminiApiKey: Yup.string().when('generateWithAI', {
       is: true,
-      then: () => Yup.string().required(t('thisFieldRequired')),
+      then: () => Yup.string(),
     }),
     openAIApiKey: Yup.string().when('generateWithAI', {
       is: true,
-      then: () => Yup.string().required(t('thisFieldRequired')),
+      then: () => Yup.string(),
     }),
     generateWithScope: Yup.boolean(),
     generateWithAI: Yup.boolean(),
