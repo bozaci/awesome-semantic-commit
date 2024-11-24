@@ -18,7 +18,8 @@ const CommitGenerator = () => {
         <Badge theme="ghost-gradient-gemini" size="small" isRounded>
           <>
             <Image src={geminiLogo} alt="" className="badge__img badge__img--gemini-logo" />
-            &nbsp;{generalT('supportedWithGemini')}
+            &nbsp;
+            {generalT('supportedWithGemini')}
           </>
         </Badge>
         <Hero.Title>{t('title')}</Hero.Title>

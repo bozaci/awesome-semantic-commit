@@ -35,6 +35,15 @@
     color: #4c4c4c;
   }
 
+  &--theme-ghost-green {
+    background-color: $color-green-10;
+    color: $color-green;
+  }
+
+  &--theme-ghost-green &__icon {
+    color: $color-green;
+  }
+
   &--theme-dashed-orange {
     border: 1px dashed #ff8700;
     background-color: #fff;

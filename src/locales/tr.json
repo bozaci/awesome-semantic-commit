@@ -34,14 +34,16 @@
     "or": "veya",
     "copy": "kopyala",
     "copied": "kopyalandı",
+    "free": "ücretsiz",
+    "paid": "ücretli",
     "information": "Bilgilendirme",
-    "supportedWithGemini": "ile desteklenmektedir.",
+    "supportedWithGemini": "ve ChatGPT ile desteklenmektedir.",
     "generateWithAITooltipText": "Bu seçeneği etkinleştirdiğinizde, Özet kısmına yaptığınız değişikliği özetlemeniz gerekecektir. Yapay Zeka, sizin için semantik kurallara uygun bir commit mesajı oluşturacaktır.",
     "generateWithAITooltipTextTwo": "Bu özelliğin çalışabilmesi için Google Gemini API anahtarına sahip olmanız gerekmektedir. Ücretsiz olarak Google Gemini API anahtarı almak için aşağıdaki Sıkça Sorulan Sorular'a göz atabilirsiniz.",
-    "saveAPIKeyTooltip": "Google Gemini API Anahtarını Kaydet (anahtar, bilgisayarınıza kaydedilecektir)",
-    "saveAPIKeyErrorMessage": "Google Gemini API anahtarını girmelisiniz.",
-    "saveAPIKeySuccessMessage": "Başarılı bir şekilde Google Gemini API anahtarı kaydedildi.",
-    "saveAPIKeyAlreadyMessage": "Google Gemini API anahtarı zaten kaydedilmiş.",
+    "saveAPIKeyTooltip": "API Anahtarını Kaydet (anahtar, bilgisayarınıza kaydedilecektir)",
+    "saveAPIKeyErrorMessage": "API anahtarını girmelisiniz.",
+    "saveAPIKeySuccessMessage": "Başarılı bir şekilde API anahtarı kaydedildi.",
+    "saveAPIKeyAlreadyMessage": "API anahtarı zaten kaydedilmiş.",
     "summaryTooltip": "Daha sağlıklı sonuçlar almak için 'add user authentication system' yerine 'added user authentication system' ifadesini kullanmalısınız. Aksi takdirde, yapay zeka farklı sonuçlar üretebilir ve İngilizce olarak daha doğru sonuçlar alabilirsiniz.",
     "loadMoreProject": "Daha Fazla Proje Yükle",
     "loadingProjects": "Projeler yükleniyor..",
@@ -50,7 +52,9 @@
     "addProjectSuccessTitle": "Başarıyla Proje Ekleme İsteği Gönderildi",
     "addProjectSuccessText": "Başarıyla proje ekleme isteğiniz gönderildi. Proje, belirlenen kriterlere uygunluğu doğrultusunda incelenecek ve uygun bulunması halinde eklenecektir.",
     "tryAgainAddProject": "Proje Eklemeyi Tekrar Dene",
-    "fillAllRequiredFields": "Lütfen gerekli tüm alanları doldurunuz."
+    "fillAllRequiredFields": "Lütfen gerekli tüm alanları doldurunuz.",
+    "googleGeminiInfoTooltip": "Kullanımı ücretsizdir, ancak Google Gemini API'yi kullanmak için bir API anahtarı almanız gerekmektedir. Rehber için aşağıdaki sıkça sorulan sorular bölümüne göz atabilirsiniz.",
+    "openAIInfoTooltip": "OpenAI anahtarı ücretlidir, ancak bu ücreti bize değil, OpenAI'ye ödemeniz gerekmektedir. API'yi kullanabilmek için bir anahtar almanız gerekmektedir."
   },
 
   "hero": {

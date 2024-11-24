@@ -82,6 +82,28 @@
     background-color: #ececec;
   }
 
+  &__tabs {
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+
+    &--commit-generator {
+      margin-bottom: 15px;
+    }
+
+    .tabs__switcher {
+      border-bottom: 1px solid #ececec;
+
+      &-item:first-child {
+        border-radius: 8px 0 0 0;
+      }
+
+      &-item:last-child {
+        border-radius: 0 8px 0 0;
+      }
+    }
+  }
+
   /**
    *
    * Responsive
@@ -89,6 +111,23 @@
    */
   @include mobile() {
     padding: px-to-rem(15px);
+
+    &__tabs {
+      .tabs__switcher {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        border-bottom: 1px solid #ececec;
+
+        &-item:first-child {
+          border-radius: 8px 8px 0 0;
+        }
+
+        &-item:last-child {
+          border-radius: 0;
+        }
+      }
+    }
   }
 
   @include smallMobile() {

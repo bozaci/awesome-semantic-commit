@@ -22,6 +22,10 @@ export const commitGeneratorSchema = (t: any) =>
       is: true,
       then: () => Yup.string().required(t('thisFieldRequired')),
     }),
+    openAIApiKey: Yup.string().when('generateWithAI', {
+      is: true,
+      then: () => Yup.string().required(t('thisFieldRequired')),
+    }),
     generateWithScope: Yup.boolean(),
     generateWithAI: Yup.boolean(),
   });

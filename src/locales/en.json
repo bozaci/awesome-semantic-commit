@@ -34,14 +34,16 @@
     "or": "or",
     "copy": "copy",
     "copied": "copied",
+    "free": "free",
+    "paid": "paid",
     "information": "Information",
-    "supportedWithGemini": "supported.",
+    "supportedWithGemini": "and ChatGPT supported.",
     "generateWithAITooltipText": "When you enable this option, you will need to summarize the changes you made in the Summary section. The AI will generate a commit message that complies with semantic rules for you.",
     "generateWithAITooltipTextTwo": "To use this feature, you need to have a Google Gemini API key. You can check the FAQ below to obtain a Google Gemini API key for free.",
-    "saveAPIKeyTooltip": "Save Google Gemini API Key (the key will be saved to your computer)",
-    "saveAPIKeyErrorMessage": "You must enter the Google Gemini API key.",
-    "saveAPIKeySuccessMessage": "Google Gemini API key has been successfully saved.",
-    "saveAPIKeyAlreadyMessage": "Google Gemini API key is already saved.",
+    "saveAPIKeyTooltip": "Save API Key (the key will be saved to your computer)",
+    "saveAPIKeyErrorMessage": "You must enter the API key.",
+    "saveAPIKeySuccessMessage": "API key has been successfully saved.",
+    "saveAPIKeyAlreadyMessage": "API key is already saved.",
     "summaryTooltip": "To get better results, you should use the phrase 'added user authentication system' instead of 'add user authentication system.' Otherwise, the AI may produce different results, and you may get more accurate results in English.",
     "loadMoreProject": "Load More Projects",
     "loadingProjects": "Loading projects..",
@@ -50,7 +52,9 @@
     "addProjectSuccessTitle": "Project Add Request Successfully Submitted",
     "addProjectSuccessText": "Your request to add a project has been successfully submitted. The project will be reviewed based on the specified criteria and added if deemed appropriate.",
     "tryAgainAddProject": "Try Adding Project Again",
-    "fillAllRequiredFields": "Please fill out all required fields."
+    "fillAllRequiredFields": "Please fill out all required fields.",
+    "googleGeminiInfoTooltip": "It is free to use, but you need to obtain an API key to use the Google Gemini API. For guidance, see the frequently asked questions section below.",
+    "openAIInfoTooltip": "There is a fee for the OpenAI key, but you have to pay this fee to OpenAI, not to us. You need a key to use the API."
   },
 
   "hero": {

@@ -9,6 +9,8 @@ import { commitGeneratorSchema } from '@/utils/schema';
 import { commitTypes } from '@/utils/constants';
 import { useLocalStorage } from 'usehooks-ts';
 import { errorNotify, successNotify } from '@/utils/notification';
+import { useReadLocalStorage } from 'usehooks-ts';
+import Image from 'next/image';
 import posthog from 'posthog-js';
 import cx from 'classnames';
 
@@ -20,6 +22,30 @@ import Tooltip from '@/components/ui/tooltip';
 import Button from '@/components/ui/button';
 import Loader from '@/components/ui/loader';
 import SelectMenu from '@/components/ui/select-menu';
+import Tabs from '@/components/ui/tabs';
+
+import googleGeminiIcon from '@/assets/images/google-gemini-icon.svg';
+import chatgptIcon from '@/assets/images/chatgpt-icon.svg';
+
+const tabsCustomSettings = {
+  switcher: {
+    backgroundColor: '#f8f8f8',
+    backgroundHoverColor: '#efefef',
+    backgroundActiveColor: '#ffffff',
+    seperatorColor: '#dadada',
+    padding: '13px 20px',
+    fullWidth: true,
+
+    font: {
+      size: 18,
+      weight: 500,
+    },
+  },
+  content: {
+    padding: '20px 20px 0 20px',
+    animationSpeed: 'medium',
+  },
+};
 
 const CommitGeneratorForm = () => {
   const [animationParent] = useAutoAnimate();
@@ -31,20 +57,40 @@ const CommitGeneratorForm = () => {
   const [commitMessage, setCommitMessage] = useState<string>('');
   const [typeData, setTypeData] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState<string>('');
-  const [apiKeyInLocalStorage, setApiKeyInLocalStorage] = useLocalStorage('googleGeminiApiKey', '');
+  const [apiKeyInLocalStorage, setApiKeyInLocalStorage] = useLocalStorage('api-key', {
+    googleGemini: '',
+    openAI: '',
+  });
   const [generationMethod, setGenerationMethod] = useState<string>('');
+  const [apiKeyByAIServiceType, setApiKeyByAIServiceType] = useState<string>('');
+  const aiService = useReadLocalStorage('commit-generator-active-tab');
   const commitMessageWithGitCopyText = `git add .
 git commit -m "${commitMessage}"
 git push origin main`;
 
   const handleFormSubmit = async (values: any) => {
-    const { type, scope, subject, summary, googleGeminiApiKey, generateWithScope, generateWithAI } =
-      values;
+    const {
+      type,
+      scope,
+      subject,
+      summary,
+      googleGeminiApiKey,
+      openAIApiKey,
+      generateWithScope,
+      generateWithAI,
+    } = values;
 
     setError('');
     setCommitMessage('');
     setIsLoading(true);
     setGenerationMethod('');
+
+    if (aiService !== 'google-gemini' && aiService !== 'openai') {
+      setError('AI Service wasn’t validated.');
+      setIsLoading(false);
+      setIsCompleted(true);
+      return;
+    }
 
     // Generate as Manuel
     if (!generateWithAI && (type || subject)) {
@@ -62,10 +108,10 @@ git push origin main`;
     }
 
     // Generate with AI
-    if (generateWithAI && (summary || googleGeminiApiKey)) {
+    if (generateWithAI && (summary || googleGeminiApiKey || openAIApiKey)) {
       try {
         const response = await fetch(
-          `/api/generate-commit?apiKey=${googleGeminiApiKey}&summary=${summary}`,
+          `/api/generate-commit/${aiService}/?apiKey=${apiKeyByAIServiceType}&summary=${summary}`,
           {
             method: 'GET',
             headers: {
@@ -114,12 +160,16 @@ git push origin main`;
     setCommitMessage('');
   };
 
-  const handleSaveAPIKey = (googleGeminiApiKey: string) => {
-    if (!googleGeminiApiKey) return errorNotify(generalT('saveAPIKeyErrorMessage'));
-    if (googleGeminiApiKey === apiKeyInLocalStorage)
+  const handleSaveAPIKey = (aiService: 'google-gemini' | 'openai', apiKey: string) => {
+    if (!apiKey) return errorNotify(generalT('saveAPIKeyErrorMessage'));
+    if (apiKey === apiKeyInLocalStorage.googleGemini || apiKey === apiKeyInLocalStorage.openAI)
       return errorNotify(generalT('saveAPIKeyAlreadyMessage'));
 
-    setApiKeyInLocalStorage(googleGeminiApiKey);
+    if (aiService === 'google-gemini')
+      setApiKeyInLocalStorage({ googleGemini: apiKey, openAI: apiKeyInLocalStorage.openAI });
+    if (aiService === 'openai')
+      setApiKeyInLocalStorage({ googleGemini: apiKeyInLocalStorage.googleGemini, openAI: apiKey });
+
     successNotify(generalT('saveAPIKeySuccessMessage'));
   };
 
@@ -145,6 +195,12 @@ git push origin main`;
     const selected = typeData.filter((item) => item.isSelected);
     setSelectedType(selected[0]?.name);
   }, [typeData]);
+
+  useEffect(() => {
+    if (aiService === 'google-gemini')
+      return setApiKeyByAIServiceType(apiKeyInLocalStorage.googleGemini);
+    if (aiService === 'openai') return setApiKeyByAIServiceType(apiKeyInLocalStorage.openAI);
+  }, [aiService, apiKeyInLocalStorage.googleGemini, apiKeyInLocalStorage.openAI]);
 
   return (
     <section className="commit-generator-form">
@@ -235,7 +291,8 @@ git push origin main`;
                 scope: '',
                 subject: '',
                 summary: '',
-                googleGeminiApiKey: apiKeyInLocalStorage || '',
+                googleGeminiApiKey: apiKeyInLocalStorage?.googleGemini || '',
+                openAIApiKey: apiKeyInLocalStorage?.openAI || '',
                 generateWithScope: true,
                 generateWithAI: isAIEnabled,
               }}
@@ -314,6 +371,133 @@ git push origin main`;
                     </>
                   ) : (
                     <>
+                      <Tabs
+                        defaultValue="google-gemini"
+                        customSettings={tabsCustomSettings}
+                        useWithCookie="commit-generator-active-tab"
+                        className="box__tabs box__tabs--commit-generator"
+                      >
+                        <Tabs.Switchers>
+                          <Tabs.SwitcherItem value="google-gemini">
+                            <Image
+                              src={googleGeminiIcon}
+                              width={24}
+                              height={24}
+                              alt="Google Gemini Icon"
+                              className="me-1"
+                            />
+                            Google Gemini
+                            <Badge
+                              theme="ghost-gray"
+                              size="small"
+                              icon={
+                                <Tooltip
+                                  position="top"
+                                  content={`<p class="tooltip__text">${generalT('googleGeminiInfoTooltip')}</p>`}
+                                >
+                                  <Info />
+                                </Tooltip>
+                              }
+                              iconAlign="right"
+                              className="ms-1"
+                              isRounded
+                            >
+                              {generalT('free')}
+                            </Badge>
+                          </Tabs.SwitcherItem>
+                          <Tabs.SwitcherItem value="openai">
+                            <Image
+                              src={chatgptIcon}
+                              width={22}
+                              height={22}
+                              alt="ChatGPT Icon"
+                              className="me-1"
+                            />
+                            ChatGPT
+                            <Badge
+                              theme="ghost-green"
+                              size="small"
+                              icon={
+                                <Tooltip
+                                  position="top"
+                                  content={`<p class="tooltip__text">${generalT('openAIInfoTooltip')}</p>`}
+                                >
+                                  <Info />
+                                </Tooltip>
+                              }
+                              iconAlign="right"
+                              className="ms-1"
+                              isRounded
+                            >
+                              {generalT('paid')}
+                            </Badge>
+                          </Tabs.SwitcherItem>
+                        </Tabs.Switchers>
+
+                        <Tabs.Contents>
+                          <Tabs.ContentItem value="google-gemini">
+                            <label className="form__group">
+                              <p className="form__label">
+                                <span className="text-red">*</span>
+                                &nbsp;Google Gemini API Key
+                              </p>
+                              <Field
+                                id="googleGeminiApiKey"
+                                name="googleGeminiApiKey"
+                                type="text"
+                                component={Input}
+                                buttons={[
+                                  {
+                                    icon: <FloppyDisk />,
+                                    name: 'Save API Key',
+                                    tooltipText: generalT('saveAPIKeyTooltip'),
+                                    onClick: () =>
+                                      handleSaveAPIKey('google-gemini', values.googleGeminiApiKey),
+                                  },
+                                ]}
+                                as="input"
+                                hasError={errors.googleGeminiApiKey && touched.googleGeminiApiKey}
+                              />
+                              {errors.googleGeminiApiKey && touched.googleGeminiApiKey && (
+                                <p className="form__help-message form__help-message--error">
+                                  {errors.googleGeminiApiKey}
+                                </p>
+                              )}
+                            </label>
+                          </Tabs.ContentItem>
+
+                          <Tabs.ContentItem value="openai">
+                            <label className="form__group">
+                              <p className="form__label">
+                                <span className="text-red">*</span>
+                                &nbsp;OpenAI API Key
+                              </p>
+                              <Field
+                                id="openAIApiKey"
+                                name="openAIApiKey"
+                                type="text"
+                                component={Input}
+                                buttons={[
+                                  {
+                                    icon: <FloppyDisk />,
+                                    name: 'Save API Key',
+                                    tooltipText: generalT('saveAPIKeyTooltip'),
+                                    onClick: () => handleSaveAPIKey('openai', values.openAIApiKey),
+                                  },
+                                ]}
+                                as="input"
+                                hasError={errors.openAIApiKey && touched.openAIApiKey}
+                              />
+                              {errors.openAIApiKey && touched.openAIApiKey && (
+                                <p className="form__help-message form__help-message--error">
+                                  {errors.openAIApiKey}
+                                </p>
+                              )}
+                            </label>
+                          </Tabs.ContentItem>
+                        </Tabs.Contents>
+                      </Tabs>
+
                       <label className="form__group">
                         <p className="form__label d-flex align-items-center">
                           <span className="text-red">*</span>
@@ -337,34 +521,6 @@ git push origin main`;
                         {errors.summary && touched.summary && (
                           <p className="form__help-message form__help-message--error">
                             {errors.summary}
-                          </p>
-                        )}
-                      </label>
-
-                      <label className="form__group">
-                        <p className="form__label">
-                          <span className="text-red">*</span>
-                          &nbsp;Google Gemini API Key
-                        </p>
-                        <Field
-                          id="googleGeminiApiKey"
-                          name="googleGeminiApiKey"
-                          type="text"
-                          component={Input}
-                          buttons={[
-                            {
-                              icon: <FloppyDisk />,
-                              name: 'Save API Key',
-                              tooltipText: generalT('saveAPIKeyTooltip'),
-                              onClick: () => handleSaveAPIKey(values.googleGeminiApiKey),
-                            },
-                          ]}
-                          as="input"
-                          hasError={errors.googleGeminiApiKey && touched.googleGeminiApiKey}
-                        />
-                        {errors.googleGeminiApiKey && touched.googleGeminiApiKey && (
-                          <p className="form__help-message form__help-message--error">
-                            {errors.googleGeminiApiKey}
                           </p>
                         )}
                       </label>
@@ -440,7 +596,9 @@ git push origin main`;
                       disabled={
                         isLoading ||
                         (values.generateWithAI &&
-                          (!values.summary || !values.googleGeminiApiKey ? true : false)) ||
+                          (!values.summary || (!values.googleGeminiApiKey && !values.openAIApiKey)
+                            ? true
+                            : false)) ||
                         (!values.generateWithAI && (!values.type || !values.subject ? true : false))
                       }
                     >

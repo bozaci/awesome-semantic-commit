@@ -6,6 +6,7 @@ export interface BadgeProps {
     | 'ghost-orange'
     | 'ghost-gray'
     | 'ghost-gradient-gemini'
+    | 'ghost-green'
     | 'dashed-orange';
   size?: 'default' | 'small' | 'medium';
   icon?: any;
