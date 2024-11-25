@@ -103,6 +103,8 @@ Commit'in ne yaptığını kısa ve öz bir şekilde açıklar. Maksimum 50 kara
 
 ## Nasıl Kullanılır?
 
+Bu bölümde, sürüm kontrolünde netlik sağlamak için semantik commit mesajı uygulamalarının nasıl uygulanacağı ve takip edileceği açıklanmaktadır.
+
 ### 1. 1. Değişiklikleri Ekleme (Staging)
 
 İlk olarak, üzerinde çalıştığınız dosyalarda değişiklik yaptıktan sonra bu dosyaları commit'e dahil etmek için terminal üzerinden `git add` komutunu kullanmanız gerekir.
@@ -154,6 +156,8 @@ git push origin main
 ```
 
 ## Nasıl Kullanılmaz?
+
+Bu, taahhüt mesajlarındaki yaygın hataları veya yanlış kullanımları özetleyerek kullanıcıların kafa karışıklığı veya tutarsızlıktan kaçınmasına yardımcı olur.
 
 ### 1. Commit Mesajlarında Türkçe Kullanımı Yanlıştır
 
@@ -246,6 +250,8 @@ Commit’i geri alabilirsiniz. "Bir commit’i nasıl geri alırım?" başlığ�
 Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede çalışan tüm geliştiriciler için anlaşılabilirliği artırır ve açık kaynak projelerinde uluslararası işbirliğini kolaylaştırır.
 
 ## Dipnotlar
+
+Belgede tartışılan belirli noktalar için ek referanslar veya açıklamalar sağlar.
 
 ### Kaynaklar
 

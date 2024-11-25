@@ -108,6 +108,8 @@ Examples:
 
 ## How to Use
 
+This section explains how to implement and follow semantic commit message practices to ensure clarity in version control.
+
 ### 1. Staging Changes
 
 First, after making changes to the files you're working on, you need to use the `git add` command in the terminal to include these files in the commit.
@@ -159,6 +161,8 @@ git push origin main
 ```
 
 ## How to Not Use
+
+This outlines the common mistakes or misuses in commit messages, helping users avoid confusion or inconsistency.
 
 ### 1. Commit Messages Should Only Be in English
 
@@ -251,6 +255,8 @@ You can undo the commit. Check the 'How do I undo a commit?' section for more de
 Yes, commit messages should be in English, as it is a global language. This increases the understandability for all developers in the project and facilitates international collaboration in open-source projects.
 
 ## Footnotes
+
+Provides additional references or explanations for certain points discussed in the document.
 
 ### References
 
