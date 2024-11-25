@@ -41,7 +41,6 @@ Semantic Commit is a method used in software development. Its main purpose is to
 - [How to Use](#how-to-use)
 - [How to Not Use](#how-to-not-use)
 - [Frequently Asked Questions](#frequently-asked-questions)
-- [Contribute](#contribute)
 
 ## Why Is It Important
 
@@ -182,6 +181,26 @@ There is no need to use these words to indicate commit types, as the commit type
 <b>✅ Correct Usage</b><br />
 `feat: add new button`, `fix: improve validation logi`, `refactor: change component structure`
 
+### 3. Incorrect Type Usage
+
+Using an incorrect label in the commit message that does not match the type of change made. Each type serves a specific purpose, and incorrect type usage can make it unclear what the changes are for. This situation can make it difficult for the project team to track changes and complicate code management.
+
+<b>❌ Wrong Usage</b><br />
+`fix: add user authentication`, `feat: fix payment gateway issue`, `fix: optimize the code`
+<br /><br />
+<b>✅ Correct Usage</b><br />
+`feat: add user authentication`, `fix: payment gateway issue`, `refactor: optimize the code`
+
+### 4. Unnecessary Use of Capital Letters or Special Characters
+
+The use of capital letters or special characters in commit messages, either accidentally or intentionally, that disrupts the readability and consistency of the messages. Such usage can cause commit messages to lose their professionalism and alignment with standards.
+
+<b>❌ Wrong Usage</b><br />
+`FEAT: NEW LOGIN SYSTEM IMPLEMENTED!!!`, `FIX: NULL POINTER EXCEPTION FIXED`, `REFACTOR: IMPROVED CODE PERFORMANCE!!!`
+<br /><br />
+<b>✅ Correct Usage</b><br />
+`feat: implement new login system`, `fix: resolve null pointer exception`, `refactor: improve code performance`
+
 ## Frequently Asked Questions
 
 ### What are the benefits of using semantic commit messages
@@ -229,6 +248,15 @@ You can undo the commit. Check the 'How do I undo a commit?' section for more de
 ### Should commit messages be in English
 
 Yes, commit messages should be in English, as it is a global language. This increases the understandability for all developers in the project and facilitates international collaboration in open-source projects.
+
+## Footnotes
+
+### References
+
+The following resources were used as a foundation, with additional insights and enhancements added along the way:
+
+- [Semantic Git Commit Messages - Gist](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+- [Semantic Commit Messages - Medium](https://callmeryan.medium.com/semantic-commit-messages-bcd60f75de1f)
 
 ## Contribute
 

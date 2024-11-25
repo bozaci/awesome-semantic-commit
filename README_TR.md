@@ -41,7 +41,6 @@ Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amac�
 - [Nasıl Kullanılır?](#nasıl-kullanılır)
 - [Nasıl Kullanılmaz?](#nasıl-kullanılmaz)
 - [Sıkça Sorulan Sorular](#sıkça-sorulan-sorular)
-- [Katkı Sağlama](#katkı-sağlama)
 
 ## Neden Önemli?
 
@@ -177,6 +176,26 @@ Commit türlerini (type) belirtmek için bu kelimelere gerek yoktur, çünkü co
 <b>✅ Doğru Kullanım</b><br />
 `feat: add new button`, `fix: improve validation logi`, `refactor: change component structure`
 
+### 3. Yanlış Tür Kullanımı
+
+Commit mesajında, yapılan değişikliğin türüne uygun olmayan bir etiketin kullanılmasıdır. Her tür, belirli bir amaca hizmet eder ve yanlış tür kullanımı, değişikliklerin ne amaçla yapıldığını belirsiz hale getirebilir. Bu durum, proje ekibinin değişiklikleri takip etmesini zorlaştırır ve kodun yönetimini karmaşıklaştırabilir.
+
+<b>❌ Yanlış Kullanım</b><br />
+`fix: add user authentication`, `feat: fix payment gateway issue`, `fix: optimize the code`
+<br /><br />
+<b>✅ Doğru Kullanım</b><br />
+`feat: add user authentication`, `fix: payment gateway issue`, `refactor: optimize the code`
+
+### 4. Gereksiz Büyük Harfler veya Özel Karakterler Kullanımı
+
+Commit mesajlarında yanlışlıkla ya da kasıtlı olarak büyük harfler ya da özel karakterler kullanarak, mesajların okunabilirliğini ve tutarlılığını bozma durumudur. Bu tür kullanım, commit mesajlarının profesyonel ve standartlara uygun olmaktan çıkmasına neden olabilir.
+
+<b>❌ Yanlış Kullanım</b><br />
+`FEAT: NEW LOGIN SYSTEM IMPLEMENTED!!!`, `FIX: NULL POINTER EXCEPTION FIXED`, `REFACTOR: IMPROVED CODE PERFORMANCE!!!`
+<br /><br />
+<b>✅ Doğru Kullanım</b><br />
+`feat: implement new login system`, `fix: resolve null pointer exception`, `refactor: improve code performance`
+
 ## Sıkça Sorulan Sorular
 
 ### Faydaları nelerdir?
@@ -225,10 +244,15 @@ Commit’i geri alabilirsiniz. "Bir commit’i nasıl geri alırım?" başlığ�
 
 Evet, commit mesajları global bir dil olan İngilizce olmalıdır. Bu, projede çalışan tüm geliştiriciler için anlaşılabilirliği artırır ve açık kaynak projelerinde uluslararası işbirliğini kolaylaştırır.
 
+## Dipnotlar
+
+### Kaynaklar
+
+Aşağıdaki kaynaklardan yararlanılmış olup, bunların üzerine eklenen yeni fikirler ve geliştirmeler de yapılmıştır:
+
+- [Semantic Git Commit Messages - Gist](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+- [Semantic Commit Messages - Medium](https://callmeryan.medium.com/semantic-commit-messages-bcd60f75de1f)
+
 ## Katkı Sağlama
 
 Daha fazla bilgi için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakabilirsiniz.
-
-## License
-
-Bu proje [LICENSE](LICENSE) şartlarına göre lisanslanmıştır.
