@@ -41,6 +41,7 @@ Semantic Commit, yazılım geliştirmede kullanılan bir yöntemdir. Temel amac�
 - [Nasıl Kullanılır?](#nasıl-kullanılır)
 - [Nasıl Kullanılmaz?](#nasıl-kullanılmaz)
 - [Sıkça Sorulan Sorular](#sıkça-sorulan-sorular)
+- [Katkı Sağlama](#katkı-sağlama)
 
 ## Neden Önemli?
 

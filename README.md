@@ -41,6 +41,7 @@ Semantic Commit is a method used in software development. Its main purpose is to
 - [How to Use](#how-to-use)
 - [How to Not Use](#how-to-not-use)
 - [Frequently Asked Questions](#frequently-asked-questions)
+- [Contribute](#contribute)
 
 ## Why Is It Important
 
