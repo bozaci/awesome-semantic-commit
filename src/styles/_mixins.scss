@@ -26,11 +26,12 @@
   }
 }
 
-@mixin disable-autofill() {
+@mixin disable-autofill($text-color: #000000) {
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s !important;
+    -webkit-text-fill-color: $text-color;
   }
 }
