@@ -3,15 +3,6 @@
 </p>
 
 <p align="center">
-   <img src="https://vercelbadge.vercel.app/api/bozaci/awesome-semantic-commit" />
-   <img src="https://badge.fury.io/js/esta.svg?style=flat" />
-   <img src="https://img.shields.io/badge/Yazılım Dili-Next.js-black" />
-   <img src="https://img.shields.io/badge/Lisans-CC01.0-yellow.svg" />
-   <br />
-   <img src="https://img.shields.io/github/last-commit/bozaci/awesome-semantic-commit" />
-   <img src="https://img.shields.io/github/issues/bozaci/awesome-semantic-commit" />
-   <img src="https://img.shields.io/github/issues-closed/bozaci/awesome-semantic-commit" />
-   <br />
    <a href="README.md">
       <img src="https://img.shields.io/badge/Dil-İngilizce-637AFA" />
    </a>
