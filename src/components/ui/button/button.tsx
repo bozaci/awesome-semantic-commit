@@ -9,6 +9,8 @@ const Button: FC<ButtonProps> = ({
   theme,
   size,
   sizeAsFont,
+  icon,
+  iconAlign,
   href,
   externalLink,
   type,
@@ -38,7 +40,13 @@ const Button: FC<ButtonProps> = ({
           className,
         )}
       >
+        {iconAlign === 'left' && (
+          <div className="button__icon button__icon--align-left">{icon}</div>
+        )}
         {children}
+        {iconAlign === 'right' && (
+          <div className="button__icon button__icon--align-right">{icon}</div>
+        )}
       </Link>
     );
 
@@ -59,7 +67,11 @@ const Button: FC<ButtonProps> = ({
       )}
       disabled={disabled}
     >
+      {iconAlign === 'left' && <div className="button__icon button__icon--align-left">{icon}</div>}
       {children}
+      {iconAlign === 'right' && (
+        <div className="button__icon button__icon--align-right">{icon}</div>
+      )}
     </button>
   );
 };

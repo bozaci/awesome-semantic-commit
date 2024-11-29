@@ -1,9 +1,19 @@
 import React from 'react';
 
 export interface ButtonProps {
-  theme: 'default' | 'primary' | 'white' | 'gray' | 'ghost-dark' | 'ghost-gray' | 'gemini';
+  theme:
+    | 'default'
+    | 'primary'
+    | 'white'
+    | 'gray'
+    | 'green'
+    | 'ghost-dark'
+    | 'ghost-gray'
+    | 'gemini';
   size: 'default' | 'small' | 'medium';
   sizeAsFont?: 'small';
+  icon?: any;
+  iconAlign?: 'left' | 'right';
   href?: string;
   externalLink?: boolean;
   type?: any;

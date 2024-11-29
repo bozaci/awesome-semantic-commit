@@ -61,6 +61,16 @@
     }
   }
 
+  &--theme-green {
+    background-color: #0e9c57;
+    color: #fff;
+
+    &:hover {
+      background-color: #0b7944;
+      color: #fff;
+    }
+  }
+
   &--theme-ghost-dark {
     background-color: #565656;
     color: #dadada;
@@ -114,12 +124,33 @@
     font-size: px-to-rem(14px);
   }
 
+  &--size-small &__icon {
+    font-size: px-to-rem(16px);
+  }
+
   &--size-medium {
     padding: px-to-rem(10px) px-to-rem(15px);
   }
 
+  &--size-medium &__icon {
+    font-size: px-to-rem(18px);
+  }
+
   &--size-as-font-small {
     font-size: px-to-rem(14px);
+  }
+
+  &__icon {
+    font-size: px-to-rem(22px);
+    display: flex;
+
+    &--align-left {
+      margin-right: px-to-rem(3px);
+    }
+
+    &--align-right {
+      margin-left: px-to-rem(3px);
+    }
   }
 
   /**
