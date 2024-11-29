@@ -1,0 +1,45 @@
+//
+// Accordion
+//
+
+@import '../../../styles/functions';
+
+.accordion {
+  &.is-active &__arrow-icon {
+    transform: rotateX(180deg);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    font-size: px-to-rem(16px);
+    font-weight: 500;
+    line-height: px-to-rem(22px);
+    color: #000000;
+  }
+
+  &__arrow-icon {
+    margin-left: px-to-rem(3px);
+    display: flex;
+    font-size: px-to-rem(12px);
+    color: #000000;
+    transition: all 0.5s;
+  }
+
+  &__content {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.325s;
+
+    &-inner {
+      padding-top: var(--accordion-content-padding-top, px-to-rem(10px));
+    }
+  }
+}
