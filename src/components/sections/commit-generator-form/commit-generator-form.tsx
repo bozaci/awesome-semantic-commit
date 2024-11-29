@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
-import { Info, FloppyDisk } from '@phosphor-icons/react/dist/ssr';
+import { Info, FloppyDisk, ShieldCheck } from '@phosphor-icons/react/dist/ssr';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { commitGeneratorSchema } from '@/utils/schema';
 import { commitTypes } from '@/utils/constants';
@@ -50,6 +51,7 @@ const tabsCustomSettings = {
 const CommitGeneratorForm = () => {
   const [animationParent] = useAutoAnimate();
   const generalT = useTranslations('general');
+  const router = useRouter();
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
@@ -177,6 +179,12 @@ git push origin main`;
     setCommitMessage('');
   };
 
+  const handleValidateCommitMessage = () => {
+    router.push(
+      `/semantic-commit-validator/?apiKey=${formik.values.googleGeminiApiKey}&commitMessage=${commitMessage}&submit=true`,
+    );
+  };
+
   const handleSaveAPIKey = (aiService: 'google-gemini' | 'openai', apiKey: string) => {
     if (!apiKey) return errorNotify(generalT('saveAPIKeyErrorMessage'));
     if (apiKey === apiKeyInLocalStorage.googleGemini || apiKey === apiKeyInLocalStorage.openAI)
@@ -275,7 +283,7 @@ git push origin main`;
                       </Badge>
                     </Box.Group>
                   </Box.Group>
-                  <Box.Group>
+                  <Box.Group className="d-flex flex-wrap spacing spacing--xsmall-two">
                     {generationMethod === 'ai' ? (
                       <Button onClick={handleResetCommitGenerate} theme="gemini" size="small">
                         {generalT('generateCommitAgain')}
@@ -285,6 +293,16 @@ git push origin main`;
                         {generalT('generateCommitAgain')}
                       </Button>
                     )}
+
+                    <Button
+                      onClick={handleValidateCommitMessage}
+                      theme="green"
+                      size="small"
+                      icon={<ShieldCheck />}
+                      iconAlign="left"
+                    >
+                      {generalT('checkCommitMessageWithValidator')}
+                    </Button>
                   </Box.Group>
                 </>
               ) : (

@@ -18,6 +18,7 @@
     "summary": "Özet",
     "generateCommit": "Commit Oluştur",
     "generateCommitAgain": "Yeniden Commit Oluştur",
+    "checkCommitMessageWithValidator": "Doğrulayıcı ile Commit Mesajını Kontrol Et",
     "projectName": "Proje Adı",
     "projectLogoURL": "Proje Logo URL",
     "projectWebsite": "Proje Website",

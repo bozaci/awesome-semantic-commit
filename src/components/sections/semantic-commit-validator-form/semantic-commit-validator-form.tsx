@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormik } from 'formik';
 import {
@@ -14,6 +14,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { semanticCommitValidatorSchema } from '@/utils/schema';
 import { useLocalStorage } from 'usehooks-ts';
 import { useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { errorNotify, successNotify } from '@/utils/notification';
 import posthog from 'posthog-js';
 import cx from 'classnames';
@@ -50,27 +51,34 @@ const SemanticCommitValidatorForm = () => {
   const [animationParent] = useAutoAnimate();
   const generalT = useTranslations('general');
   const locale = useLocale();
+  const searchParams = useSearchParams();
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [formSubmitCount, setFormSubmitCount] = useState<number>(0);
   const [data, setData] = useState<dataType>(initialData);
   const [apiKeyInLocalStorage, setApiKeyInLocalStorage] = useLocalStorage('api-key', {
     googleGemini: '',
     openAI: '',
   });
+  const [googleGeminiApiKey, setGoogleGeminiApiKey] = useState<string>(
+    apiKeyInLocalStorage?.googleGemini,
+  );
+  const [commitMessage, setCommitMessage] = useState<string>('');
   const commitMessageWithGitCopyText = `git add .
 git commit -m "${data?.fixedCommitMessage}"
 git push origin main`;
   const formik = useFormik({
     initialValues: {
-      googleGeminiApiKey: apiKeyInLocalStorage?.googleGemini || '',
-      commitMessage: '',
+      googleGeminiApiKey: googleGeminiApiKey || '',
+      commitMessage: commitMessage || '',
       purpose: '',
     },
     onSubmit: (values) => handleFormSubmit(values),
     validationSchema: semanticCommitValidatorSchema(generalT),
     validateOnChange: false,
     validateOnBlur: false,
+    enableReinitialize: true,
   });
 
   const handleFormSubmit = async (values: any) => {
@@ -162,6 +170,27 @@ git push origin main`;
       });
     successNotify(generalT('saveAPIKeySuccessMessage'));
   };
+
+  useEffect(() => {
+    if (!searchParams) return;
+
+    const apiKey = searchParams.get('apiKey');
+    const commitMessage = searchParams.get('commitMessage');
+    const submit = searchParams.get('submit');
+
+    if (!apiKey || !commitMessage) return;
+    if (formSubmitCount >= 1) return;
+    setFormSubmitCount((value) => value + 1);
+
+    setGoogleGeminiApiKey(apiKey);
+    setCommitMessage(commitMessage);
+
+    if (submit === 'true') {
+      setTimeout(() => {
+        formik.submitForm();
+      }, 500);
+    }
+  }, [formSubmitCount, formik, formik.values, searchParams]);
 
   return (
     <section className="semantic-commit-validator-form">

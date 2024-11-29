@@ -18,6 +18,7 @@
     "summary": "Summary",
     "generateCommit": "Generate Commit",
     "generateCommitAgain": "Generate Commit Again",
+    "checkCommitMessageWithValidator": "Check Commit Message with Validator",
     "projectName": "Project Name",
     "projectLogoURL": "Project Logo URL",
     "projectWebsite": "Project Website",
