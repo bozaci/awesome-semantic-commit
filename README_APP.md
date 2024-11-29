@@ -18,7 +18,7 @@
   ·
   <a href="https://semanticcommit.com/commit-generator?utm_source=github&utm_medium=commit-generator-text&utm_campaign=analysis">Commit Generator</a>
   ·
-  <a href="https://twitter.com/yusufbozaci_">Follow Twitter</a>
+  <a href="https://twitter.com/yusufbozaci_">Follow on Twitter</a>
   <br />
   <a href="README.md">General Documentation</a>
 </p>
