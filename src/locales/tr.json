@@ -8,9 +8,11 @@
     "goToHomepage": "Ana Sayfaya Dön",
     "homePage": "Ana Sayfa",
     "commitGenerator": "Commit Oluşturucu",
+    "semanticCommitValidator": "Semantic Commit Doğrulayıcı",
     "type": "Tür (Type)",
     "scope": "Kapsam (Scope)",
     "subject": "Konu (Subject)",
+    "conclusion": "Sonuç",
     "generateWithAI": "Yapay Zeka ile Oluştur",
     "generateWithScope": "Kapsam (Scope) ile Oluştur",
     "summary": "Özet",
@@ -31,13 +33,21 @@
     "semanticCommitMessage": "Semantik Commit Mesajı",
     "semanticCommitWithGit": "Git ile Semantik Commit İşlemi",
     "semanticCommitCopyCode": "Aşağıdaki kodu kopyalayarak terminalinizde kullanabilirsiniz.",
+    "commitMessage": "Commit Mesajı",
+    "purposeChanges": "Yapılan Değişikliğin Amacı",
+    "startValidation": "Doğrulamayı Başlat",
+    "validationInProgress": "Doğrulama Gerçekleştiriliyor..",
+    "validationAgain": "Yeniden Doğrulamayı Başlat",
+    "validationSuccessTitle": "Doğrulama Başarıyla Tamamlandı",
+    "validationErrorTitle": "Doğrulama Yapılamadı",
     "or": "veya",
     "copy": "kopyala",
     "copied": "kopyalandı",
     "free": "ücretsiz",
     "paid": "ücretli",
     "information": "Bilgilendirme",
-    "supportedWithGemini": "ve ChatGPT ile desteklenmektedir.",
+    "supportedWithGeminiAndChatGPT": "<strong>Gemini</strong> ve <strong>ChatGPT</strong> ile desteklenmektedir.",
+    "supportedWithGemini": "<strong>Gemini</strong> ile desteklenmektedir.",
     "generateWithAITooltipText": "Bu seçeneği etkinleştirdiğinizde, Özet kısmına yaptığınız değişikliği özetlemeniz gerekecektir. Yapay Zeka, sizin için semantik kurallara uygun bir commit mesajı oluşturacaktır.",
     "generateWithAITooltipTextTwo": "Bu özelliğin çalışabilmesi için Google Gemini API anahtarına sahip olmanız gerekmektedir. Ücretsiz olarak Google Gemini API anahtarı almak için aşağıdaki Sıkça Sorulan Sorular'a göz atabilirsiniz.",
     "saveAPIKeyTooltip": "API Anahtarını Kaydet (anahtar, bilgisayarınıza kaydedilecektir)",
@@ -54,7 +64,12 @@
     "tryAgainAddProject": "Proje Eklemeyi Tekrar Dene",
     "fillAllRequiredFields": "Lütfen gerekli tüm alanları doldurunuz.",
     "googleGeminiInfoTooltip": "Kullanımı ücretsizdir, ancak Google Gemini API'yi kullanmak için bir API anahtarı almanız gerekmektedir. Rehber için aşağıdaki sıkça sorulan sorular bölümüne göz atabilirsiniz.",
-    "openAIInfoTooltip": "OpenAI anahtarı ücretlidir, ancak bu ücreti bize değil, OpenAI'ye ödemeniz gerekmektedir. API'yi kullanabilmek için bir anahtar almanız gerekmektedir."
+    "openAIInfoTooltip": "OpenAI anahtarı ücretlidir, ancak bu ücreti bize değil, OpenAI'ye ödemeniz gerekmektedir. API'yi kullanabilmek için bir anahtar almanız gerekmektedir.",
+    "validCommitMessage": "<strong>{commitMessage}</strong> commit mesajınız semantic commit kurallarıyla uyumlu.",
+    "notValidCommitMessage": "<strong>{commitMessage}</strong> commit mesajınız semantic commit kurallarıyla uyumlu değil.",
+    "errorsOfCommitMessage": "Commit Mesajının Hataları",
+    "fixedCommitMessage": "Düzeltilmiş Commit Mesajı",
+    "purposeChangesTooltipText": "Daha iyi sonuçlar için, değişikliğin amacını belirtmek faydalı olabilir."
   },
 
   "hero": {
@@ -278,5 +293,10 @@
         }
       }
     }
+  },
+
+  "semanticCommitValidator": {
+    "title": "Semantic Commit Doğrulayıcı",
+    "text": "Semantic Commit Doğrulayıcı, commit mesajlarının belirli bir formata (örneğin, feat, fix, docs gibi) uygun olup olmadığını kontrol eden bir araçtır. Bu, proje geliştirme sürecinde düzenli ve anlamlı commit mesajlarının kullanılmasını sağlar."
   }
 }

@@ -8,9 +8,11 @@
     "goToHomepage": "Go to Homepage",
     "homePage": "Home",
     "commitGenerator": "Commit Generator",
+    "semanticCommitValidator": "Semantic Commit Validator",
     "type": "Type",
     "scope": "Scope",
     "subject": "Subject",
+    "conclusion": "Conclusion",
     "generateWithAI": "Generate with AI",
     "generateWithScope": "Generate with Scope",
     "summary": "Summary",
@@ -31,13 +33,21 @@
     "semanticCommitMessage": "Semantic Commit Message",
     "semanticCommitWithGit": "Semantic Commit Process with Git",
     "semanticCommitCopyCode": "You can copy the code below and use it in your terminal.",
+    "commitMessage": "Commit Message",
+    "purposeChanges": "Purpose of the Changes",
+    "startValidation": "Start Validation",
+    "validationInProgress": "Validation is Being Performed..",
+    "validationAgain": "Start Revalidation",
+    "validationSuccessTitle": "Validation Completed Successfully",
+    "validationErrorTitle": "Failed Validation",
     "or": "or",
     "copy": "copy",
     "copied": "copied",
     "free": "free",
     "paid": "paid",
     "information": "Information",
-    "supportedWithGemini": "and ChatGPT supported.",
+    "supportedWithGeminiAndChatGPT": "<strong>Gemini</strong> and <strong>ChatGPT</strong> supported.",
+    "supportedWithGemini": "Supported with <strong>Gemini</strong>.",
     "generateWithAITooltipText": "When you enable this option, you will need to summarize the changes you made in the Summary section. The AI will generate a commit message that complies with semantic rules for you.",
     "generateWithAITooltipTextTwo": "To use this feature, you need to have a Google Gemini API key. You can check the FAQ below to obtain a Google Gemini API key for free.",
     "saveAPIKeyTooltip": "Save API Key (the key will be saved to your computer)",
@@ -54,7 +64,12 @@
     "tryAgainAddProject": "Try Adding Project Again",
     "fillAllRequiredFields": "Please fill out all required fields.",
     "googleGeminiInfoTooltip": "It is free to use, but you need to obtain an API key to use the Google Gemini API. For guidance, see the frequently asked questions section below.",
-    "openAIInfoTooltip": "There is a fee for the OpenAI key, but you have to pay this fee to OpenAI, not to us. You need a key to use the API."
+    "openAIInfoTooltip": "There is a fee for the OpenAI key, but you have to pay this fee to OpenAI, not to us. You need a key to use the API.",
+    "validCommitMessage": "Your <strong>{commitMessage}</strong> commit message is valid with semantic commit rules.",
+    "notValidCommitMessage": "Your <strong>{commitMessage}</strong> commit message is not valid with semantic commit rules.",
+    "errorsOfCommitMessage": "Errors of Commit Message",
+    "fixedCommitMessage": "Corrected Commit Message",
+    "purposeChangesTooltipText": "For better results, it may be helpful to indicate the purpose of the change."
   },
 
   "hero": {
@@ -278,5 +293,10 @@
         }
       }
     }
+  },
+
+  "semanticCommitValidator": {
+    "title": "Semantic Commit Validator",
+    "text": "The Semantic Commit Validator is a tool that checks whether commit messages conform to a specific format (e.g. feat, fix, docs). This ensures that organised and meaningful commit messages are used in the project development process."
   }
 }

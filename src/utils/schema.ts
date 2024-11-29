@@ -53,3 +53,10 @@ export const addProjectSchema = (t: any) =>
       .required(t('thisFieldRequired')),
     projectOwner: Yup.boolean(),
   });
+
+export const semanticCommitValidatorSchema = (t: any) =>
+  Yup.object().shape({
+    googleGeminiApiKey: Yup.string().required(t('thisFieldRequired')),
+    commitMessage: Yup.string().required(t('thisFieldRequired')),
+    purpose: Yup.string(),
+  });

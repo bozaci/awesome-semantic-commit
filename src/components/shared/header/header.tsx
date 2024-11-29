@@ -60,6 +60,12 @@ const Header = () => {
       onClick: () => router.push('/commit-generator'),
       isSelected: pathname === '/commit-generator',
     },
+    {
+      name: t('semanticCommitValidator'),
+      value: 'semantic-commit-validator',
+      onClick: () => router.push('/semantic-commit-validator'),
+      isSelected: pathname === '/semantic-commit-validator',
+    },
   ];
   const [navigationData, setNavigationData] = useState<dataType[]>(initialNavigationData);
   const [selectedNavigationPage, setSelectedNavigationPage] = useState<string>('');
@@ -67,6 +73,8 @@ const Header = () => {
   useEffect(() => {
     if (pathname == '/') setSelectedNavigationPage(t('homePage'));
     if (pathname == '/commit-generator') setSelectedNavigationPage(t('commitGenerator'));
+    if (pathname == '/semantic-commit-validator')
+      setSelectedNavigationPage(t('semanticCommitValidator'));
 
     setNavigationData(initialNavigationData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -76,7 +84,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="row g-4 align-items-center">
-          <div className="col-8 col-lg-6 d-flex align-items-center">
+          <div className="col-8 col-lg-8 d-flex align-items-center">
             <Logo theme="single" area="header-single" />
 
             <span className="header__brace">/</span>
@@ -99,6 +107,15 @@ const Header = () => {
               >
                 <span className="header__navigation-text">{t('commitGenerator')}</span>
               </Link>
+
+              <Link
+                href="/semantic-commit-validator"
+                className={cx('header__navigation-item', {
+                  'is-active': pathname === '/semantic-commit-validator',
+                })}
+              >
+                <span className="header__navigation-text">{t('semanticCommitValidator')}</span>
+              </Link>
             </div>
 
             <div className="header__navigation hidden@desktop">
@@ -117,7 +134,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="col-4 col-lg-6 d-flex justify-content-end align-items-center">
+          <div className="col-4 col-lg-4 d-flex justify-content-end align-items-center">
             <SocialMedia data={socialMediaData} theme="ghost-dark" className="hidden@mobile" />
             <div className="header__horizontal-line hidden@mobile"></div>
             <LanguageSwitcher data={languages} defaultValue={locale} />

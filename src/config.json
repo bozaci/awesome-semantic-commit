@@ -9,6 +9,10 @@
     "commitGenerator": {
       "title": "Commit Generator – Awesome Semantic Commit",
       "description": "The Commit Generator is a tool that helps you write more organized and meaningful commit messages during project development processes."
+    },
+    "semanticCommitValidator": {
+      "title": "Semantic Commit Validator – Awesome Semantic Commit",
+      "description": "The Semantic Commit Validator is a tool that checks whether commit messages conform to a specific format (e.g. feat, fix, docs)."
     }
   },
   "maxShowProjects": 6
