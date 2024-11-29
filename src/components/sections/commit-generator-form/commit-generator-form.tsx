@@ -74,7 +74,7 @@ const CommitGeneratorForm = () => {
       generateWithScope: true,
       generateWithAI: isAIEnabled,
     },
-    onSubmit: (values) => handleFormSubmit(values),
+    onSubmit: (values, params) => handleFormSubmit(values, params),
     validationSchema: commitGeneratorSchema(generalT),
     validateOnChange: false,
     validateOnBlur: false,
@@ -84,7 +84,7 @@ const CommitGeneratorForm = () => {
 git commit -m "${commitMessage}"
 git push origin main`;
 
-  const handleFormSubmit = async (values: any) => {
+  const handleFormSubmit = async (values: any, params: any) => {
     const {
       type,
       scope,
@@ -118,6 +118,7 @@ git push origin main`;
         setIsLoading(false);
         setIsCompleted(true);
         setGenerationMethod('manual');
+        params.resetForm();
         if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
           posthog.capture('manual-commit-generation');
       }, 1000);
