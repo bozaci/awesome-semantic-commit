@@ -6,6 +6,7 @@ export interface BadgeProps {
     | 'ghost-orange'
     | 'ghost-gray'
     | 'ghost-gradient-gemini'
+    | 'outline-gradient-dark-gray'
     | 'ghost-green'
     | 'dashed-orange';
   size?: 'default' | 'small' | 'medium';
@@ -15,6 +16,7 @@ export interface BadgeProps {
   useWithCopyClipboard?: boolean;
   isRounded?: boolean;
   isDark?: boolean;
+  isLink?: boolean;
   className?: string;
   children: React.ReactNode;
 }
