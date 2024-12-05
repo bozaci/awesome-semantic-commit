@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { modalData } from '@/modals/utils/modalData';
 import { useModals, closeModal } from '@/modals/utils/modalHooks';
 import { useOnClickOutside } from 'usehooks-ts';
@@ -13,22 +13,25 @@ const Modal = () => {
   const lastModalIndex = modal.length - 1;
   const lastModal = modal[lastModalIndex];
 
-  const handleCloseModal = (name: string) => {
-    // Use document.querySelector instead of useRef,
-    // because when using multiple modals,
-    // useRef may return null after the last element is removed.
-    const modalSelector = document.querySelector(`[data-modal="${lastModal?.name}"]`);
+  const handleCloseModal = useCallback(
+    (name: string) => {
+      // Use document.querySelector instead of useRef,
+      // because when using multiple modals,
+      // useRef may return null after the last element is removed.
+      const modalSelector = document.querySelector(`[data-modal="${lastModal?.name}"]`);
 
-    if (!modalSelector) return closeModal(name);
+      if (!modalSelector) return closeModal(name);
 
-    modalSelector.classList.remove('is-active');
+      modalSelector.classList.remove('is-active');
 
-    setTimeout(() => {
-      document.body.classList.remove('has-none-scroll');
-      modalSelector.classList.remove('is-show');
-      closeModal(name);
-    }, 225);
-  };
+      setTimeout(() => {
+        document.body.classList.remove('has-none-scroll');
+        modalSelector.classList.remove('is-show');
+        closeModal(name);
+      }, 225);
+    },
+    [lastModal?.name],
+  );
 
   useEffect(() => {
     // Use document.querySelector instead of useRef,
@@ -52,6 +55,21 @@ const Modal = () => {
 
     if (modal.length > 0) return body.classList.add('has-none-scroll');
   }, [modal]);
+
+  // Close the modal when the ESC key is pressed
+  useEffect(() => {
+    if (modal.length === 0) return;
+
+    const handleKeyDown = (e: any) => {
+      if (e.key === 'Escape') handleCloseModal(lastModal?.name);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleCloseModal, lastModal?.name, modal]);
 
   useOnClickOutside(refInner, () => handleCloseModal(lastModal?.name));
 
