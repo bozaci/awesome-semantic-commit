@@ -13,9 +13,8 @@
   flex-direction: column;
   transition: all 225ms;
 
-  &:hover:not(.is-active) {
-    cursor: pointer;
-    border-color: #e2e2e2;
+  &:hover {
+    border-color: #e1e1e1;
   }
 
   &.is-active &__arrow-icon {
@@ -27,6 +26,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__title {
