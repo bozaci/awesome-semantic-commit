@@ -42,20 +42,35 @@ const FAQCard: FC<FAQCardProps> = ({ data }) => {
   };
 
   return (
-    <div ref={ref} className="faq-card">
+    <div
+      ref={ref}
+      className="faq-card"
+      itemScope
+      itemProp="mainEntity"
+      itemType="https://schema.org/Question"
+    >
       <div onClick={handleToggle} className="faq-card__header">
-        <span className="faq-card__title">{title}</span>
+        <span className="faq-card__title" itemProp="name">
+          {title}
+        </span>
 
         <div className="faq-card__arrow-icon">
           <CaretDown />
         </div>
       </div>
 
-      <div ref={contentRef} className="faq-card__main">
+      <div
+        ref={contentRef}
+        className="faq-card__main"
+        itemScope
+        itemProp="acceptedAnswer"
+        itemType="https://schema.org/Answer"
+      >
         <div
           ref={contentInnerRef}
           className="faq-card__main-inner"
           dangerouslySetInnerHTML={{ __html: content }}
+          itemProp="text"
         ></div>
       </div>
     </div>
