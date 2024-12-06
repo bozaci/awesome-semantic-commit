@@ -20,6 +20,7 @@
     "generateCommit": "Generate Commit",
     "generateCommitAgain": "Generate Commit Again",
     "checkCommitMessageWithValidator": "Check Commit Message with Validator",
+    "checkCommitMessageWithValidatorLoading": "Validating Commit Message..",
     "projectName": "Project Name",
     "projectLogoURL": "Project Logo URL",
     "projectWebsite": "Project Website",

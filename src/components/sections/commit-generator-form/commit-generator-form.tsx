@@ -66,6 +66,7 @@ const CommitGeneratorForm = () => {
   const [generationMethod, setGenerationMethod] = useState<string>('');
   const [apiKeyByAIServiceType, setApiKeyByAIServiceType] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
+  const [isValidateLoading, setIsValidateLoading] = useState<boolean>(false);
   const formik = useFormik({
     initialValues: {
       type: selectedType || commitTypes[0],
@@ -183,6 +184,8 @@ git push origin main`;
   };
 
   const handleValidateCommitMessage = () => {
+    setIsValidateLoading(true);
+
     router.push(
       `/semantic-commit-validator/?apiKey=${formik.values.googleGeminiApiKey}&commitMessage=${commitMessage}&submit=true`,
     );
@@ -303,8 +306,13 @@ git push origin main`;
                       size="small"
                       icon={<ShieldCheck />}
                       iconAlign="left"
+                      disabled={isValidateLoading}
                     >
-                      {generalT('checkCommitMessageWithValidator')}
+                      {isValidateLoading ? (
+                        <>{generalT('checkCommitMessageWithValidatorLoading')}</>
+                      ) : (
+                        <>{generalT('checkCommitMessageWithValidator')}</>
+                      )}
                     </Button>
                   </Box.Group>
                 </>
