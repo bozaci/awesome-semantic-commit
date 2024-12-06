@@ -48,11 +48,15 @@ This documentation contains information about the web application developed for 
 
 ### Home Page
 
-![Homepage](docs/images/screenshot-homepage.jpg)
+![Homepage](docs/images/screenshot-homepage.png)
 
 ### Commit Generator
 
-![Commit Generator](docs/images/screenshot-commit-generator-page.jpg)
+![Commit Generator](docs/images/screenshot-commit-generator-page.png)
+
+### Semantic Commit Validator
+
+![Semantic Commit Validator](docs/images/screenshot-semantic-commit-validator-page.png)
 
 You can check the project live [here](https://semanticccommit.com).
 
