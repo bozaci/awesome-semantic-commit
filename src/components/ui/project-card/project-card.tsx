@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { ProjectCardProps } from './project-card.type';
 import { Link } from '@phosphor-icons/react/dist/ssr';
-import { normalizeWebsiteUrl } from '@/utils/normalizeWebsiteUrl';
+import { normalizeWebsiteUrl } from '@/utils/normalize-website-url';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import cx from 'classnames';
