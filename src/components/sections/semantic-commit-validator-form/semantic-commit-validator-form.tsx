@@ -65,6 +65,7 @@ const SemanticCommitValidatorForm = () => {
     apiKeyInLocalStorage?.googleGemini,
   );
   const [commitMessage, setCommitMessage] = useState<string>('');
+  const [purpose, setPurpose] = useState<string>('');
   const commitMessageWithGitCopyText = `git add .
 git commit -m "${data?.fixedCommitMessage}"
 git push origin main`;
@@ -72,7 +73,7 @@ git push origin main`;
     initialValues: {
       googleGeminiApiKey: googleGeminiApiKey || '',
       commitMessage: commitMessage || '',
-      purpose: '',
+      purpose,
     },
     onSubmit: (values) => handleFormSubmit(values),
     validationSchema: semanticCommitValidatorSchema(generalT),
@@ -137,6 +138,7 @@ git push origin main`;
         return;
       }
 
+      setPurpose('');
       setData(data.body);
       setIsLoading(false);
       setIsCompleted(true);
@@ -152,6 +154,7 @@ git push origin main`;
 
   const handleResetValidation = () => {
     setData(initialData);
+    setCommitMessage('');
     setIsCompleted(false);
     setIsLoading(false);
   };
