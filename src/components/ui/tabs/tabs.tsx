@@ -8,6 +8,8 @@ import {
 } from './tabs.type';
 import { useSearchParams } from 'next/navigation';
 import { useLocalStorage } from 'usehooks-ts';
+import { findChildByDisplayName } from '@/utils/find-child-by-displayname';
+import { cloneElementWithProps } from '@/utils/clone-element-with-props';
 import cx from 'classnames';
 
 import TabsSwitchers from './tabs-switchers';
@@ -27,13 +29,8 @@ const Tabs: FC<TabsProps> & {
   const [cookieValue, setCookieValue] = useLocalStorage(useWithCookie || 'active-tab', '');
   const searchParams = useSearchParams();
 
-  const switchers = React.Children.toArray(children).find(
-    (child: any) => child.type?.displayName === 'Tabs.Switchers',
-  ) as any;
-
-  const contents = React.Children.toArray(children).find(
-    (child: any) => child.type?.displayName === 'Tabs.Contents',
-  ) as any;
+  const switchers = findChildByDisplayName('Tabs.Switchers', children);
+  const contents = findChildByDisplayName('Tabs.Contents', children);
 
   useEffect(() => {
     if (!activeTab) return;
@@ -90,10 +87,8 @@ const Tabs: FC<TabsProps> & {
         } as React.CSSProperties
       }
     >
-      {React.cloneElement(switchers, { activeTab, setActiveTab })}
-      {React.cloneElement(contents, {
-        activeTab,
-      })}
+      {cloneElementWithProps(switchers, { activeTab, setActiveTab })}
+      {cloneElementWithProps(contents, { activeTab })}
     </div>
   );
 };
