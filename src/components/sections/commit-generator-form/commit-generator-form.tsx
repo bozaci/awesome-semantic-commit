@@ -65,12 +65,13 @@ const CommitGeneratorForm = () => {
   });
   const [generationMethod, setGenerationMethod] = useState<string>('');
   const [apiKeyByAIServiceType, setApiKeyByAIServiceType] = useState<string>('');
+  const [summary, setSummary] = useState<string>('');
   const formik = useFormik({
     initialValues: {
       type: selectedType || commitTypes[0],
       scope: '',
       subject: '',
-      summary: '',
+      summary,
       googleGeminiApiKey: apiKeyInLocalStorage?.googleGemini || '',
       openAIApiKey: apiKeyInLocalStorage?.openAI || '',
       generateWithScope: true,
@@ -80,6 +81,7 @@ const CommitGeneratorForm = () => {
     validationSchema: commitGeneratorSchema(generalT),
     validateOnChange: false,
     validateOnBlur: false,
+    enableReinitialize: true,
   });
   const aiService = useReadLocalStorage('commit-generator-active-tab');
   const commitMessageWithGitCopyText = `git add .
@@ -156,6 +158,7 @@ git push origin main`;
           return;
         }
 
+        setSummary('');
         setIsLoading(false);
         setIsCompleted(true);
         setCommitMessage(generateWithScope ? data.body.contentWithScope : data.body.content);
