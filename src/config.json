@@ -6,6 +6,10 @@
       "title": "Awesome Semantic Commit: Guide to regular commit messages",
       "description": "Learn best practices for clear, concise commit messages to improve project organization, code readability, team collaboration, and version control."
     },
+    "notFound": {
+      "title": "Page Not Found – Awesome Semantic Commit",
+      "description": "This page is not found."
+    },
     "commitGenerator": {
       "title": "Commit Generator – Awesome Semantic Commit",
       "description": "The Commit Generator is a tool that helps you write more organized and meaningful commit messages during project development processes."
