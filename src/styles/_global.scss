@@ -5,30 +5,30 @@
 @import './functions';
 
 @font-face {
-  font-family: 'Inter';
-  font-weight: 400;
   font-display: swap;
+  font-family: Inter;
+  font-weight: 400;
   src: url('../assets/fonts/inter-regular.ttf');
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-weight: 500;
   font-display: swap;
+  font-family: Inter;
+  font-weight: 500;
   src: url('../assets/fonts/inter-medium.ttf');
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-weight: 600;
   font-display: swap;
+  font-family: Inter;
+  font-weight: 600;
   src: url('../assets/fonts/inter-semibold.ttf');
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-weight: 700;
   font-display: swap;
+  font-family: Inter;
+  font-weight: 700;
   src: url('../assets/fonts/inter-bold.ttf');
 }
 
@@ -37,7 +37,7 @@ body {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
   font-size: $base-font-size-value;
   letter-spacing: -0.5px;
 }
@@ -46,7 +46,7 @@ body {
   flex: 1;
 }
 
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
   .container {
     max-width: $container-size;
 
@@ -56,7 +56,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .container {
     &--medium {
       max-width: $container-size-medium;
@@ -65,7 +65,7 @@ body {
 }
 
 .toaster {
-  font-family: 'Inter';
+  font-family: Inter, sans-serif;
   font-size: px-to-rem(14px);
 
   /**
@@ -73,7 +73,7 @@ body {
    * Responsive
    *
    */
-  @include mobile() {
-    inset: 0px;
+  @include mobile {
+    inset: 0;
   }
 }

@@ -26,7 +26,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &--area-header &__img {
       min-width: px-to-rem(170px);
       max-width: px-to-rem(170px);

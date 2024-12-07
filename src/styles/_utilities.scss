@@ -29,8 +29,8 @@
    * Responsive
    *
    */
-  @include mobileOrTablet() {
-    &\@mobile-or-tablet {
+  @include mobile-or-tablet {
+    &--mobile-or-tablet {
       text-align: center !important;
     }
   }
@@ -49,10 +49,10 @@
 }
 
 .section-text {
+  color: #4c4c4c;
   font-size: px-to-rem(14px);
   font-weight: 400;
   line-height: px-to-rem(24px);
-  color: #4c4c4c;
 
   &--small {
     font-size: px-to-rem(12px);
@@ -73,54 +73,46 @@
     }
   }
 
-  &--xsmall-x {
-    & > *:not(:first-child) {
-      margin-left: 5px !important;
-    }
+  &--xsmall-x > *:not(:first-child) {
+    margin-left: 5px !important;
   }
 
-  &--xsmall-y {
-    & > *:not(:first-child) {
-      margin-top: px-to-rem(5px) !important;
-    }
+  &--xsmall-y > *:not(:first-child) {
+    margin-top: px-to-rem(5px) !important;
   }
 
-  &--small-x {
-    & > *:not(:first-child) {
-      margin-left: px-to-rem(10px) !important;
-    }
+  &--small-x > *:not(:first-child) {
+    margin-left: px-to-rem(10px) !important;
   }
 
-  &--medium-y {
-    & > *:not(:first-child) {
-      margin-top: px-to-rem(40px) !important;
-    }
+  &--medium-y > *:not(:first-child) {
+    margin-top: px-to-rem(40px) !important;
   }
 }
 
 .centered-elements {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .hidden {
-  @include mobileOrTablet() {
-    &\@mobile-or-tablet {
+  @include mobile-or-tablet {
+    &--mobile-or-tablet {
       display: none !important;
     }
   }
 
-  @include mobile() {
-    &\@mobile {
+  @include mobile {
+    &--mobile {
       display: none !important;
     }
   }
 
-  @include desktop() {
-    &\@desktop {
+  @include desktop {
+    &--desktop {
       display: none !important;
     }
   }

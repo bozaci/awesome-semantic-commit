@@ -36,7 +36,7 @@
    * Responsive
    *
    */
-  @include mobileOrTablet {
+  @include mobile-or-tablet {
     padding-top: calc(px-to-rem(75px) + px-to-rem(25px));
     padding-bottom: px-to-rem(25px);
 
@@ -45,7 +45,7 @@
     }
   }
 
-  @include smallMobile() {
+  @include small-mobile {
     &__text {
       font-size: px-to-rem(12px);
       line-height: px-to-rem(20px);

@@ -15,7 +15,7 @@
     width: 1px;
     height: px-to-rem(20px);
     margin: 0 px-to-rem(15px);
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: #ffffff1a;
   }
 
   &__brace {
@@ -23,12 +23,12 @@
     font-size: px-to-rem(32px);
     color: #3b3b3b;
     user-select: none;
-    -webkit-user-select: none;
     pointer-events: none;
   }
 
   &__navigation {
     --text-color: #b5b5b5;
+
     display: flex;
     align-items: center;
 
@@ -50,15 +50,16 @@
       position: relative;
       display: flex;
       align-items: center;
-      transition: all 325ms;
+      transition: 300ms;
 
       &:not(:first-child) {
         margin-left: px-to-rem(15px);
       }
 
       &:hover {
-        cursor: pointer;
         --text-color: #fff;
+
+        cursor: pointer;
       }
     }
 
@@ -75,7 +76,7 @@
       font-weight: 400;
       line-height: px-to-rem(26px);
       color: var(--text-color);
-      transition: all 225ms;
+      transition: 225ms;
     }
 
     &-icon {
@@ -94,7 +95,7 @@
    * Responsive
    *
    */
-  @include mobile() {
+  @include mobile {
     &__brace {
       margin: 0 px-to-rem(10px);
     }
@@ -107,7 +108,7 @@
     }
   }
 
-  @include smallMobile() {
+  @include small-mobile {
     &__brace {
       margin: 0 px-to-rem(10px);
       font-size: px-to-rem(20px);

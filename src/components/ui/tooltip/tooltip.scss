@@ -73,10 +73,10 @@
     z-index: 500;
     opacity: 0;
     transform: scale(0.97);
-    transition: all 325ms;
+    transition: opacity, transform, 325ms;
     pointer-events: none;
 
-    & > *:not(:first-child) {
+    > *:not(:first-child) {
       margin-top: px-to-rem(10px);
     }
   }
@@ -93,7 +93,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &__menu {
       padding: px-to-rem(10px);
     }

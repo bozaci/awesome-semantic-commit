@@ -52,7 +52,7 @@ const Announcement: FC<AnnouncementProps> = ({
           <div ref={ref} className="announcement" style={{ height: `${elHeight}px` }}>
             <div className="container">
               <div className="row g-2 g-xl-4 align-items-center">
-                <div className="col-lg-8 text-center@mobile-or-tablet">
+                <div className="col-lg-8 text-center--mobile-or-tablet">
                   <p className="announcement__text">{text}</p>
                 </div>
 

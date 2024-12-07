@@ -21,7 +21,6 @@
 
   &__inner {
     position: relative;
-    border: 0;
     outline: 0;
     height: px-to-rem(37px);
     padding: px-to-rem(8px) px-to-rem(12px);
@@ -30,11 +29,11 @@
     background-color: #fff;
     display: flex;
     align-items: center;
-    font-family: 'Inter';
+    font-family: Inter, sans-serif;
     font-size: px-to-rem(14px);
     font-weight: 400;
-    color: #000000;
-    transition: all 225ms;
+    color: #000;
+    transition: border-color 225ms;
 
     &:hover {
       cursor: pointer;
@@ -47,7 +46,7 @@
     font-weight: 500;
     line-height: px-to-rem(24px);
     color: var(--text-color);
-    transition: all 225ms;
+    transition: color 225ms;
   }
 
   &__arrow-icon {
@@ -59,7 +58,7 @@
     margin: auto;
     font-size: px-to-rem(12px);
     display: flex;
-    transition: all 500ms;
+    transition: transform 500ms;
   }
 
   &__menu {
@@ -74,31 +73,33 @@
     background-color: #3f3f3f;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
     z-index: 250;
     opacity: 0;
     transform: translateY(5px);
     visibility: hidden;
-    transition: all 325ms;
+    transition: opacity, transform, 325ms;
   }
 
   &__item {
+    --text-color: #7d7d7d;
+
     padding: px-to-rem(5px);
     border-radius: 4px;
     display: flex;
     align-items: center;
-    --text-color: #7d7d7d;
-    transition: all 225ms;
+    transition: 225ms;
 
     &:hover {
-      cursor: pointer;
       --text-color: #bebebe;
+
+      cursor: pointer;
     }
 
     &.is-selected {
-      background-color: #4f4f4f;
       --text-color: #fff;
+
+      background-color: #4f4f4f;
       pointer-events: none;
     }
   }
@@ -115,7 +116,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &__text {
       font-size: px-to-rem(12px);
       line-height: px-to-rem(22px);

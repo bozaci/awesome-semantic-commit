@@ -62,7 +62,7 @@
     font-size: px-to-rem(18px);
     font-weight: 500;
     line-height: px-to-rem(22px);
-    color: #000000;
+    color: #000;
   }
 
   &__link {
@@ -86,7 +86,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      transition: all 225ms;
+      transition: 225ms;
     }
   }
 
@@ -97,7 +97,7 @@
   &__icon {
     display: flex;
     color: #4c4c4c;
-    transition: all 225ms;
+    transition: 225ms;
 
     &--link {
       margin-right: px-to-rem(2px);

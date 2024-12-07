@@ -20,12 +20,10 @@
   }
 
   &__inner {
-    --text-color: #bfbfbf;
     height: px-to-rem(32px);
     display: flex;
     align-items: center;
     user-select: none;
-    -webkit-user-select: none;
 
     &:hover {
       cursor: pointer;
@@ -47,7 +45,7 @@
       background-color: #3f3f3f;
       display: flex;
       align-items: center;
-      transition: all 225ms;
+      transition: 225ms;
     }
 
     &-icon {
@@ -58,10 +56,10 @@
       background-color: #3f3f3f;
       display: flex;
       color: #bfbfbf;
-      transition: all 225ms;
+      transition: 225ms;
 
       &-container {
-        transition: all 425ms;
+        transition: 425ms;
       }
     }
   }
@@ -69,8 +67,8 @@
   &__text {
     font-size: px-to-rem(14px);
     font-weight: 500;
-    color: var(--text-color);
-    transition: all 225ms;
+    color: var(--text-color, #bfbfbf);
+    transition: 225ms;
   }
 
   &__menu {
@@ -88,24 +86,27 @@
     opacity: 0;
     transform: translateY(-5px);
     visibility: hidden;
-    transition: all 325ms;
+    transition: 325ms;
 
     &-item {
+      --text-color: #7d7d7d;
+
       padding: px-to-rem(7px);
       border-radius: 6px;
       display: flex;
       align-items: center;
-      --text-color: #7d7d7d;
-      transition: all 225ms;
+      transition: 225ms;
 
       &:hover {
-        cursor: pointer;
         --text-color: #bebebe;
+
+        cursor: pointer;
       }
 
       &.is-active {
-        background-color: #4f4f4f;
         --text-color: #fff;
+
+        background-color: #4f4f4f;
         pointer-events: none;
       }
     }
@@ -123,7 +124,7 @@
    * Responsive
    *
    */
-  @include smallMobile(){
+  @include small-mobile {
     &__inner {
       &-container {
         min-width: px-to-rem(65px);

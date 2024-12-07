@@ -32,7 +32,11 @@ const Input: FC<InputProps> = ({ buttons = [], hasError, isDark, className, ...r
           : undefined
       }
     >
-      <input type="text" className={cx('input input-container__input', className)} {...res} />
+      <input
+        type="text"
+        className={cx('input input-container__input', { 'is-dark': isDark }, className)}
+        {...res}
+      />
 
       {buttons.length > 0 && (
         <div ref={buttonsRef} className="input-container__buttons">

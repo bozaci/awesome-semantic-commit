@@ -15,7 +15,7 @@
     font-size: px-to-rem(24px);
     font-weight: 500;
     line-height: px-to-rem(34px);
-    color: #000000;
+    color: #000;
   }
 
   &__line {
@@ -30,14 +30,14 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &__text {
       font-size: px-to-rem(20px);
       line-height: px-to-rem(30px);
     }
   }
 
-  @include mobile() {
+  @include mobile {
     &__text {
       max-width: px-to-rem(200px);
       display: inline-block;

@@ -33,26 +33,29 @@
     opacity: 0;
     transform: translateY(5px);
     visibility: hidden;
-    transition: all 325ms;
+    transition: opacity, transform, 325ms;
   }
 
   &__item {
+    --text-color: #7d7d7d;
+
     padding: px-to-rem(7px);
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    --text-color: #7d7d7d;
-    transition: all 225ms;
+    transition: 225ms;
 
     &:hover {
       cursor: pointer;
+
       --text-color: #bebebe;
     }
 
     &.is-selected {
-      background-color: #4f4f4f;
       --text-color: #fff;
+
+      background-color: #4f4f4f;
       pointer-events: none;
     }
   }
@@ -61,11 +64,11 @@
     font-size: px-to-rem(16px);
     font-weight: 400;
     color: var(--text-color);
-    transition: all 225ms;
+    transition: color 225ms;
   }
 
   &__arrow-icon {
-    transition: all 425ms;
+    transition: transform 425ms;
   }
 
   /** 
@@ -73,13 +76,13 @@
    * Responsive
    *
    */
-  @include mobile(){
+  @include mobile {
     &__text {
       font-size: px-to-rem(14px);
     }
   }
 
-  @include smallMobile(){
+  @include small-mobile {
     &__text {
       font-size: px-to-rem(12px);
     }

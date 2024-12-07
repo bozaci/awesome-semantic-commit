@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:css": "npx stylelint **/*.{css,scss}",
+    "lint:css-fix": "npx stylelint **/*.{css,scss} --fix",
     "lint-staged": "lint-staged",
     "format": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "format:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
@@ -50,6 +52,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@atolye15/stylelint-config": "^5.0.1",
     "@next/bundle-analyzer": "^15.0.3",
     "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^16.0.1",
@@ -72,6 +75,8 @@
     "npm": "^10.9.0",
     "sass": "^1.80.7",
     "sass-loader": "^16.0.3",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1",
     "ts-jest": "^29.2.5",
     "typescript": "^5"
   }

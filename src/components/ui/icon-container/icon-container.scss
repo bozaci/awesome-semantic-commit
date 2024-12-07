@@ -10,11 +10,16 @@
   height: px-to-rem(24px);
   padding: 5px;
   border-radius: 8px;
-  background-color: var(--icon-container-background-color, #000000);
+  background-color: var(--icon-container-background-color, #000);
   color: var(--icon-container-icon-color, #fff);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  > * {
+    width: 100%;
+    height: 100%;
+  }
 
   &.has-rounded {
     border-radius: 999px;
@@ -31,10 +36,5 @@
     max-width: px-to-rem(64px);
     height: px-to-rem(64px);
     padding: 10px;
-  }
-
-  & > * {
-    width: 100%;
-    height: 100%;
   }
 }

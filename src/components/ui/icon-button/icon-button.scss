@@ -5,12 +5,12 @@
 .icon-button {
   display: flex;
   font-size: 16px;
-  color: var(--icon-button-icon-color, #000000);
-  transition: all 325ms;
+  color: var(--icon-button-icon-color, #000);
+  transition: 325ms;
 
   &:hover {
     cursor: pointer;
-    color: var(--icon-button-icon-hover-color, #000000);
+    color: var(--icon-button-icon-hover-color, #000);
     transform: scale(1.1);
   }
 

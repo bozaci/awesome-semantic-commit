@@ -7,7 +7,6 @@
 @import '../../../styles/functions';
 
 .input {
-  border: 0;
   outline: 0;
   width: 100%;
   height: px-to-rem(37px);
@@ -15,11 +14,11 @@
   border: 2px solid #e5e5e5;
   border-radius: 6px;
   background-color: #fff;
-  font-family: 'Inter';
+  font-family: Inter, sans-serif;
   font-size: px-to-rem(14px);
   font-weight: 400;
-  color: #000000;
-  transition: all 225ms;
+  color: #000;
+  transition: 225ms;
 
   &:focus {
     border-color: #d9d9d9;
@@ -29,7 +28,19 @@
     color: #9e9e9e;
   }
 
-  @include disable-autofill();
+  &.is-dark {
+    border-color: #565656;
+    background-color: #303030;
+    color: #fff;
+
+    &:focus {
+      border-color: #6c6c6c;
+    }
+
+    @include disable-autofill(#fff);
+  }
+
+  @include disable-autofill;
 
   &-container {
     position: relative;
@@ -44,18 +55,6 @@
       border-color: $color-red;
     }
 
-    &.is-dark &__input {
-      border-color: #565656;
-      background-color: #303030;
-      color: #fff;
-
-      &:focus {
-        border-color: #6c6c6c;
-      }
-
-      @include disable-autofill(#fff);
-    }
-
     &__buttons {
       position: absolute;
       top: 0;
@@ -66,7 +65,7 @@
       display: flex;
       align-items: center;
 
-      & > *:not(:first-child) {
+      > *:not(:first-child) {
         margin-left: px-to-rem(5px);
       }
     }
@@ -82,7 +81,7 @@
       align-items: center;
       font-size: px-to-rem(17px);
       color: #4c4c4c;
-      transition: all 225ms;
+      transition: 225ms;
 
       &:hover {
         cursor: pointer;
@@ -101,7 +100,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     font-size: px-to-rem(12px);
   }
 }

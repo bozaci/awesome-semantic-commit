@@ -37,8 +37,8 @@
       align-items: center;
       font-size: var(--tabs-switcher-font-size, px-to-rem(16px));
       font-weight: var(--tabs-switcher-font-weight, 500);
-      color: #000000;
-      transition: all 225ms;
+      color: #000;
+      transition: 225ms;
 
       &:hover {
         cursor: pointer;
@@ -69,7 +69,7 @@
       opacity: 0;
       transform: translateY(-5px);
       visibility: hidden;
-      transition: all var(--tabs-content-transition, 0.5s);
+      transition: opacity, transform, var(--tabs-content-transition, 0.5s);
 
       &.is-active {
         opacity: 1;
@@ -84,7 +84,7 @@
    * Responsive
    *
    */
-  @include mobile() {
+  @include mobile {
     &__switcher {
       flex-direction: column;
 
@@ -99,7 +99,7 @@
     }
   }
 
-  @include smallMobile() {
+  @include small-mobile {
     &__switcher {
       &-text {
         font-size: px-to-rem(14px);

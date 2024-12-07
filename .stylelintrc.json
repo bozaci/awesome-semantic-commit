@@ -1,0 +1,9 @@
+{
+  "extends": ["@atolye15/stylelint-config"],
+  "rules": {
+    "order/order": null,
+    "order/properties-order": null,
+    "no-descending-specificity": null,
+    "declaration-no-important": null
+  }
+}

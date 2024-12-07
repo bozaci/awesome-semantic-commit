@@ -1,5 +1,6 @@
 //
 // Switch
+// stylelint-disable selector-max-specificity, selector-max-class
 //
 
 @import '../../../styles/variables';
@@ -37,7 +38,7 @@
     background-color: #e3e3e3;
     display: flex;
     align-items: center;
-    transition: all 225ms;
+    transition: background-color 225ms;
 
     &:hover {
       cursor: pointer;
@@ -51,6 +52,6 @@
     height: 100%;
     border-radius: 999px;
     background-color: #fff;
-    transition: all 325ms;
+    transition: transform 325ms;
   }
 }

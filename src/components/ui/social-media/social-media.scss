@@ -30,7 +30,7 @@
     align-items: center;
     font-size: px-to-rem(18px);
     color: #bfbfbf;
-    transition: all 225ms;
+    transition: 225ms;
 
     &:not(:first-child) {
       margin-left: px-to-rem(5px);
@@ -66,7 +66,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &__text {
       font-size: px-to-rem(12px);
       line-height: px-to-rem(22px);

@@ -11,7 +11,7 @@
   background-color: #5a5a5a;
   display: flex;
   align-items: center;
-  transition: all 425ms;
+  transition: height 425ms;
 
   &.has-closed {
     visibility: hidden;
@@ -35,8 +35,8 @@
     justify-content: center;
     align-items: center;
     font-size: px-to-rem(19px);
-    color: #dddddd;
-    transition: all 225ms;
+    color: #ddd;
+    transition: background-color 225ms;
 
     &:hover {
       cursor: pointer;
@@ -49,7 +49,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &__close {
       min-width: px-to-rem(24.5px);
       max-width: px-to-rem(24.5px);

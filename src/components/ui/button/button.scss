@@ -11,15 +11,15 @@
   outline: 0;
   padding: px-to-rem(8px) px-to-rem(15px);
   border-radius: px-to-rem(8px);
-  background-color: #000000;
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Inter';
+  font-family: Inter, sans-serif;
   font-size: px-to-rem(16px);
   font-weight: 400;
   text-align: center;
-  transition: all 225ms;
+  transition: 225ms;
 
   &:hover {
     cursor: pointer;
@@ -44,7 +44,7 @@
 
   &--theme-white {
     background-color: #fff;
-    color: #000000;
+    color: #000;
 
     &:hover {
       background-color: #ececec;
@@ -56,7 +56,7 @@
     color: #fff;
 
     &:hover {
-      background-color: #555555;
+      background-color: #555;
       color: #fff;
     }
   }
@@ -83,18 +83,18 @@
 
   &--theme-ghost-gray {
     background-color: #ececec;
-    color: #000000;
+    color: #000;
 
     &:hover {
       background-color: #dfdfdf;
-      color: #000000;
+      color: #000;
     }
   }
 
   &--theme-gemini {
     position: relative;
     background: linear-gradient(90deg, #688ae9, #c66d7b);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     overflow: hidden;
     z-index: 1;
@@ -106,15 +106,12 @@
     &::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, #688ae9, #c66d7b);
       opacity: 0.1;
-      transition: all 225ms;
+      transition: opacity 225ms;
     }
   }
 
@@ -158,7 +155,7 @@
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     font-size: px-to-rem(14px);
 
     &--size-small {

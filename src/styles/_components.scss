@@ -9,20 +9,31 @@
   display: flex;
   flex-direction: column;
 
+  &__label {
+    margin-bottom: px-to-rem(5px);
+    color: #000;
+    font-size: px-to-rem(16px);
+    font-weight: 500;
+    line-height: px-to-rem(26px);
+  }
+
+  &__help-message {
+    color: #000;
+    font-size: px-to-rem(12px);
+    font-weight: 400;
+    line-height: px-to-rem(22px);
+
+    &--error {
+      color: $color-red !important;
+    }
+  }
+
   &.is-dark &__label {
     color: #e3e3e3;
   }
 
   &.is-dark &__help-message {
     color: #e3e3e3;
-  }
-
-  &__label {
-    margin-bottom: px-to-rem(5px);
-    font-size: px-to-rem(16px);
-    font-weight: 500;
-    line-height: px-to-rem(26px);
-    color: #000000;
   }
 
   &__group {
@@ -42,23 +53,12 @@
     }
   }
 
-  &__help-message {
-    font-size: px-to-rem(12px);
-    font-weight: 400;
-    line-height: px-to-rem(22px);
-    color: #000000;
-
-    &--error {
-      color: $color-red !important;
-    }
-  }
-
   /**
    *
    * Responsive
    *
    */
-  @include smallMobile() {
+  @include small-mobile {
     &__label {
       font-size: px-to-rem(14px);
       line-height: px-to-rem(24px);

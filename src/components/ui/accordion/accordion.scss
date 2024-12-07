@@ -22,21 +22,21 @@
     font-size: px-to-rem(16px);
     font-weight: 500;
     line-height: px-to-rem(22px);
-    color: #000000;
+    color: #000;
   }
 
   &__arrow-icon {
     margin-left: px-to-rem(3px);
     display: flex;
     font-size: px-to-rem(12px);
-    color: #000000;
-    transition: all 0.5s;
+    color: #000;
+    transition: transform 0.5s;
   }
 
   &__content {
     height: 0;
     overflow: hidden;
-    transition: all 0.325s;
+    transition: height 0.325s;
 
     &-inner {
       padding-top: var(--accordion-content-padding-top, px-to-rem(10px));
