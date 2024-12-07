@@ -14,8 +14,12 @@ export const commitGeneratePrompt = (summary: string) => {
 
   Words like "added", "resolved", etc., should be transformed into their infinitive form, such as "add", "resolve", etc., according to the correct context. Do not include additional words or transformations outside of the provided semantic structure.
 
-  1. **Clarify Handling of Multiple Changes in One Commit**: If multiple changes are included in a single commit, ensure that each change is represented correctly by its own type. For example, if a commit includes both a bug fix and a new feature, it should be split into two entries: one for the bug fix and one for the new feature. If they are not split, ensure both aspects are clearly conveyed.
-  2. **Support for Multiple Scopes**: If the commit affects multiple scopes, the scopes should be reflected accordingly and separated by a space after the comma. For example:
+  1. **Single Type Selection for a Scope**: If multiple types (e.g., 'fix' and 'style') are suggested for the same scope in the summary, choose the type that best reflects the primary intent of the change. For example:  
+   - If the summary mentions fixing a linting issue and introducing a new style rule, prioritize 'fix' since resolving the issue is the primary goal:  
+     "fix(stylelint): resolve stylelint problems".
+   - Do not combine types like 'fix(stylelint)', 'style(stylelint)' in the output.
+  2. **Clarify Handling of Multiple Changes in One Commit**: If multiple changes are included in a single commit, ensure that each change is represented correctly by its own type. For example, if a commit includes both a bug fix and a new feature, it should be split into two entries: one for the bug fix and one for the new feature. If they are not split, ensure both aspects are clearly conveyed.
+  3. **Support for Multiple Scopes**: If the commit affects multiple scopes, the scopes should be reflected accordingly and separated by a space after the comma. For example:
    'feat(auth, ui): add login and dashboard UI updates'. Also, when specifying a scope, use hyphenated names like 'select-menu', 'user-auth', etc., instead of spaces.
 
   For example:
