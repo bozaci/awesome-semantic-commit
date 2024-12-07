@@ -27,6 +27,8 @@
 }
 
 @mixin disable-autofill($text-color: #000) {
+  caret-color: $text-color;
+
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
