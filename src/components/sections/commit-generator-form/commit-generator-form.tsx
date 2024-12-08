@@ -520,7 +520,7 @@ git push origin main`;
                                 name: 'Save API Key',
                                 tooltipText: generalT('saveAPIKeyTooltip'),
                                 onClick: () =>
-                                  handleSaveAPIKey('google-gemini', formik.values.openAIApiKey),
+                                  handleSaveAPIKey('openai', formik.values.openAIApiKey),
                               },
                             ]}
                           />
