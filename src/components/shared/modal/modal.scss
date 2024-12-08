@@ -6,6 +6,11 @@
 @import '../../../styles/functions';
 
 .modal {
+  .is-with-spacing:not(:first-child) {
+    margin-top: 15px;
+    display: block;
+  }
+
   &__item {
     position: fixed;
     inset: 0;
@@ -89,6 +94,11 @@
     line-height: px-to-rem(34px);
     color: #fff;
 
+    &--small {
+      font-size: px-to-rem(20px);
+      line-height: px-to-rem(30px)
+    }
+
     &--medium {
       font-size: px-to-rem(22px);
       line-height: px-to-rem(32px);
@@ -104,8 +114,31 @@
 
   &__body {
     padding: px-to-rem(20px);
-    max-height: px-to-rem(600px);
+    max-height: px-to-rem(550px);
     overflow: hidden auto;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+      align-items: flex-start;
+
+      &::before {
+        content: '';
+        width: 20px;
+        height: 2px;
+        margin-top: 10px;
+        margin-right: 10px;
+        background-color: $color-primary;
+      }
+
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+    }
   }
 
   &__footer {

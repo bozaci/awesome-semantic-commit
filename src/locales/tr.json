@@ -3,6 +3,8 @@
     "contribute": "Katkıda Bulun",
     "optional": "isteğe bağlı",
     "starOnGithub": "<strong>GitHub</strong>'da Yıldızla",
+    "resourcesUtilised": "Yararlanılan Kaynaklar",
+    "disclaimer": "Yasal Bilgilendirme",
     "wrongUsage": "Yanlış Kullanım",
     "correctUsage": "Doğru Kullanım",
     "contactUs": "İletişime Geç",
@@ -78,6 +80,24 @@
   "hero": {
     "title": "Semantic Commit?",
     "text": "Semantic Commit, yazılım geliştirme sürecinde kullanılan bir yöntemdir. Temel amacı, her commit (yani, kodda yapılan her değişiklik) mesajlarının daha anlamlı ve yapılandırılmış olmasını sağlamaktır. Bu sayede, yazılımcılar kodun ne zaman, ne amaçla ve hangi değişikliklerle güncellendiğini daha kolay anlayabilir."
+  },
+
+  "modal": {
+    "resourcesUtilised": {
+      "title": "Yararlanılan Kaynaklar",
+      "text": "Öncelikle şunu belirtmek isteriz: Semantic Commit, bizim geliştirdiğimiz bir yazılım yöntemi değildir. Bu siteyi, öğrenmeyi kolaylaştırmak ve daha düzenli, faydalı araçlar sunmak amacıyla oluşturduk.",
+      "textTwo": "Aşağıda, semantic commit ile ilgili bilgileri derlemek için kullandığımız kaynakları paylaşıyoruz."
+    },
+
+    "disclaimer": {
+      "title": "Yasal Bilgilendirme",
+      "text": "Bu uygulama, kullanıcı deneyimini geliştirmek ve performansını artırmak amacıyla aşağıdaki hizmetleri kullanmaktadır.",
+      "postHogText": "Uygulama kullanım verilerini anonim olarak analiz eder. Örneğin, commit oluşturma ve semantic commit doğrulama gibi özelliklerin ne kadar sıklıkla kullanıldığını takip eder.",
+      "sentryText": "Hataları ve beklenmeyen sorunları takip eder.",
+      "vercelAnalyticsText": "Uygulamanın performansını ve kullanım istatistiklerini izlemek için kullanılır.",
+      "textTwo": "Toplanan veriler kimliğinizi tanımlamaz ve yalnızca uygulamanın işlevselliğini ve kullanıcı deneyimini iyileştirmek amacıyla kullanılır. Bu analizler, kullanıcılarımızın gizliliğini koruma ve topladığımız bilgileri sadece iyileştirme ve geliştirme amaçlı kullanma taahhüdümüzü yansıtır.",
+      "textThree": "Ayrıca, projemiz açık kaynaklıdır ve tüm açık kaynak kodlarını inceleyebilirsiniz. Bu şekilde, veri toplama ve analiz süreçlerinin nasıl işlendiğini daha detaylı inceleyebilir ve şeffaflığımıza güvenebilirsiniz."
+    }
   },
 
   "whyImportant": {

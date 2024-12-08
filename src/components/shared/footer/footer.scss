@@ -31,6 +31,39 @@
     color: #4c4c4c;
   }
 
+  &__navigation {
+    margin: 15px 0;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &-item {
+      padding: 10px;
+      transition: background-color 250ms;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #f9f9f9;
+      }
+
+      &:active {
+        background-color: #f3f3f3;
+      }
+
+      &:not(:first-child) {
+        border-left: 1px solid #ececec;
+      }
+    }
+
+    &-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #4c4c4c;
+    }
+  }
+
   /**
    *
    * Responsive

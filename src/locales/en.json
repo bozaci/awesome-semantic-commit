@@ -3,6 +3,8 @@
     "contribute": "Contribute",
     "optional": "optional",
     "starOnGithub": "Star on <strong>GitHub</strong>",
+    "resourcesUtilised": "Resources Utilised",
+    "disclaimer": "Disclaimer",
     "wrongUsage": "Wrong Usage",
     "correctUsage": "Correct Usage",
     "contactUs": "Contact Us",
@@ -78,6 +80,24 @@
   "hero": {
     "title": "Semantic Commit?",
     "text": "Semantic Commit is a method used in software development. Its main purpose is to ensure that commit messages (i.e., messages associated with each change made to the code) are more meaningful and structured. This way, developers can more easily understand when, why, and what changes were made to the code."
+  },
+
+  "modal": {
+    "resourcesUtilised": {
+      "title": "Resources Utilised",
+      "text": "First of all, we would like to state the following: Semantic Commit is not a software method developed by us. We created this site to make learning easier and to provide more organised and useful tools.",
+      "textTwo": "Below, we share the resources we used to compile information about semantic commit."
+    },
+
+    "disclaimer": {
+      "title": "Disclaimer",
+      "text": "This application uses the following services to enhance the user experience and improve its performance.",
+      "postHogText": "Analyses application usage data anonymously. For example, it tracks how often features such as commit creation and semantic commit validation are used.",
+      "sentryText": "Tracks errors and unexpected problems.",
+      "vercelAnalyticsText": "It is used to monitor the performance and usage statistics of the application.",
+      "textTwo": "The data collected does not identify you and is used solely for the purpose of improving the functionality and user experience of the application. These analyses reflect our commitment to protecting the privacy of our users and using the information we collect for improvement and development purposes only.",
+      "textThree": "Furthermore, our project is open source and you can review all open source codes. In this way, you can examine in more detail how the data collection and analysis processes are handled and you can trust our transparency."
+    }
   },
 
   "whyImportant": {

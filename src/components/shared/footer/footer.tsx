@@ -1,5 +1,8 @@
+'use client';
+
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useTranslations } from 'next-intl';
+import { openModal } from '@/modals/utils/modalHooks';
 import Config from '@/config.json';
 
 import Logo from '@/components/ui/logo';
@@ -26,18 +29,39 @@ const socialMediaData = [
 
 const Footer = () => {
   const t = useTranslations();
+  const navigationData = [
+    {
+      name: t('general.resourcesUtilised'),
+      onClick: () => openModal({ name: 'resources-utilised' }),
+    },
+    {
+      name: t('general.disclaimer'),
+      onClick: () => openModal({ name: 'disclaimer' }),
+    },
+  ];
 
   return (
     <footer className="footer">
       <Transition>
         <div className="container container--medium centered-elements">
           <Logo theme="black" />
-          <p className="footer__text mt-2 mb-3">
+          <p className="footer__text mt-2">
             {t('footer.text')} {''}
             <LinkComp href="https://github.com/bozaci/awesome-semantic-commit" isExternalLink>
               {t('general.contribute')}
             </LinkComp>
           </p>
+
+          {navigationData.length > 0 && (
+            <ul className="footer__navigation">
+              {navigationData.map((item, index) => (
+                <li key={index} onClick={item.onClick} className="footer__navigation-item">
+                  <p className="footer__navigation-text">{item.name}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <SocialMedia data={socialMediaData} theme="ghost-gray" />
         </div>
       </Transition>
