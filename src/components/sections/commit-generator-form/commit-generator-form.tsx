@@ -202,6 +202,7 @@ git push origin main`;
       setApiKeyInLocalStorage({ googleGemini: apiKeyInLocalStorage.googleGemini, openAI: apiKey });
 
     successNotify(generalT('saveAPIKeySuccessMessage'));
+    setIsAIEnabled(true);
   };
 
   useEffect(() => {
