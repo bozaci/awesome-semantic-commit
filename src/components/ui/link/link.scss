@@ -12,22 +12,30 @@
   align-items: center;
   font-size: px-to-rem(14px);
   font-weight: 400;
-  color: $color-primary;
+  color: #000;
   transition: color 325ms;
-
-  &:hover {
-    color: $color-primary-hover;
-  }
-
-  &:hover::before {
-    background-color: $color-primary-hover;
-  }
 
   &:hover &__icon {
     transform: translateX(1px) translateY(-1px);
   }
 
-  &::before {
+  &--size-small {
+    font-size: px-to-rem(12px);
+  }
+
+  &--size-medium {
+    font-size: px-to-rem(16px);
+  }
+
+  &--size-medium &__icon {
+    font-size: px-to-rem(18px);
+  }
+
+  &--variant-primary-bottom-line {
+    color: $color-primary;
+  }
+
+  &--variant-primary-bottom-line::before {
     content: '';
     position: absolute;
     left: 0;
@@ -37,6 +45,22 @@
     height: 1px;
     background-color: $color-primary;
     transition: background-color 325ms;
+  }
+
+  &--variant-primary-bottom-line:hover {
+    color: $color-primary-hover;
+  }
+
+  &--variant-primary-bottom-line:hover::before {
+    background-color: $color-primary-hover;
+  }
+
+  &--variant-gray {
+    color: #b6b6b6;
+
+    &:hover {
+      color: #fff;
+    }
   }
 
   &__icon {
