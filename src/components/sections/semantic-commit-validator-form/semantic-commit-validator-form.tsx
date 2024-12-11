@@ -214,10 +214,10 @@ git push origin main`;
                   <Box.Group className="flex-column spacing spacing--xsmall-y">
                     <Box.Title>{generalT('conclusion')}</Box.Title>
 
-                    <div className="d-flex align-items-center spacing spacing--xsmall-two">
+                    <div className="d-flex align-items-start spacing spacing--xsmall-two">
                       {data?.status === 'valid' && (
                         <>
-                          <CheckCircle size={18} color="#00BC3B" />
+                          <CheckCircle size={20} color="#00BC3B" style={{ marginTop: '1px' }} />
                           <Box.Text>
                             {generalT.rich('validCommitMessage', {
                               commitMessage: `"${formik.values.commitMessage}"`,
@@ -230,7 +230,7 @@ git push origin main`;
                       )}
                       {data?.status === 'not-valid' && (
                         <>
-                          <XCircle size={18} color="#D10000" />
+                          <XCircle size={20} color="#D10000" style={{ marginTop: '1px' }} />
                           <Box.Text>
                             {generalT.rich('notValidCommitMessage', {
                               commitMessage: `"${formik.values.commitMessage}"`,
