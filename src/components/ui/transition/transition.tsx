@@ -11,7 +11,7 @@ const Transition: FC<TransitionProps> = ({ children }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ y: -3, opacity: 0 }}
+      initial={{ y: 3, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : {}}
       transition={{ ease: 'easeInOut', duration: 0.5 }}
     >
