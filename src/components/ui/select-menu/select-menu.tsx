@@ -11,13 +11,16 @@ import './select-menu.scss';
 const SelectMenu: FC<SelectMenuProps> = ({ options = [], setOptions }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<optionsType>(options[0]);
+  const [show, setShow] = useState<boolean>(false);
 
   const handleShowMenu = () => {
     ref.current?.classList.toggle('is-active');
+    setShow(true);
   };
 
   const handleCloseMenu = () => {
     ref.current?.classList.remove('is-active');
+    setShow(false);
   };
 
   const handleSelectItem = (item: any) => {
@@ -50,7 +53,7 @@ const SelectMenu: FC<SelectMenuProps> = ({ options = [], setOptions }) => {
         </div>
       </div>
 
-      <div className="select-menu__menu">
+      <div className="select-menu__menu" aria-hidden={!show}>
         {options.map((option, index) => (
           <div
             key={index}
