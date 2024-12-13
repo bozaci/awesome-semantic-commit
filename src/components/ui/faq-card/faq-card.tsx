@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, FC } from 'react';
+import { useState, useRef, FC } from 'react';
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
 import { FAQCardProps } from './faq-card.type';
 
@@ -10,18 +10,19 @@ const FAQCard: FC<FAQCardProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const contentInnerRef = useRef<HTMLDivElement>(null);
+  const [show, setShow] = useState<boolean>(false);
   const { title, content } = data;
 
   const handleToggle = () => {
     const allFAQCard = document.querySelectorAll('.faq-card');
     const heightContent = contentInnerRef.current?.offsetHeight;
-    const isActive = ref.current?.classList.contains('is-active');
 
-    if (isActive) {
+    if (show) {
       ref.current?.classList.remove('is-active');
 
       if (contentRef.current) {
         contentRef.current.style.height = '0px';
+        setShow(false);
       }
 
       return;
@@ -38,6 +39,7 @@ const FAQCard: FC<FAQCardProps> = ({ data }) => {
 
     if (contentRef.current) {
       contentRef.current.style.height = `${heightContent}px`;
+      setShow(true);
     }
   };
 
@@ -65,6 +67,7 @@ const FAQCard: FC<FAQCardProps> = ({ data }) => {
         itemScope
         itemProp="acceptedAnswer"
         itemType="https://schema.org/Answer"
+        aria-hidden={!show}
       >
         <div
           ref={contentInnerRef}
