@@ -63,7 +63,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ data, defaultValue }) => 
       </div>
 
       {show && (
-        <div className="language-switcher__menu">
+        <div className="language-switcher__menu" aria-hidden={!show}>
           {data.map((item, index) => (
             <div
               key={index}
