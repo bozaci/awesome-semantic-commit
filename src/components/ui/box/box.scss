@@ -19,6 +19,16 @@
     margin-top: px-to-rem(10px);
   }
 
+  &.is-disable-overlay {
+    position: relative;
+    pointer-events: none;
+    overflow: hidden !important;
+  }
+
+  &.is-disable-overlay > * {
+    user-select: none;
+  }
+
   &__title {
     font-size: px-to-rem(16px);
     font-weight: 500;
@@ -111,6 +121,23 @@
         border-radius: 0 8px 0 0;
       }
     }
+  }
+
+  &__disable-overlay {
+    position: absolute;
+    inset: px-to-rem(-20px) 0 0;
+    width: 100%;
+    height: calc(100% + 20px);
+    padding: px-to-rem(30px);
+    border-radius: 10px;
+    background-color: #ffffff40;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
   }
 
   /**

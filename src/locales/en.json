@@ -74,7 +74,9 @@
     "notValidCommitMessage": "Your <strong>{commitMessage}</strong> commit message is not valid with semantic commit rules.",
     "errorsOfCommitMessage": "Errors of Commit Message",
     "fixedCommitMessage": "Corrected Commit Message",
-    "purposeChangesTooltipText": "For better results, it may be helpful to indicate the purpose of the change."
+    "purposeChangesTooltipText": "For better results, it may be helpful to indicate the purpose of the change.",
+    "reFetchInfoText": "Re-request due to an unexpected situation encountered on the AI side, attempt: <strong>{count}</strong>",
+    "reFetchTriedText": "Due to the problem encountered due to artificial intelligence, re-fetch was performed 3 times, but there was no change. Therefore, please try again later."
   },
 
   "hero": {
@@ -320,6 +322,7 @@
 
   "semanticCommitValidator": {
     "title": "Semantic Commit Validator",
-    "text": "The Semantic Commit Validator is a tool that checks whether commit messages conform to a specific format (e.g. feat, fix, docs). This ensures that organised and meaningful commit messages are used in the project development process."
+    "text": "The Semantic Commit Validator is a tool that checks whether commit messages conform to a specific format (e.g. feat, fix, docs). This ensures that organised and meaningful commit messages are used in the project development process.",
+    "aiSemanticValidationError": "The artificial intelligence service generated an error while performing semantic commit validation."
   }
 }

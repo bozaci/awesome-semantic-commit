@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useFormik } from 'formik';
 import {
@@ -49,6 +49,7 @@ const initialData = {
 
 const SemanticCommitValidatorForm = () => {
   const [animationParent] = useAutoAnimate();
+  const t = useTranslations();
   const generalT = useTranslations('general');
   const locale = useLocale();
   const searchParams = useSearchParams();
@@ -66,6 +67,10 @@ const SemanticCommitValidatorForm = () => {
   );
   const [commitMessage, setCommitMessage] = useState<string>('');
   const [purpose, setPurpose] = useState<string>('');
+  // Re-fetch states.
+  const [reFetchCount, setReFetchCount] = useState<number>(0);
+  const [reFetchLoading, setReFetchLoading] = useState<boolean>(false);
+
   const commitMessageWithGitCopyText = `git add .
 git commit -m "${data?.fixedCommitMessage}"
 git push origin main`;
@@ -82,81 +87,96 @@ git push origin main`;
     enableReinitialize: true,
   });
 
-  const handleFormSubmit = async (values: any) => {
-    const { googleGeminiApiKey, commitMessage, purpose } = values;
+  const handleFormSubmit = useCallback(
+    async (values: any) => {
+      const { googleGeminiApiKey, commitMessage, purpose } = values;
 
-    setError('');
-    setData(initialData);
-    setIsLoading(true);
+      setError('');
+      setData(initialData);
+      setIsLoading(true);
 
-    if (!googleGeminiApiKey || !commitMessage) {
-      setError(`Google Gemini API Key and Commit Message is required.`);
-      setIsLoading(false);
-      setIsCompleted(true);
-      return;
-    }
+      if (!googleGeminiApiKey || !commitMessage) {
+        setError(`Google Gemini API Key and Commit Message is required.`);
+        setIsLoading(false);
+        setIsCompleted(true);
+        return;
+      }
 
-    try {
-      const response = await fetch(
-        `/api/validator/?apiKey=${googleGeminiApiKey}&commitMessage=${commitMessage}&purpose=${purpose}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
+      try {
+        const response = await fetch(
+          `/api/validator/?apiKey=${googleGeminiApiKey}&commitMessage=${commitMessage}&purpose=${purpose}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
           },
-        },
-      );
-
-      if (response.status === 404) {
-        setError('Failed to fetch.');
-        setIsLoading(false);
-        setIsCompleted(true);
-        return;
-      }
-
-      const data = await response.json();
-
-      if (data?.status === 'error') {
-        setError(data.message);
-        setIsLoading(false);
-        setIsCompleted(true);
-        return;
-      }
-
-      if (
-        data?.commitMessage ||
-        data?.fixedCommitMessage ||
-        data?.tips?.tr ||
-        data?.tips?.en ||
-        (data?.status === 'valid' && data?.status === 'not-valid')
-      ) {
-        setError(
-          'The artificial intelligence service generated an error while performing semantic commit validation.',
         );
+
+        if (response.status === 404) {
+          setError('Failed to fetch.');
+          setIsLoading(false);
+          setIsCompleted(true);
+          return;
+        }
+
+        const data = await response.json();
+
+        // Re-fetch queries.
+        setReFetchLoading(false);
+        if (data?.reFetch) {
+          setReFetchCount((val) => val + 1);
+          if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
+            posthog.capture('semantic-commit-validation-refetch');
+        }
+        if (!data?.reFetch && reFetchCount >= 1) {
+          setReFetchCount(0);
+          if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
+            posthog.capture('semantic-commit-validation-refetch-success');
+        }
+
+        if (data?.status === 'error') {
+          setError(data.message);
+          setIsLoading(false);
+          setIsCompleted(true);
+          return;
+        }
+
+        if (
+          data?.commitMessage ||
+          data?.fixedCommitMessage ||
+          data?.tips?.tr ||
+          data?.tips?.en ||
+          (data?.status === 'valid' && data?.status === 'not-valid')
+        ) {
+          setError(t('semanticCommitValidator.aiSemanticValidationError'));
+          setIsLoading(false);
+          setIsCompleted(true);
+          return;
+        }
+
+        setPurpose('');
+        setData(data.body);
         setIsLoading(false);
         setIsCompleted(true);
-        return;
+        if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
+          posthog.capture('semantic-commit-validation');
+      } catch (error: any) {
+        setError(error);
+        setIsLoading(false);
+        setIsCompleted(true);
+        console.error(error);
       }
-
-      setPurpose('');
-      setData(data.body);
-      setIsLoading(false);
-      setIsCompleted(true);
-      if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
-        posthog.capture('semantic-commit-validation');
-    } catch (error: any) {
-      setError(error);
-      setIsLoading(false);
-      setIsCompleted(true);
-      console.error(error);
-    }
-  };
+    },
+    [reFetchCount, t],
+  );
 
   const handleResetValidation = () => {
     setData(initialData);
     setCommitMessage('');
     setIsCompleted(false);
     setIsLoading(false);
+    setReFetchCount(0);
   };
 
   const handleSaveAPIKey = (aiService: 'google-gemini' | 'openai', apiKey: string) => {
@@ -183,7 +203,7 @@ git push origin main`;
 
     if (!apiKey || !commitMessage) return;
     if (formSubmitCount >= 1) return;
-    setFormSubmitCount((value) => value + 1);
+    setFormSubmitCount((val) => val + 1);
 
     setGoogleGeminiApiKey(apiKey);
     setCommitMessage(commitMessage);
@@ -195,12 +215,30 @@ git push origin main`;
     }
   }, [formSubmitCount, formik, formik.values, searchParams]);
 
+  // Re-fetch queries.
+  useEffect(() => {
+    if (reFetchCount < 1) return;
+    if (reFetchCount >= 3) {
+      setReFetchLoading(false);
+      setIsLoading(false);
+      setIsCompleted(true);
+      setError(generalT('reFetchTriedText'));
+      return;
+    }
+
+    setReFetchLoading(true);
+    setIsLoading(false);
+    setIsCompleted(false);
+    handleFormSubmit(formik.values);
+  }, [formik.values, generalT, handleFormSubmit, reFetchCount]);
+
   return (
     <section className="semantic-commit-validator-form">
       <div className="container">
         <Box
           className={cx({
             'overflow-initial': !isCompleted,
+            'is-disable-overlay': reFetchLoading,
           })}
         >
           {isCompleted ? (
@@ -459,6 +497,18 @@ git push origin main`;
                 </Button>
               </div>
             </form>
+          )}
+
+          {reFetchLoading && (
+            <div className="box__disable-overlay">
+              <Loader />
+              <Box.Text className="text-small-width">
+                {generalT.rich('reFetchInfoText', {
+                  count: reFetchCount,
+                  strong: (chunks: any) => <span className="text-medium">{chunks}</span>,
+                })}
+              </Box.Text>
+            </div>
           )}
         </Box>
       </div>

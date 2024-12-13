@@ -77,6 +77,7 @@ export async function GET(request: NextRequest) {
         {
           message: `Failed to JSON parse: ${err}`,
           status: 'error',
+          reFetch: true,
         },
         { status: 500 },
       );

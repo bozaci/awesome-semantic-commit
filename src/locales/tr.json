@@ -74,7 +74,9 @@
     "notValidCommitMessage": "<strong>{commitMessage}</strong> commit mesajınız semantic commit kurallarıyla uyumlu değil.",
     "errorsOfCommitMessage": "Commit Mesajının Hataları",
     "fixedCommitMessage": "Düzeltilmiş Commit Mesajı",
-    "purposeChangesTooltipText": "Daha iyi sonuçlar için, değişikliğin amacını belirtmek faydalı olabilir."
+    "purposeChangesTooltipText": "Daha iyi sonuçlar için, değişikliğin amacını belirtmek faydalı olabilir.",
+    "reFetchInfoText": "Yapay zeka tarafında karşılaşılan beklenmedik bir durum nedeniyle yeniden istek gönderiliyor, deneme: <strong>{count}</strong>",
+    "reFetchTriedText": "Yapay zeka nedeniyle karşılaşılan sorundan dolayı 3 kez yeniden istek gönderildi ancak herhangi bir değişiklik olmadı. Bu nedenle lütfen daha sonra tekrar deneyin."
   },
 
   "hero": {
@@ -320,6 +322,7 @@
 
   "semanticCommitValidator": {
     "title": "Semantic Commit Doğrulayıcı",
-    "text": "Semantic Commit Doğrulayıcı, commit mesajlarının belirli bir formata (örneğin, feat, fix, docs gibi) uygun olup olmadığını kontrol eden bir araçtır. Bu, proje geliştirme sürecinde düzenli ve anlamlı commit mesajlarının kullanılmasını sağlar."
+    "text": "Semantic Commit Doğrulayıcı, commit mesajlarının belirli bir formata (örneğin, feat, fix, docs gibi) uygun olup olmadığını kontrol eden bir araçtır. Bu, proje geliştirme sürecinde düzenli ve anlamlı commit mesajlarının kullanılmasını sağlar.",
+    "aiSemanticValidationError": "Yapay zeka, semantic commit doğrulaması gerçekleştirirken hata meydana geldi."
   }
 }

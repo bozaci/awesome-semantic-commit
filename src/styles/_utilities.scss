@@ -48,6 +48,10 @@
   color: $color-dark-green !important;
 }
 
+.text-small-width {
+  max-width: 250px;
+}
+
 .section-text {
   color: #4c4c4c;
   font-size: px-to-rem(14px);
