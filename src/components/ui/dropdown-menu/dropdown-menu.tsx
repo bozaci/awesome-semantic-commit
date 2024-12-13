@@ -1,4 +1,4 @@
-import { useRef, FC } from 'react';
+import { useState, useRef, FC } from 'react';
 import { DropdownMenuProps } from './dropdown-menu.type';
 import { useOnClickOutside } from 'usehooks-ts';
 import cx from 'classnames';
@@ -18,13 +18,16 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
   children,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [show, setShow] = useState<boolean>(false);
 
   const handleShowMenu = () => {
     ref.current?.classList.add('is-active');
+    setShow(true);
   };
 
   const handleCloseMenu = () => {
     ref.current?.classList.remove('is-active');
+    setShow(false);
   };
 
   const handleSelectItem = (item: any) => {
@@ -49,7 +52,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
         {children}
       </div>
 
-      <div className="dropdown-menu__menu">
+      <div className="dropdown-menu__menu" aria-hidden={!show}>
         {data.length > 0 &&
           data.map((item, index) => (
             <div
