@@ -534,7 +534,7 @@ git push origin main`;
                   </Tabs>
 
                   <label className="form__group">
-                    <p className="form__label d-flex align-items-center">
+                    <div className="form__label d-flex align-items-center">
                       <span className="text-red">*</span>
                       &nbsp;
                       {generalT('summary')}
@@ -544,7 +544,7 @@ git push origin main`;
                       >
                         <Info className="ms-1" />
                       </Tooltip>
-                    </p>
+                    </div>
                     <Input
                       id="summary"
                       name="summary"
