@@ -11,8 +11,8 @@ import { commitTypes } from '@/utils/constants';
 import { useLocalStorage } from 'usehooks-ts';
 import { errorNotify, successNotify } from '@/utils/notification';
 import { useReadLocalStorage } from 'usehooks-ts';
+import { track } from '@/lib/posthog';
 import Image from 'next/image';
-import posthog from 'posthog-js';
 import cx from 'classnames';
 
 import Box from '@/components/ui/box';
@@ -124,8 +124,7 @@ git push origin main`;
         setIsCompleted(true);
         setGenerationMethod('manual');
         params.resetForm();
-        if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
-          posthog.capture('manual-commit-generation');
+        track('manual-commit-generation');
       }, 1000);
     }
 
@@ -163,8 +162,7 @@ git push origin main`;
         setIsLoading(false);
         setIsCompleted(true);
         setCommitMessage(generateWithScope ? data.body.contentWithScope : data.body.content);
-        if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
-          posthog.capture('ai-commit-generation');
+        track('ai-commit-generation');
       } catch (error: any) {
         setError(error);
         setIsLoading(false);

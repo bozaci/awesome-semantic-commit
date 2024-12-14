@@ -16,7 +16,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import { useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { errorNotify, successNotify } from '@/utils/notification';
-import posthog from 'posthog-js';
+import { track } from '@/lib/posthog';
 import cx from 'classnames';
 
 import Box from '@/components/ui/box';
@@ -126,13 +126,11 @@ git push origin main`;
         setReFetchLoading(false);
         if (data?.reFetch) {
           setReFetchCount((val) => val + 1);
-          if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
-            posthog.capture('semantic-commit-validation-refetch');
+          track('semantic-commit-validation-refetch');
         }
         if (!data?.reFetch && reFetchCount >= 1) {
           setReFetchCount(0);
-          if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
-            posthog.capture('semantic-commit-validation-refetch-success');
+          track('semantic-commit-validation-refetch-success');
         }
 
         if (data?.status === 'error') {
@@ -159,8 +157,7 @@ git push origin main`;
         setData(data.body);
         setIsLoading(false);
         setIsCompleted(true);
-        if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
-          posthog.capture('semantic-commit-validation');
+        track('semantic-commit-validation');
       } catch (error: any) {
         setError(error);
         setIsLoading(false);
