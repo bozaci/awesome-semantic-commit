@@ -54,7 +54,7 @@ export const projects = [
     id: 4,
     name: 'Vue.js',
     description:
-      'React enables the development of dynamic user interfaces with reusable components, enhancing performance and efficiency.',
+      'Vue.js enables dynamic user interfaces with reusable components, enhancing performance and efficiency.',
     icon: '/projects-logo/vuejs.png',
     website: 'https://vuejs.org',
     githubRepo: 'https://github.com/vuejs/core',
