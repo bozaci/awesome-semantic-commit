@@ -324,5 +324,34 @@
     "title": "Semantic Commit Validator",
     "text": "The Semantic Commit Validator is a tool that checks whether commit messages conform to a specific format (e.g. feat, fix, docs). This ensures that organised and meaningful commit messages are used in the project development process.",
     "aiSemanticValidationError": "The artificial intelligence service generated an error while performing semantic commit validation."
+  },
+
+  "semanticCommitValidatorFAQ": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "itemOne": {
+        "title": "Is the Semantic Commit Validator free?",
+        "text": "The Semantic Commit Validator is a free tool that helps you generate commit messages according to semantic commit rules. It offers a user-friendly interface and optional Google Gemini API key integration for enhanced functionality. For instructions on obtaining a Google Gemini API key, please refer to the tool’s documentation."
+      },
+      "itemTwo": {
+        "title": "How to obtain a Google Gemini API Key?",
+        "text": "You can obtain a Google Gemini API key for free by following these steps:",
+        "textTwo": "You have successfully created a Google Gemini API key for free. You can now generate commits using artificial intelligence.",
+        "list": {
+          "listItemOne": {
+            "title": "1.",
+            "text": "Log in to https://aistudio.google.com/app/apikey with your Google account."
+          },
+          "listItemTwo": {
+            "title": "2.",
+            "text": "After logging in, click the 'Create API Key' button."
+          },
+          "listItemThree": {
+            "title": "3.",
+            "text": "Make a note of the generated API key to avoid losing it."
+          }
+        }
+      }
+    }
   }
 }

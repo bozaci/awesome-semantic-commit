@@ -324,5 +324,34 @@
     "title": "Semantic Commit Doğrulayıcı",
     "text": "Semantic Commit Doğrulayıcı, commit mesajlarının belirli bir formata (örneğin, feat, fix, docs gibi) uygun olup olmadığını kontrol eden bir araçtır. Bu, proje geliştirme sürecinde düzenli ve anlamlı commit mesajlarının kullanılmasını sağlar.",
     "aiSemanticValidationError": "Yapay zeka, semantic commit doğrulaması gerçekleştirirken hata meydana geldi."
+  },
+
+  "semanticCommitValidatorFAQ": {
+    "title": "Sıkça Sorulan Sorular",
+    "items": {
+      "itemOne": {
+        "title": "Semantic Commit Doğrulayıcı ücretsiz mi?",
+        "text": "Semantic Commit Doğrulayıcı, semantik commit kurallarına göre commit mesajları oluşturmanıza yardımcı olan ücretsiz bir araçtır. Kullanıcı dostu bir arayüz ve gelişmiş işlevsellik için isteğe bağlı Google Gemini API anahtarı entegrasyonu sunar. Bir Google Gemini API anahtarı edinme talimatları için lütfen aracın belgelerine bakın."
+      },
+      "itemTwo": {
+        "title": "Google Gemini API Anahtarı nasıl alınır?",
+        "text": "Aşağıdaki adımları takip ederek ücretsiz bir şekilde Google Gemini API anahtarını alabilirsiniz:",
+        "textTwo": "Başarıyla ücretsiz bir şekilde Google Gemini API anahtarını oluşturdunuz. Artık yapay zeka ile commit oluşturabilirsiniz.",
+        "list": {
+          "listItemOne": {
+            "title": "1.",
+            "text": "https://aistudio.google.com/app/apikey sitesine google hesabınızla giriş yapın."
+          },
+          "listItemTwo": {
+            "title": "2.",
+            "text": "Giriş yaptıktan sonra “Create API Key” butonuna tıklayın."
+          },
+          "listItemThree": {
+            "title": "3.",
+            "text": "Oluşturulan API anahtarını kaybolmaması adına bir yere not alın."
+          }
+        }
+      }
+    }
   }
 }
