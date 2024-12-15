@@ -10,7 +10,6 @@ import {
   CheckCircle,
   XCircle,
 } from '@phosphor-icons/react/dist/ssr';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { semanticCommitValidatorSchema } from '@/utils/schema';
 import { useLocalStorage } from 'usehooks-ts';
 import { useLocale } from 'next-intl';
@@ -48,7 +47,6 @@ const initialData = {
 };
 
 const SemanticCommitValidatorForm = () => {
-  const [animationParent] = useAutoAnimate();
   const t = useTranslations();
   const generalT = useTranslations('general');
   const locale = useLocale();
@@ -375,7 +373,7 @@ git push origin main`;
               )}
             </>
           ) : (
-            <form ref={animationParent} onSubmit={formik.handleSubmit} className="form">
+            <form onSubmit={formik.handleSubmit} className="form">
               <label className="form__group">
                 <p className="form__label">
                   <span className="text-red">*</span>

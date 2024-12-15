@@ -1,11 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 import { Info, FloppyDisk, ShieldCheck } from '@phosphor-icons/react/dist/ssr';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { commitGeneratorSchema } from '@/utils/schema';
 import { commitTypes } from '@/utils/constants';
 import { useLocalStorage } from 'usehooks-ts';
@@ -49,9 +48,9 @@ const tabsCustomSettings = {
 };
 
 const CommitGeneratorForm = () => {
-  const [animationParent] = useAutoAnimate();
   const generalT = useTranslations('general');
   const router = useRouter();
+  const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
@@ -172,6 +171,14 @@ git push origin main`;
     }
   };
 
+  const formAnimation = () => {
+    formRef.current?.classList.remove('is-animation-active');
+
+    setTimeout(() => {
+      formRef.current?.classList.add('is-animation-active');
+    }, 1);
+  };
+
   const handleResetCommitGenerate = () => {
     if (generationMethod === 'manual') setIsAIEnabled(false);
     if (generationMethod === 'ai') setIsAIEnabled(true);
@@ -179,6 +186,7 @@ git push origin main`;
     setIsCompleted(false);
     setIsLoading(false);
     setCommitMessage('');
+    formAnimation();
   };
 
   const handleValidateCommitMessage = () => {
@@ -240,6 +248,11 @@ git push origin main`;
     if (!apiKeyInLocalStorage.openAI && aiService === 'openai')
       return setApiKeyByAIServiceType(formik.values.openAIApiKey);
   }, [aiService, apiKeyInLocalStorage.googleGemini, apiKeyInLocalStorage.openAI, formik.values]);
+
+  // Animation queries for form.
+  useEffect(() => {
+    formAnimation();
+  }, [formik.values.generateWithAI]);
 
   return (
     <section className="commit-generator-form">
@@ -339,7 +352,11 @@ git push origin main`;
               )}
             </>
           ) : (
-            <form ref={animationParent} onSubmit={formik.handleSubmit} className="form">
+            <form
+              ref={formRef}
+              onSubmit={formik.handleSubmit}
+              className="form animation animation--scale-with-opacity"
+            >
               {!formik.values.generateWithAI ? (
                 <>
                   <label className="form__group">
