@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, FC } from 'react';
+import { useRef, FC } from 'react';
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
 import { FAQCardProps } from './faq-card.type';
 
@@ -10,36 +10,36 @@ const FAQCard: FC<FAQCardProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const contentInnerRef = useRef<HTMLDivElement>(null);
-  const [show, setShow] = useState<boolean>(false);
   const { title, content } = data;
 
   const handleToggle = () => {
     const allFAQCard = document.querySelectorAll('.faq-card');
     const heightContent = contentInnerRef.current?.offsetHeight;
+    const isActive = ref.current?.classList.contains('is-active');
 
-    if (show) {
+    if (isActive) {
       ref.current?.classList.remove('is-active');
 
       if (contentRef.current) {
         contentRef.current.style.height = '0px';
-        setShow(false);
+        contentRef.current.setAttribute('aria-hidden', 'false');
       }
 
       return;
     }
 
     allFAQCard.forEach((item) => {
-      const content = item.childNodes[1];
+      const content = item.childNodes[1] as HTMLElement;
 
       item.classList.remove('is-active');
-      (content as HTMLElement).style.height = '0px';
+      content.style.height = '0px';
+      content.setAttribute('aria-hidden', 'false');
     });
 
     ref.current?.classList.add('is-active');
-
     if (contentRef.current) {
       contentRef.current.style.height = `${heightContent}px`;
-      setShow(true);
+      contentRef.current.setAttribute('aria-hidden', 'true');
     }
   };
 
@@ -67,7 +67,7 @@ const FAQCard: FC<FAQCardProps> = ({ data }) => {
         itemScope
         itemProp="acceptedAnswer"
         itemType="https://schema.org/Answer"
-        aria-hidden={!show}
+        aria-hidden={true}
       >
         <div
           ref={contentInnerRef}
