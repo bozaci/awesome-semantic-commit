@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useTranslations } from 'next-intl';
@@ -39,19 +38,6 @@ const Home = () => {
 
         <Hero.Title>{t('hero.title')}</Hero.Title>
         <Hero.Text>{t('hero.text')}</Hero.Text>
-
-        <a
-          href="https://www.producthunt.com/posts/awesome-semantic-commit?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-awesome&#0045;semantic&#0045;commit"
-          target="_blank"
-          className="mt-4"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=648682&theme=light"
-            alt="Awesome&#0032;Semantic&#0032;Commit - Guide&#0032;to&#0032;regular&#0032;commit&#0032;messages | Product Hunt"
-            width={225}
-            height={49}
-          />
-        </a>
       </Hero>
 
       <WhyImportant />
